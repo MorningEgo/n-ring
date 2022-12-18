@@ -3,12 +3,27 @@ import discord
 from discord.ext import commands
 
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.message_content = True
 
 
 client = discord.Client(intents=discord.Intents.default())
 bot = commands.Bot(command_prefix=".", intents=intents)
+tree = discord.app_commands.CommandTree(client) 
+
+guilds = [
+    1021500432578789557,
+    760807298968322048
+    ]
+
+@tree.command(
+    name="live",
+    description="ボイスチャンネルをライブ用に変え、専用チャンネルで告知します。"
+)
+@tree.commands.describe()
+async def live(ctx: discord.Intraction, guild_uds=guilds):
+    vc = bot.get_channel()
+    await vc.edit(name="ロビー(live)")
 
 
 @bot.event
@@ -19,6 +34,7 @@ async def on_ready():
     print(discord.__version__)  # discord.pyのバージョン
     activity = discord.Activity(status=discord.Status.online, name='アンレート', type=discord.ActivityType.playing)
     await bot.change_presence(activity=activity)
+    await tree.sync()
 
 
 @bot.command(name="commands")
@@ -142,6 +158,7 @@ async def agt(ctx):
         "ソーヴァ",
         "チェンバー",
         "ネオン",
+        "ハーバー",
         "フェイド",
         "フェニックス",
         "ブリーチ",
@@ -190,6 +207,7 @@ async def agt(ctx):
         "アストラ",
         "ヴァイパー",
         "オーメン",
+        "ハーバー",
         "ブリムストーン"
     ]
     choice = random.choice(agt)
