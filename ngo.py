@@ -11,19 +11,34 @@ client = discord.Client(intents=discord.Intents.default())
 bot = commands.Bot(command_prefix=".", intents=intents)
 tree = discord.app_commands.CommandTree(client) 
 
+
 guilds = [
     1021500432578789557,
     760807298968322048
     ]
+
+
+send_ch = [
+    1053725844448739398,
+    1022544579611856996
+]
+
 
 @tree.command(
     name="live",
     description="ボイスチャンネルをライブ用に変え、専用チャンネルで告知します。"
 )
 @tree.commands.describe()
-async def live(ctx: discord.Intraction, guild_uds=guilds):
-    vc = bot.get_channel()
-    await vc.edit(name="ロビー(live)")
+async def live(ctx: discord.Intraction, url, guild_ids=guilds):
+    #通知を送るchを指定
+    ch = client.get_channel(send_ch)
+    #送信場所のvc名変更
+    vc = client.get_channel()
+    #🔴
+    uniemoji_RC = "\N{Large Red Circle}"
+    name = {ctx.message.author.name}
+    await vc.edit(name = vc + "(live)")
+    await ch.send("**" + uniemoji_RC + {ctx.message.author.name} + "がライブ配信中！**\n" + url)
 
 
 @bot.event
@@ -39,14 +54,14 @@ async def on_ready():
 
 @bot.command(name="commands")
 async def commands(ctx):
-    embed = discord.Embed(title="へるぷだよこれは！", description="へるぷなんだよなぁ", color=0xff4454)
-    embed.add_field(name=".commands", value="これ", inline=False),
-    embed.add_field(name=".map", value="まっぷをきめるよ", inline=False),
-    embed.add_field(name=".agt", value="えーじぇんとをえらぶよ\n\nオプション：\n.d (デュエリストのみ)\n.i (イニシエーターのみ)\n.c (コントローラーのみ)\n.s ("
+    embed_2 = discord.Embed(title="へるぷだよこれは！", description="へるぷなんだよなぁ", color=0xff4454)
+    embed_2.add_field(name=".commands", value="これ", inline=False),
+    embed_2.add_field(name=".map", value="まっぷをきめるよ", inline=False),
+    embed_2.add_field(name=".agt", value="えーじぇんとをえらぶよ\n\nオプション：\n.d (デュエリストのみ)\n.i (イニシエーターのみ)\n.c (コントローラーのみ)\n.s ("
                                        "センチネルのみ)\n例：.agt.d", inline=False),
-    embed.add_field(name=".wpn", value="ぶきをえらぶよ\n\nオプション：\n.s (セカンダリ武器のみ)\n.p (プライマリ武器のみ)\n例：.wpn.s", inline=False)
-    embed.add_field(name=".soyjoy", value="なんだこれは", inline=False)
-    await ctx.send(embed=embed),
+    embed_2.add_field(name=".wpn", value="ぶきをえらぶよ\n\nオプション：\n.s (セカンダリ武器のみ)\n.p (プライマリ武器のみ)\n例：.wpn.s", inline=False)
+    embed_2.add_field(name=".soyjoy", value="なんだこれは", inline=False)
+    await ctx.send(embed=embed_2),
 
 
 @bot.command(name="ngo")
