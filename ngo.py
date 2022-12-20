@@ -1,7 +1,7 @@
 import enum
 import discord
 from discord import app_commands
-from discord.ext import commands
+import random
 
 token = "OTc1NzA5NzgzNTYwNjk1ODQ4.G-Bww3.cNVDFIKCUlSez31_hqbSOq-CqQqDL0-Aaxzvf0" 
 
@@ -15,14 +15,14 @@ class aclient(discord.Client):
         if not self.synced:
             await tree.sync(guild=discord.Object(id=token))
             self.synced = True
-
 client = aclient()
-tree = app_commands.CommandTree(client) 
+tree = app_commands.CommandTree(client)
 
 
+#-------------------------------------------------------------------------------------------#
 #サーバーid(んご、TestMain)
-guilds = 1021500432578789557
-#guilds = 760807298968322048
+guildid = 1021500432578789557
+#guildid = 760807298968322048
     
 #メッセージ送信チャンネル(んご：登校動画・ライブ配信、test：チャンネル指定メッセージ)
 send_ch = 1053725844448739398
@@ -32,53 +32,90 @@ send_ch = 1053725844448739398
 rename_ch = 1054417954038632578
 #rename_ch = 1054419304155721858
 
+cond_head = "`[ 条件："
+cond_foot = "のみ ]`"
+#-------------------------------------------------------------------------------------------#
 
+#起動メッセージ
 @client.event
 async def on_ready():
+    
+    mode = [
+        "アンレート",
+        "コンペティティブ",
+        "デスマッチ",
+        "エスカレーション",
+        "レプリケーション",
+        "Splatoon3",
+        "麻雀"
+    ]
+    choice = random.choice(mode)
     print("ンゴ～")
-    print('------')
+    print('------------------------------')
     print("discord.py Ver." + discord.__version__)# discord.pyのバージョン
-    activity = discord.Activity(status=discord.Status.online, name='コンペティティブ', type=discord.ActivityType.playing)
+    print('------------------------------')
+    activity = discord.Activity(status=discord.Status.online, name= choice, type=discord.ActivityType.playing)
     await client.change_presence(activity=activity)
-    await tree.sync(guild=discord.Object(id=guilds))
+    await tree.sync(guild=discord.Object(id=guildid))
 
 
 
+    
 
-###オンライン
+###ライブモード
+class LiveMode(enum.Enum):
+    始める = "ライブ開始"
+    終わる = "ライブ終了"
+
 @tree.command(
     name="live",
-    description="配信告知とステータス表示の変更をします。"
+    description="ライブの設定をします。"
+)
+@discord.app_commands.describe(
+    livemode = "配信状態を変更します。"
+)
+@discord.app_commands.rename(
+    livemode = "ライブを"
 )
 
 @discord.app_commands.describe(
-    url = "配信のURLを入力してください。"
+    url = "配信のURLを添付します。ライブスタート時のみ有効です。"
 )
-
 @discord.app_commands.checks.cooldown(
-    1,
+    2,
     600,
     key=None
 )
-
 @discord.app_commands.guilds(
-    discord.Object(id = guilds)
+    discord.Object(id = guildid)
 )
 
-async def live(ctx: discord.Interaction, url:str):
+async def live(ctx: discord.Interaction,livemode:LiveMode, url:str = None):
     #🔴
     uniemoji_RC = "\N{Large Red Circle}"
-    await ctx.response.defer(ephemeral = True)
+     #⚫
+    uniemoji_BC = "\N{Medium Black Circle}"
 
-    #通知を送るchを指定
-    channel = client.get_channel(1053725844448739398)
-    await channel.send(f"{uniemoji_RC}：**{ctx.user}がライブ配信中！**\n{url}")
+    await ctx.response.defer()
 
-    #名前を変えるvcを指定
-    channel = client.get_channel(1054417954038632578)
-    await channel.edit(name =f"𝗟𝗜𝗩𝗘：{uniemoji_RC}𝗢𝗡𝗟𝗜𝗡𝗘")
+    if livemode == LiveMode.始める:
+        #通知を送るchを指定
+        channel = client.get_channel(discord.Object(id = send_ch))
+        await channel.send(f"{uniemoji_RC}：**{ctx.user}がライブ配信中！**\n{url}")
 
-    await ctx.followup.send(f"{uniemoji_RC}：サーバーの配信ステータスがオンラインになりました。\n配信終了時には__必ず__**「/end」**を実行してください。")
+        #名前を変えるvcを指定
+        channel = client.get_channel(discord.Object(id = rename_ch))
+        await channel.edit(name =f"𝗟𝗜𝗩𝗘：{uniemoji_RC}𝗢𝗡𝗟𝗜𝗡𝗘")
+
+        await ctx.followup.send(f"{uniemoji_RC}：サーバーの配信ステータスがオンラインになりました。\n配信終了時には__必ず__**「/end」**を実行してください。")
+
+    elif livemode == LiveMode.終わる:
+        #vc名変更
+        channel = client.get_channel(discord.Object(id = rename_ch))
+        await channel.edit(name =f"𝗟𝗜𝗩𝗘：{uniemoji_BC}𝗢𝗙𝗙𝗟𝗜𝗡𝗘")
+
+        await ctx.followup.send(f"{uniemoji_BC}：サーバーの配信ステータスがオフラインになりました。")
+
 
 @live.error
 async def on_test_error(interaction: discord.Interaction, error: app_commands.AppCommandError):
@@ -87,45 +124,7 @@ async def on_test_error(interaction: discord.Interaction, error: app_commands.Ap
         retry_minute = retry_after_int // 60
         retry_second = retry_after_int % 60
 
-        await interaction.response.send_message(f"＊んごりンゴは必死にサーバーを冷やしている。\n(レート制限回避用クールダウン終了まで残り **{retry_minute}分{retry_second}秒** )", ephemeral = True)
-
-
-###オフライン
-@tree.command(
-    name="end",
-    description="ステータスをオフラインに変更します。"
-)
-
-@discord.app_commands.checks.cooldown(
-    1,
-    600,
-    key=None
-)
-
-@discord.app_commands.guilds(
-    discord.Object(id = guilds)
-)
-
-async def end(ctx: discord.Interaction):
-    await ctx.response.defer(ephemeral = True)
-        #⚫
-    uniemoji_BC = "\N{Medium Black Circle}"
-    
-    #vc名変更
-    channel = client.get_channel(1054417954038632578)
-    await channel.edit(name =f"𝗟𝗜𝗩𝗘：{uniemoji_BC}𝗢𝗙𝗙𝗟𝗜𝗡𝗘")
-
-    await ctx.followup.send(f"{uniemoji_BC}：サーバーの配信ステータスがオフラインになりました。")
-
-
-@end.error
-async def on_test_error(interaction: discord.Interaction, error: app_commands.AppCommandError):
-    if isinstance(error, app_commands.CommandOnCooldown):
-        retry_after_int = int(error.retry_after)
-        retry_minute = retry_after_int // 60
-        retry_second = retry_after_int % 60
-
-        await interaction.response.send_message(f"＊まだライブは始まったばかりだ。\n(レート制限回避用クールダウン終了まで残り **{retry_minute}分{retry_second}秒** )", ephemeral = True)
+        await interaction.response.send_message(f"＊んごりンゴは休憩中だよ。\n(レート制限回避用クールダウン終了まで残り **{retry_minute}分{retry_second}秒** )", ephemeral = True)
 
 
 #@tree.command(
@@ -146,76 +145,80 @@ async def on_test_error(interaction: discord.Interaction, error: app_commands.Ap
     name = "ngo",
     description = "てきと～に話すよ"
 )
+@discord.app_commands.guilds(
+    discord.Object(id = guildid)
+)
 async def ngo(ctx: discord.Interaction):
-    import random
+    
     ngo = [
-        "平気平気、全部想定済みだから。",
-        "気づいたことは全部報告して！次の作戦に活かすから。",
-        "エリアの制圧は私に任せて。その分、他で働いてよね。",
-        "実力と、テクノロジーの差で圧倒していこう。",
-        "みんな、装備に問題はない？チェックはしっかりね。",
-        "仮に私が死んでも、動揺しないこと。あと、ハードディスクは絶対廃棄して。",
-        "ドイツの家電は世界一？いやいや、兵器も世界一だよ！",
-        "いい？銃はただの道具だよ。道具は考えて使わなきゃ。",
-        "ﾎﾞｯﾄﾁｬﾝを信じて！一度しか誤動作したことないし、最悪指が飛ぶくらいだから。",
-        "死んじゃだめだよ。方法なら教えてあげるからさ。",
-        "まずは分析、次に改善。",
-        "同じ作戦にいつまでもやられる私じゃないよ。",
-        "ちょっとー！！！！なんで誰もパルスモニター着けてくれてないの？測定したいだけだってば！\nマッドサイエンティスト扱いしないでよね。",
-        "悩んでるみたいw\n頭の回路が焼ける匂いがするw",
-        "焦った時は私を見なよ！私はいつだって冷静だから。\nキュウリみたいにクール...って言うんだっけ？",
-        "ここの戦場で使ってる武器は全部私が作ったんだー！危険だから気をつけてね！\n\n\n...なんで怒ってんの？",
-        "ここ最近の戦闘6回分についてレポートをまとめておいたよ。\n読んでくれたよね？読んで...くれてないの？",
-        "もしかしてあの人たち、私の技術に勝てると思ってる？w\nテストしてみようか？",
-        "みんなー！バックアップは取ってあるから死んでも大丈夫だよ！！！！！！！！！\n\n\n\nいや、冗談だってば、冗談。うん。",
-        "私の防衛プランを採用してればこんな戦い防げたのに...\nま、後始末も仕事の内か！",
-        "クレジットとアビリティ、腐らせないようにね。",
-        "偵察は「素早く」ね。",
-        "考えるのは私に任せて。",
-        "火力より、まずは作戦。",
-        "フィールドテストを始めるよ～",
-        "生き残りたいなら冷静にね！",
-        "作戦を見直そう。",
-        "大したことないね（笑）",
-        "デブリーフィングやるよ～\n\n\nってあれ、やらないの？",
-        "いつも通り完璧な計算！",
-        "さぁみんな、試験管持って！\n家に帰るのはサンプル回収してからね！",
-        "SOYJOY食べなよ！\n\n\n...食べないの？",
-        "おススメの味は「2種のアップル」かな。",
-        "ンゴ～",
-        "ピピピピピ！！！！一旦止めます",
-        "**Ｍ Ａ Ｃ Ｈ Ｏ**",
-        "ジャッジなんだよねぇ！",
-        "かまどなんだよなぁ",
-        "ミニマかな～やっぱり",
-        "ミニマとか使ってるやつおる？？？",
-        "ﾋﾟﾛﾋﾟﾛﾘｰﾝ！ｷﾞｭｲﾝｷﾞｭｲﾝｷﾞｭｲﾝｷﾞｭｲﾝｷﾞｭｲｰｰｰﾝ！！！\nドン！(右から)\nドン！(左から)\nゴゴゴゴゴ！！！(奥から)\nス パ イ ク ラ ッ シ ュ 確 ☆ 定(極太明朝虹色文字)",
-        "ヨルはイニシエーターだよ。",
-        "ホウント「目が合ったな！これでお前とも縁ができた！(位置特定)」",
-        "アラームボット展開！",
-        "ボットを戻すよ",
-        "セントリー設置！",
-        "ﾎﾞｯﾄﾁｬﾝがやられた！",
-        "カウントダウン開始！",
-        "ﾎﾞｯﾄﾁｬﾝがやられた！\n...いや、なんでもない。",
-        "マーシャルを信じなさい。",
-        "マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。",
-        "140カット！！！！！！！！！！！！！！！！！！！！！(キレ)",
-        "ピュレグミうめ～",
-        "俺がハンターだ！",
-        "ワイがハンターや！",
-        "俺がハンターか？",
-        "俺がガンダムだ！",
-        "お前がハンターだ！",
-        "もうお前がハンターでいいよ",
-        "ヌベヂョンヌゾジョンベルミッティスモゲロンボョｗｗｗｗｗｗイヒーｗｗイヒヒｗ└(՞ةڼ◔)」",
-        "ンゴッ！？",
-        "なるほどﾆｬﾝｷｬｯﾂ",
-        "ンゴロンゴロ",
-        "綾鷹 茶葉の甘みを飲みましょう。",
-        "ンゴネミ",
-        "3550カット！！！！！！！！！！！！！！",
-        "夏はこれ使う笑"
+        f"平気平気、全部想定済みだから。",
+        f"気づいたことは全部報告して！次の作戦に活かすから。",
+        f"エリアの制圧は私に任せて。その分、他で働いてよね。",
+        f"実力と、テクノロジーの差で圧倒していこう。",
+        f"みんな、装備に問題はない？チェックはしっかりね。",
+        f"仮に私が死んでも、動揺しないこと。あと、ハードディスクは絶対廃棄して。",
+        f"ドイツの家電は世界一？いやいや、兵器も世界一だよ！",
+        f"いい？銃はただの道具だよ。道具は考えて使わなきゃ。",
+        f"ﾎﾞｯﾄﾁｬﾝを信じて！一度しか誤動作したことないし、最悪指が飛ぶくらいだから。",
+        f"死んじゃだめだよ。方法なら教えてあげるからさ。",
+        f"まずは分析、次に改善。",
+        f"同じ作戦にいつまでもやられる私じゃないよ。",
+        f"ちょっとー！！！！なんで誰もパルスモニター着けてくれてないの？測定したいだけだってば！\nマッドサイエンティスト扱いしないでよね。",
+        f"悩んでるみたいw\n頭の回路が焼ける匂いがするw",
+        f"焦った時は私を見なよ！私はいつだって冷静だから。\nキュウリみたいにクール...って言うんだっけ？",
+        f"ここの戦場で使ってる武器は全部私が作ったんだー！危険だから気をつけてね！\n\n\n...なんで怒ってんの？",
+        f"ここ最近の戦闘6回分についてレポートをまとめておいたよ。\n読んでくれたよね？読んで...くれてないの？",
+        f"もしかしてあの人たち、私の技術に勝てると思ってる？w\nテストしてみようか？",
+        f"みんなー！バックアップは取ってあるから死んでも大丈夫だよ！！！！！！！！！\n\n\n\nいや、冗談だってば、冗談。うん。",
+        f"私の防衛プランを採用してればこんな戦い防げたのに...\nま、後始末も仕事の内か！",
+        f"クレジットとアビリティ、腐らせないようにね。",
+        f"偵察は「素早く」ね。",
+        f"考えるのは私に任せて。",
+        f"火力より、まずは作戦。",
+        f"フィールドテストを始めるよ～",
+        f"生き残りたいなら冷静にね！",
+        f"作戦を見直そう。",
+        f"大したことないね（笑）",
+        f"デブリーフィングやるよ～\n\n\nってあれ、やらないの？",
+        f"いつも通り完璧な計算！",
+        f"さぁみんな、試験管持って！\n家に帰るのはサンプル回収してからね！",
+        f"SOYJOY食べなよ！\n\n\n...食べないの？",
+        f"おススメの味は「2種のアップル」かな。",
+        f"ンゴ～",
+        f"ピピピピピ！！！！一旦止めます",
+        f"**Ｍ Ａ Ｃ Ｈ Ｏ**",
+        f"ジャッジなんだよねぇ！",
+        f"かまどなんだよなぁ",
+        f"ミニマかな～やっぱり",
+        f"ミニマとか使ってるやつおる？？？",
+        f"ﾋﾟﾛﾋﾟﾛﾘｰﾝ！ｷﾞｭｲﾝｷﾞｭｲﾝｷﾞｭｲﾝｷﾞｭｲﾝｷﾞｭｲｰｰｰﾝ！！！\nドン！(右から)\nドン！(左から)\nゴゴゴゴゴ！！！(奥から)\nス パ イ ク ラ ッ シ ュ 確 ☆ 定(極太明朝虹色文字)",
+        f"ヨルはイニシエーターだよ。",
+        f"ホウント「目が合ったな！これでお前とも縁ができた！(位置特定)」",
+        f"アラームボット展開！",
+        f"ボットを戻すよ",
+        f"セントリー設置！",
+        f"ﾎﾞｯﾄﾁｬﾝがやられた！",
+        f"カウントダウン開始！",
+        f"ﾎﾞｯﾄﾁｬﾝがやられた！\n...いや、なんでもない。",
+        f"マーシャルを信じなさい。",
+        f"マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。マーシャルを信じなさい。",
+        f"140カット！！！！！！！！！！！！！！！！！！！！！(キレ)",
+        f"ピュレグミうめ～",
+        f"俺がハンターだ！",
+        f"ワイがハンターや！",
+        f"俺がハンターか？",
+        f"俺がガンダムだ！",
+        f"お前がハンターだ！",
+        f"もうお前がハンターでいいよ",
+        f"ヌベヂョンヌゾジョンベルミッティスモゲロンボョｗｗｗｗｗｗイヒーｗｗイヒヒｗ└(՞ةڼ◔)」",
+        f"ンゴッ！？",
+        f"なるほどﾆｬﾝｷｬｯﾂ",
+        f"ンゴロンゴロ",
+        f"綾鷹 茶葉の甘みを飲みましょう。",
+        f"ンゴネミ",
+        f"3550カット！！！！！！！！！！！！！！",
+        f"夏はこれ使う笑",
+        f"タンヤオ"
     ]
     choice = random.choice(ngo)
     await ctx.response.send_message(f"{choice}"),
@@ -225,10 +228,13 @@ async def ngo(ctx: discord.Interaction):
     name = "map",
     description= "マップをランダムに選択します。"
 )
+@discord.app_commands.guilds(
+    discord.Object(id = guildid)
+)
 #@discord.app_commands.describe(banmap = "除外するマップを選択します。")
 #banmap:str = None
 async def map(ctx: discord.Interaction):
-    import random
+    
     map = [
         "アセント",
         "アイスボックス",
@@ -243,9 +249,26 @@ async def map(ctx: discord.Interaction):
     await ctx.response.send_message(f"次のマップは「**{choice}**」だよ！"),
 
 
-@tree.command(name="agt")
-async def agt(ctx: discord.Interaction):
-    import random
+
+class Mode(enum.Enum):
+    デュエリストのみ = "デュエリスト"
+    コントローラーのみ = "コントローラー"
+    イニシエーターのみ = "イニシエーター"
+    センチネルのみ = "センチネル"
+    ロールで抽選 = "ロールで抽選"
+
+@tree.command(
+    name = "agent",
+    description = "エージェントを抽選します。modeを使用してロール限定抽選、ロールの抽選が可能です。"
+    )
+@discord.app_commands.describe(
+    mode="抽選モードを変更します。"
+)
+@discord.app_commands.guilds(
+    discord.Object(id = guildid)
+)
+async def agt(ctx: discord.Interaction, mode:Mode = None):
+    
     all = [
         "KAY/O",
         "アストラ",
@@ -268,16 +291,50 @@ async def agt(ctx: discord.Interaction):
         "レイズ",
         "レイナ"
     ]
+    due = [ "ジェット", "ネオン", "フェニックス", "ヨル", "レイズ", "レイナ" ]
+    con = [ "アストラ", "ヴァイパー", "オーメン", "ハーバー", "ブリムストーン" ]
+    ini = [ "KAY/O", "スカイ", "ソーヴァ", "フェイド", "ブリーチ" ]
+    sen = [ "キルジョイ", "サイファー", "セージ", "チェンバー" ]
+    role = [ "デュエリスト", "イニシエーター", "コントローラー", "センチネル" ]
 
+    if mode == Mode.デュエリストのみ:
+        agt = due
+        cond = cond_head + "デュエリスト" + cond_foot
 
-    agt = {}
+    elif mode == Mode.コントローラーのみ:
+        agt = con
+        cond = cond_head + "コントローラー" + cond_foot
+
+    elif mode == Mode.イニシエーターのみ:
+        agt =ini
+        cond = cond_head + "イニシエーター" + cond_foot
+
+    elif mode == Mode.センチネルのみ:
+        agt =sen
+        cond = cond_head + "センチネル" + cond_foot
+    else:
+        agt =all
+        cond = ""
+    
     choice = random.choice(agt)
-    await ctx.response.send_message(f"次の{ctx.message.author.name}のエージェントは「**{choice}**」だよ！"),
+    r_role = random.choice(role)
+    
+    if mode == Mode.ロールで抽選:
+        mes = f"次の{ctx.user.mention}のロールは「**{r_role}**」だよ！{cond}"
+    else:
+        mes = f"次の{ctx.user.mention}のエージェントは「**{choice}**」だよ！{cond}"
+
+    await ctx.response.send_message(f"{mes}"),
 
 
-@tree.command(name="wpn")
+@tree.command(
+    name="wpn"
+    )
+@discord.app_commands.guilds(
+discord.Object(id = guildid)
+)
 async def wpn(ctx: discord.Interaction):
-    import random
+    
     wpn = [
         "クラシック",
         "ショーティー",
@@ -299,12 +356,12 @@ async def wpn(ctx: discord.Interaction):
         "ナイフ"
     ]
     choice = random.choice(wpn)
-    await ctx.response.send_message(f"次の{ctx.message.author.name}の武器は「**{choice}**」だよ！"),
+    await ctx.response.send_message(f"次の{ctx.user.mention}の武器は「**{choice}**」だよ！"),
 
 
 @tree.command(name="soyjoy")
 async def sj(ctx: discord.Interaction):
-    import random
+    
     sj = [
         "ストロベリー",
         "ブルーベリー",
@@ -326,35 +383,35 @@ async def sj(ctx: discord.Interaction):
 
 #@bot.command(name="agt.d")
 #async def agtd(ctx):
-#    import random
+#    
 #    agtd = ["ジェット","ネオン","フェニックス","ヨル","レイズ","レイナ"]
 #    choice = random.choice(agtd)
 #    await ctx.reply(f"次の{ctx.message.author.name}のエージェントは「**{choice}**」だよ！")
 
 #@bot.command(name="agt.i")
 #async def agt(ctx):
-#    import random
+#    
 #    agt = ["KAY/O","スカイ","ソーヴァ","フェイド","ブリーチ"]
 #    choice = random.choice(agt)
 #    await ctx.reply(f"次の{ctx.message.author.name}のエージェントは「**{choice}**」だよ！")
 
 #@bot.command(name="agt.c")
 #async def agt(ctx):
-#    import random
+#    
 #    agt = ["アストラ","ヴァイパー","オーメン","ハーバー","ブリムストーン"]
 #    choice = random.choice(agt)
 #    await ctx.reply(f"次の{ctx.message.author.name}のエージェントは「**{choice}**」だよ！")
 
 #@bot.command(name="agt.s")
 #async def agt(ctx):
-#    import random
+#    
 #    agt = ["キルジョイ","サイファー","セージ","チェンバー"]
 #    choice = random.choice(agt)
 #    await ctx.reply(f"次の{ctx.message.author.name}のエージェントは「**{choice}**」だよ！")
 
 #@bot.command(name="wpn.s")
 #async def wpns(ctx):
-#    import random
+#    
 #    wpns = ["クラシック","ショーティー","フレンジー","ゴースト","シェリフ"]
 #    choice = random.choice(wpns)
 #    await ctx.reply(f"次の{ctx.message.author.name}のセカンダリは「**{choice}**」だよ！"),
@@ -362,7 +419,7 @@ async def sj(ctx: discord.Interaction):
 
 #@bot.command(name="wpn.p")
 #async def wpnp(ctx):
-#    import random
+#    
 #    wpnp = ["スティンガー","スペクター","バッキー","ジャッジ","ブルドッグ","ガーディアン","ファントム","ヴァンダル","マーシャル","オペレーター","アレス","オーディン"]
 #    choice = random.choice(wpnp)
 #    await ctx.reply(f"次の{ctx.message.author.name}のプライマリは「**{choice}**」だよ！"),
