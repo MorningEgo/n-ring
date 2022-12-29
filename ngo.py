@@ -64,18 +64,15 @@ async def on_ready():
 
 ###ライブモード
 class LiveMode(enum.Enum):
-    始める = "ライブ開始"
-    終わる = "ライブ終了"
+    START = "START"
+    END = "END"
 
 @tree.command(
     name="live",
     description="ライブの設定をします。"
 )
 @discord.app_commands.describe(
-    livemode = "配信状態を変更します。"
-)
-@discord.app_commands.rename(
-    livemode = "ライブを"
+    stream = "配信状態を変更します。"
 )
 
 @discord.app_commands.describe(
@@ -90,32 +87,71 @@ class LiveMode(enum.Enum):
     discord.Object(id = guildid)
 )
 
-async def live(ctx: discord.Interaction,livemode:LiveMode, url:str = None):
+async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
+    print("")
+    print("[ live setting up... ]")
+
     #🔴
     uniemoji_RC = "\N{Large Red Circle}"
-     #⚫
+    print("live > Load: Emoji[RC] ")
+
+    #⚫
     uniemoji_BC = "\N{Medium Black Circle}"
+    print("live > Load: Emoji[BC] ")
+    
+    editchannel = client.get_channel(1054417954038632578)
+    print("live > set: editchannel")
 
+    sendchannel = client.get_channel(1053725844448739398)
+    print("live > set: sendchannel")
+    
     await ctx.response.defer()
+    print("live > Defer ok.")
 
-    if livemode == LiveMode.始める:
-        #通知を送るchを指定
-        channel = client.get_channel(discord.Object(id = send_ch))
-        await channel.send(f"{uniemoji_RC}：**{ctx.user}がライブ配信中！**\n{url}")
+    print("= stream mode check ============================================")
+    if stream == LiveMode.START:
+        print("live > if : [START]")
 
-        #名前を変えるvcを指定
-        channel = client.get_channel(discord.Object(id = rename_ch))
-        await channel.edit(name =f"𝗟𝗜𝗩𝗘：{uniemoji_RC}𝗢𝗡𝗟𝗜𝗡𝗘")
+        Cname = "𝗟𝗜𝗩𝗘：" + uniemoji_RC + "𝗢𝗡𝗟𝗜𝗡𝗘"
+        print("live:START > 'Cname' wrote.")
 
-        await ctx.followup.send(f"{uniemoji_RC}：サーバーの配信ステータスがオンラインになりました。\n配信終了時には__必ず__**「/end」**を実行してください。")
+        Cmes = f"{uniemoji_RC}：**{ctx.user}がライブ配信中！**\r\n{url}"
+        print("live:START > 'Cmes' wrote.")
 
-    elif livemode == LiveMode.終わる:
-        #vc名変更
-        channel = client.get_channel(discord.Object(id = rename_ch))
-        await channel.edit(name =f"𝗟𝗜𝗩𝗘：{uniemoji_BC}𝗢𝗙𝗙𝗟𝗜𝗡𝗘")
+        mes = f"{uniemoji_RC}：サーバーの配信ステータスがオンラインになりました。"
+        print("live:START > Live starting...")
+        
 
-        await ctx.followup.send(f"{uniemoji_BC}：サーバーの配信ステータスがオフラインになりました。")
+    elif stream == LiveMode.END:
+        print("live > if check ok : END")
 
+        Cmes = f"{uniemoji_BC}：**{ctx.user}のライブは終了しました。**"
+        print("live:END > 'Cmes' wrote.")
+
+        Cname = "𝗟𝗜𝗩𝗘：" + uniemoji_BC + "𝗢𝗙𝗙𝗟𝗜𝗡𝗘"
+        print("live:END > 'Cname' wrote.")
+
+        mes = f"{uniemoji_BC}：サーバーの配信ステータスがオフラインになりました。"
+        print("live:END > Live stopping...")
+    
+    else:
+        mes = f"コマンド、もしくはシステムに問題があります。もう一度やり直すか、開発者に連絡してください。"
+        print("live:failed > Command error detected.")
+    
+    print("================================================================")
+    print("live > Live ready...")
+
+
+    await sendchannel.send(f"{Cmes}")
+    print("live > Info send ok.")
+
+    await editchannel.edit(name=Cname)
+    print("live > Ch-name edit ok.")
+
+    await ctx.followup.send(f"{mes}")
+    print("[ FollowUp ok. command is completed.]")
+    print("")
+    
 
 @live.error
 async def on_test_error(interaction: discord.Interaction, error: app_commands.AppCommandError):
@@ -124,7 +160,9 @@ async def on_test_error(interaction: discord.Interaction, error: app_commands.Ap
         retry_minute = retry_after_int // 60
         retry_second = retry_after_int % 60
 
+        print(f"live > Cooldown now. End is [{retry_minute}:{retry_second}]")
         await interaction.response.send_message(f"＊んごりンゴは休憩中だよ。\n(レート制限回避用クールダウン終了まで残り **{retry_minute}分{retry_second}秒** )", ephemeral = True)
+        
 
 
 #@tree.command(
