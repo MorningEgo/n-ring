@@ -125,7 +125,7 @@ async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
     elif stream == LiveMode.END:
         print("live > if check ok : END")
 
-        Cmes = f"{uniemoji_BC}：**{ctx.user}のライブは終了しました。**"
+        Cmes = f"{uniemoji_BC}：**ライブは終了しました。**"
         print("live:END > 'Cmes' wrote.")
 
         Cname = "𝗟𝗜𝗩𝗘：" + uniemoji_BC + "𝗢𝗙𝗙𝗟𝗜𝗡𝗘"
