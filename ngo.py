@@ -46,8 +46,11 @@ async def on_ready():
         "デスマッチ",
         "エスカレーション",
         "レプリケーション",
+        "スウィフトプレイ",
+        "スノーボールファイト",
         "Splatoon3",
-        "麻雀"
+        "麻雀",
+        "AfterEffects"
     ]
     choice = random.choice(mode)
     print("ンゴ～")
@@ -281,7 +284,8 @@ async def map(ctx: discord.Interaction):
         "ブリーズ",
         "フラクチャー",
         "ヘイヴン",
-        "パール"
+        "パール",
+        "ロータス"
     ]
     choice = random.choice(map)
     await ctx.response.send_message(f"次のマップは「**{choice}**」だよ！"),
