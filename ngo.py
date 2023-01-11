@@ -53,6 +53,7 @@ async def on_ready():
         "AfterEffects"
     ]
     choice = random.choice(mode)
+    
     print("ンゴ～")
     print('------------------------------')
     print("discord.py Ver." + discord.__version__)# discord.pyのバージョン
@@ -62,14 +63,23 @@ async def on_ready():
     await tree.sync(guild=discord.Object(id=guildid))
 
 
+@tree.command(
+    name="test",
+    description="テスト用"
+)
+@discord.app_commands.guilds(
+    discord.Object(id = guildid)
+)
+async def test(ctx:discord.Interaction, text:str = None):
 
-    
+    return
 
-###ライブモード
+
+####################################################################
+#ライブモード
 class LiveMode(enum.Enum):
     START = "START"
     END = "END"
-
 @tree.command(
     name="live",
     description="ライブの設定をします。"
@@ -77,7 +87,6 @@ class LiveMode(enum.Enum):
 @discord.app_commands.describe(
     stream = "配信状態を変更します。"
 )
-
 @discord.app_commands.describe(
     url = "配信のURLを添付します。ライブスタート時のみ有効です。"
 )
@@ -89,9 +98,9 @@ class LiveMode(enum.Enum):
 @discord.app_commands.guilds(
     discord.Object(id = guildid)
 )
-
 async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
     print("")
+    print(f"=== send by {ctx.user} ===")
     print("[ live setting up... ]")
 
     #🔴
@@ -107,7 +116,10 @@ async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
 
     sendchannel = client.get_channel(1053725844448739398)
     print("live > set: sendchannel")
-    
+
+    topic = client.get_stage_instance(1054417954038632578)
+    print("live > set: topic")
+
     await ctx.response.defer()
     print("live > Defer ok.")
 
@@ -118,24 +130,55 @@ async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
         Cname = "𝗟𝗜𝗩𝗘：" + uniemoji_RC + "𝗢𝗡𝗟𝗜𝗡𝗘"
         print("live:START > 'Cname' wrote.")
 
-        Cmes = f"{uniemoji_RC}：**{ctx.user}がライブ配信中！**\r\n{url}"
-        print("live:START > 'Cmes' wrote.")
+
+        if not url == None:
+            Cmes = f"{uniemoji_RC}：**{ctx.user.mention}がライブ配信中！**"
+            print(f"live:START > 'Cmes' wrote. Message:{url}")
+        else:
+            Cmes = f"{uniemoji_RC}：**{ctx.user.mention}がライブ配信中！**\r\n{url}"
+            print(f"live:START > 'Cmes' wrote. Message:{url}")
 
         mes = f"{uniemoji_RC}：サーバーの配信ステータスがオンラインになりました。"
         print("live:START > Live starting...")
-        
 
+
+        await editchannel.create_instance(
+            topic = (f"{ctx.user.nick}のライブ")
+        )
+        print("live:START > topic edited.")
+
+        await editchannel.connect()
+        print("live:START > channel connected.")
+
+        
     elif stream == LiveMode.END:
         print("live > if check ok : END")
 
-        Cmes = f"{uniemoji_BC}：**ライブは終了しました。**"
-        print("live:END > 'Cmes' wrote.")
+        if topic == None:
+            Cmes = f"{uniemoji_BC}：**ライブは終了しました。**"
+            print(f"live:END > 'Cmes' wrote.(topic:{topic})")
+        else:
+            Cmes = f"{uniemoji_BC}：**{topic.topic}は終了しました。**"
+            print(f"live:END > 'Cmes' wrote.(topic:{topic})")
 
         Cname = "𝗟𝗜𝗩𝗘：" + uniemoji_BC + "𝗢𝗙𝗙𝗟𝗜𝗡𝗘"
         print("live:END > 'Cname' wrote.")
 
         mes = f"{uniemoji_BC}：サーバーの配信ステータスがオフラインになりました。"
         print("live:END > Live stopping...")
+        
+        if not topic == None:
+            await topic.delete()
+            print("live:END > Topic deleted.")
+        else:
+            print("live:END > This command was ignored because the topic was None.")
+        
+        if discord.VoiceClient.is_connected == True:
+            await editchannel.guild.voice_client.disconnect()
+            print("live:END > Disconnected.")
+        else:
+            print("live:END > This command was ignored because there is no connection to the channel.")
+
     
     else:
         mes = f"コマンド、もしくはシステムに問題があります。もう一度やり直すか、開発者に連絡してください。"
@@ -144,6 +187,9 @@ async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
     print("================================================================")
     print("live > Live ready...")
 
+    await ctx.followup.send(f"{mes}")
+    print("live > FollowUp ok.")
+   
 
     await sendchannel.send(f"{Cmes}")
     print("live > Info send ok.")
@@ -151,10 +197,9 @@ async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
     await editchannel.edit(name=Cname)
     print("live > Ch-name edit ok.")
 
-    await ctx.followup.send(f"{mes}")
-    print("[ FollowUp ok. command is completed.]")
+    print("[Command is completed.]")
     print("")
-    
+
 
 @live.error
 async def on_test_error(interaction: discord.Interaction, error: app_commands.AppCommandError):
@@ -165,23 +210,8 @@ async def on_test_error(interaction: discord.Interaction, error: app_commands.Ap
 
         print(f"live > Cooldown now. End is [{retry_minute}:{retry_second}]")
         await interaction.response.send_message(f"＊んごりンゴは休憩中だよ。\n(レート制限回避用クールダウン終了まで残り **{retry_minute}分{retry_second}秒** )", ephemeral = True)
-        
-
-
-#@tree.command(
-#    name="help"
-#    )
-#async def commands(ctx: discord.Interaction):
-#    embed_2 = discord.Embed(title="へるぷだよこれは！", description="へるぷなんだよなぁ", color=0xff4454)
-#    embed_2.add_field(name=".commands", value="これ", inline=False),
-#    embed_2.add_field(name=".map", value="まっぷをきめるよ", inline=False),
-#    embed_2.add_field(name=".agt", value="えーじぇんとをえらぶよ\n\nオプション：\n.d (デュエリストのみ)\n.i (イニシエーターのみ)\n.c (コントローラーのみ)\n.s ("
-#                                       "センチネルのみ)\n例：.agt.d", inline=False),
-#    embed_2.add_field(name=".wpn", value="ぶきをえらぶよ\n\nオプション：\n.s (セカンダリ武器のみ)\n.p (プライマリ武器のみ)\n例：.wpn.s", inline=False)
-#    embed_2.add_field(name=".soyjoy", value="なんだこれは", inline=False)
-#    await ctx.send(embed=embed_2),
-
-
+####################################################################
+#雑談
 @tree.command(
     name = "ngo",
     description = "てきと～に話すよ"
@@ -263,8 +293,8 @@ async def ngo(ctx: discord.Interaction):
     ]
     choice = random.choice(ngo)
     await ctx.response.send_message(f"{choice}"),
-
-
+####################################################################
+#マップ選択
 @tree.command(
     name = "map",
     description= "マップをランダムに選択します。"
@@ -289,16 +319,14 @@ async def map(ctx: discord.Interaction):
     ]
     choice = random.choice(map)
     await ctx.response.send_message(f"次のマップは「**{choice}**」だよ！"),
-
-
-
+####################################################################
+#エージェント抽選
 class Mode(enum.Enum):
     デュエリストのみ = "デュエリスト"
     コントローラーのみ = "コントローラー"
     イニシエーターのみ = "イニシエーター"
     センチネルのみ = "センチネル"
     ロールで抽選 = "ロールで抽選"
-
 @tree.command(
     name = "agent",
     description = "エージェントを抽選します。modeを使用してロール限定抽選、ロールの抽選が可能です。"
@@ -367,17 +395,26 @@ async def agt(ctx: discord.Interaction, mode:Mode = None):
         mes = f"次の{ctx.user.mention}のエージェントは「**{choice}**」だよ！{cond}"
 
     await ctx.response.send_message(f"{mes}"),
-
-
+####################################################################
+#武器抽選
+class WeaponType(enum.Enum):
+    全ての武器 = "全ての武器"
+    セカンダリ = "セカンダリ"
+    プライマリ = "プライマリ"
+    ナイフとセカンダリ = "ナイフとセカンダリ"
+    ナイフとプライマリ = "ナイフとプライマリ"
 @tree.command(
     name="wpn"
     )
+@discord.app_commands.describe(
+    weapontype="抽選モードを変更します。"
+)
 @discord.app_commands.guilds(
 discord.Object(id = guildid)
 )
-async def wpn(ctx: discord.Interaction):
+async def wpn(ctx: discord.Interaction, weapontype:WeaponType):
     
-    wpn = [
+    all = [
         "クラシック",
         "ショーティー",
         "フレンジー",
@@ -397,10 +434,67 @@ async def wpn(ctx: discord.Interaction):
         "オーディン",
         "ナイフ"
     ]
+    secondary = [
+        "クラシック",
+        "ショーティー",
+        "フレンジー",
+        "ゴースト",
+        "シェリフ"
+    ]
+    nsecondary = [
+        "クラシック",
+        "ショーティー",
+        "フレンジー",
+        "ゴースト",
+        "シェリフ",
+        "ナイフ"
+    ]
+
+    primary = [
+        "スティンガー",
+        "スペクター",
+        "バッキー",
+        "ジャッジ",
+        "ブルドッグ",
+        "ガーディアン",
+        "ファントム",
+        "ヴァンダル",
+        "マーシャル",
+        "オペレーター",
+        "アレス",
+        "オーディン"
+    ]
+    nprimary = [
+        "スティンガー",
+        "スペクター",
+        "バッキー",
+        "ジャッジ",
+        "ブルドッグ",
+        "ガーディアン",
+        "ファントム",
+        "ヴァンダル",
+        "マーシャル",
+        "オペレーター",
+        "アレス",
+        "オーディン",
+        "ナイフ"
+    ]
+
+    if weapontype == WeaponType.全ての武器:
+        wpn = all
+    elif weapontype == WeaponType.セカンダリ:
+        wpn = secondary
+    elif weapontype == WeaponType.ナイフとセカンダリ:
+        wpn = nsecondary
+    elif weapontype == WeaponType.プライマリ:
+        wpn = primary
+    elif weapontype == WeaponType.ナイフとプライマリ:
+        wpn = nprimary
+
     choice = random.choice(wpn)
-    await ctx.response.send_message(f"次の{ctx.user.mention}の武器は「**{choice}**」だよ！"),
-
-
+    await ctx.response.send_message(f"次の{ctx.user.mention}の武器は「**{choice}**」だよ！`抽選タイプ：{WeaponType}`"),
+####################################################################
+#ソイジョイ
 @tree.command(name="soyjoy")
 async def sj(ctx: discord.Interaction):
     
@@ -419,37 +513,7 @@ async def sj(ctx: discord.Interaction):
     ]
     choice = random.choice(sj)
     await ctx.response.send_message(f"SOYJOY{choice}味を食え")
-
-
-
-
-#@bot.command(name="agt.d")
-#async def agtd(ctx):
-#    
-#    agtd = ["ジェット","ネオン","フェニックス","ヨル","レイズ","レイナ"]
-#    choice = random.choice(agtd)
-#    await ctx.reply(f"次の{ctx.message.author.name}のエージェントは「**{choice}**」だよ！")
-
-#@bot.command(name="agt.i")
-#async def agt(ctx):
-#    
-#    agt = ["KAY/O","スカイ","ソーヴァ","フェイド","ブリーチ"]
-#    choice = random.choice(agt)
-#    await ctx.reply(f"次の{ctx.message.author.name}のエージェントは「**{choice}**」だよ！")
-
-#@bot.command(name="agt.c")
-#async def agt(ctx):
-#    
-#    agt = ["アストラ","ヴァイパー","オーメン","ハーバー","ブリムストーン"]
-#    choice = random.choice(agt)
-#    await ctx.reply(f"次の{ctx.message.author.name}のエージェントは「**{choice}**」だよ！")
-
-#@bot.command(name="agt.s")
-#async def agt(ctx):
-#    
-#    agt = ["キルジョイ","サイファー","セージ","チェンバー"]
-#    choice = random.choice(agt)
-#    await ctx.reply(f"次の{ctx.message.author.name}のエージェントは「**{choice}**」だよ！")
+####################################################################
 
 #@bot.command(name="wpn.s")
 #async def wpns(ctx):
@@ -465,5 +529,19 @@ async def sj(ctx: discord.Interaction):
 #    wpnp = ["スティンガー","スペクター","バッキー","ジャッジ","ブルドッグ","ガーディアン","ファントム","ヴァンダル","マーシャル","オペレーター","アレス","オーディン"]
 #    choice = random.choice(wpnp)
 #    await ctx.reply(f"次の{ctx.message.author.name}のプライマリは「**{choice}**」だよ！"),
+
+
+#@tree.command(
+#    name="help"
+#    )
+#async def commands(ctx: discord.Interaction):
+#    embed_2 = discord.Embed(title="へるぷだよこれは！", description="へるぷなんだよなぁ", color=0xff4454)
+#    embed_2.add_field(name=".commands", value="これ", inline=False),
+#    embed_2.add_field(name=".map", value="まっぷをきめるよ", inline=False),
+#    embed_2.add_field(name=".agt", value="えーじぇんとをえらぶよ\n\nオプション：\n.d (デュエリストのみ)\n.i (イニシエーターのみ)\n.c (コントローラーのみ)\n.s ("
+#                                       "センチネルのみ)\n例：.agt.d", inline=False),
+#    embed_2.add_field(name=".wpn", value="ぶきをえらぶよ\n\nオプション：\n.s (セカンダリ武器のみ)\n.p (プライマリ武器のみ)\n例：.wpn.s", inline=False)
+#    embed_2.add_field(name=".soyjoy", value="なんだこれは", inline=False)
+#    await ctx.send(embed=embed_2),
 
 client.run(token)

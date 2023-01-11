@@ -1,2 +1,2 @@
-python C:\discordbot\GitHub\valobot\ngo.py
+python ngo.py
 pause
