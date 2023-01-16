@@ -1,2 +1,2 @@
-python ngo.py
+python main.py
 pause
