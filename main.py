@@ -124,14 +124,15 @@ async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
     print("live > Defer ok.")
 
     print("= stream mode check ============================================")
+    # START ######################################################################
     if stream == LiveMode.START:
         print("live > if : [START]")
 
         Cname = "𝗟𝗜𝗩𝗘：" + uniemoji_RC + "𝗢𝗡𝗟𝗜𝗡𝗘"
         print("live:START > 'Cname' wrote.")
 
-
-        if not url == None:
+    
+        if url == None:
             Cmes = f"{uniemoji_RC}：**{ctx.user.mention}がライブ配信中！**"
             print(f"live:START > 'Cmes' wrote. Message:{url}")
         else:
@@ -141,16 +142,17 @@ async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
         mes = f"{uniemoji_RC}：サーバーの配信ステータスがオンラインになりました。"
         print("live:START > Live starting...")
 
+        if topic == None:
+            await editchannel.create_instance(
+                topic = (f"{ctx.user.nick}のライブ")
+            )
+            print("live:START > topic edited.")
 
-        await editchannel.create_instance(
-            topic = (f"{ctx.user.nick}のライブ")
-        )
-        print("live:START > topic edited.")
+        if discord.VoiceClient.is_connected == False:
+                await editchannel.connect()
+                print("live:START > channel connected.")
 
-        await editchannel.connect()
-        print("live:START > channel connected.")
-
-        
+    # END ######################################################################
     elif stream == LiveMode.END:
         print("live > if check ok : END")
 
@@ -179,7 +181,7 @@ async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
         else:
             print("live:END > This command was ignored because there is no connection to the channel.")
 
-    
+    # Other ######################################################################
     else:
         mes = f"コマンド、もしくはシステムに問題があります。もう一度やり直すか、開発者に連絡してください。"
         print("live:failed > Command error detected.")
@@ -194,8 +196,11 @@ async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
     await sendchannel.send(f"{Cmes}")
     print("live > Info send ok.")
 
-    await editchannel.edit(name=Cname)
-    print("live > Ch-name edit ok.")
+    if not editchannel.name == Cname:
+        await editchannel.edit(name=Cname)
+        print("live > Ch-name edit ok.")
+    else:
+        print("live > Ch-name passed.")
 
     print("[Command is completed.]")
     print("")
