@@ -1,7 +1,8 @@
 import enum
 import discord
-from discord import app_commands
+from discord import app_commands, ui
 import random
+from datetime import datetime
 
 token = "OTc1NzA5NzgzNTYwNjk1ODQ4.G-Bww3.cNVDFIKCUlSez31_hqbSOq-CqQqDL0-Aaxzvf0" 
 
@@ -63,6 +64,21 @@ async def on_ready():
     await tree.sync(guild=discord.Object(id=guildid))
 
 
+#エラーメッセージ
+ErrorType = f"Unknown Error"
+CommandName = f"Unknown Commands"
+
+class errortext(ui.Modal, title = f"[!] COMMAND ERROR\n{ErrorType}\nCommand:{CommandName}"):
+    async def on_submit(self, ctx: discord.Interaction):
+        await print("====================================================")
+        await print("ERROR OCCURRED")
+        await print("")
+        await print(f"ErrorType : {ErrorType}")
+        await print(f"Author : {ctx.user}")
+        await print(f"Command : {CommandName}")
+        await print("====================================================")
+
+
 @tree.command(
     name="test",
     description="テスト用"
@@ -120,101 +136,188 @@ async def live(ctx: discord.Interaction, stream:LiveMode, url:str = None):
     topic = client.get_stage_instance(1054417954038632578)
     print("live > set: topic")
 
-    await ctx.response.defer()
-    print("live > Defer ok.")
-
-    print("= stream mode check ============================================")
-    # START ######################################################################
-    if stream == LiveMode.START:
-        print("live > if : [START]")
-
-        Cname = "𝗟𝗜𝗩𝗘：" + uniemoji_RC + "𝗢𝗡𝗟𝗜𝗡𝗘"
-        print("live:START > 'Cname' wrote.")
-
-    
-        if url == None:
-            Cmes = f"{uniemoji_RC}：**{ctx.user.mention}がライブ配信中！**"
-            print(f"live:START > 'Cmes' wrote. Message:{url}")
-        else:
-            Cmes = f"{uniemoji_RC}：**{ctx.user.mention}がライブ配信中！**\r\n{url}"
-            print(f"live:START > 'Cmes' wrote. Message:{url}")
-
-        mes = f"{uniemoji_RC}：サーバーの配信ステータスがオンラインになりました。"
-        print("live:START > Live starting...")
-
-        if topic == None:
-            await editchannel.create_instance(
-                topic = (f"{ctx.user.nick}のライブ")
-            )
-            print("live:START > topic edited.")
-
-        if discord.VoiceClient.is_connected == False:
-                await editchannel.connect()
-                print("live:START > channel connected.")
-
-    # END ######################################################################
-    elif stream == LiveMode.END:
-        print("live > if check ok : END")
-
-        if topic == None:
-            Cmes = f"{uniemoji_BC}：**ライブは終了しました。**"
-            print(f"live:END > 'Cmes' wrote.(topic:{topic})")
-        else:
-            Cmes = f"{uniemoji_BC}：**{topic.topic}は終了しました。**"
-            print(f"live:END > 'Cmes' wrote.(topic:{topic})")
-
-        Cname = "𝗟𝗜𝗩𝗘：" + uniemoji_BC + "𝗢𝗙𝗙𝗟𝗜𝗡𝗘"
-        print("live:END > 'Cname' wrote.")
-
-        mes = f"{uniemoji_BC}：サーバーの配信ステータスがオフラインになりました。"
-        print("live:END > Live stopping...")
+    C_START = f"𝗟𝗜𝗩𝗘：{uniemoji_RC}𝗢𝗡𝗟𝗜𝗡𝗘"
+    C_END = f"𝗟𝗜𝗩𝗘：{uniemoji_BC}𝗢𝗙𝗙𝗟𝗜𝗡𝗘"
         
-        if not topic == None:
-            await topic.delete()
-            print("live:END > Topic deleted.")
+    if url == None:
+        CommandName = f"/live stream:{stream.name}"
+    else:
+        CommandName = f"/live stream:{stream.name} url:{url}"
+
+    if url == "//debug":
+        print("[[[ debug mode ]]]")
+
+        if stream == LiveMode.START:
+            print("LiveMode.START")
+
+            if editchannel.name == C_START:
+                CmdState = False
+                print(f"CmdState:{CmdState}")
+
+            elif editchannel.name == C_END: #success
+                CmdState = True
+                print(f"CmdState:{CmdState}")
+
+        elif stream == LiveMode.END:
+            print("LiveMode.END")
+
+            if editchannel.name == C_START: #success
+                CmdState = True
+                print(f"CmdState:{CmdState}")
+
+            elif editchannel.name == C_END:
+                CmdState = False
+                print(f"CmdState:{CmdState}")
+
+
+        livedev = discord.Embed(title= "Debug Mode" , description= f"CMD: {CommandName}",color=0xffff00)
+        print("embed create 10%")
+        livedev.add_field(name= "LiveMode:", value= f"{stream.name}",inline=False)
+        print("embed create 20%")
+        livedev.add_field(name= "Now Status Channel Name:", value= f"{editchannel.name}",inline=False)
+        print("embed create 30%")
+        livedev.add_field(name= "Status Channel ID:", value= f"{editchannel.id}",inline=False)
+        print("embed create 40%")
+        livedev.add_field(name= "Notification Channel Name:", value= f"{sendchannel.name}",inline=False)
+        print("embed create 50%")
+        livedev.add_field(name= "Notification Channel ID:", value= f"{sendchannel.id}",inline=False)
+        print("embed create 60%")
+        if topic == None:
+            livedev.add_field(name= "Now Instance:", value= "None")
         else:
-            print("live:END > This command was ignored because the topic was None.")
+            livedev.add_field(name= "Now Instance:", value= f"{topic.topic}")
+        print("embed create 70%")
+        livedev.add_field(name= "This Channel Name is:", value= f"{ctx.channel.name}",inline=False)
+        print("embed create 80%")
+        livedev.add_field(name= "This Channel ID is:", value= f"{ctx.channel.id}",inline=False)
+        print("embed create 90%")
+        livedev.add_field(name= "Edit Result Prediction: ", value= f"{CmdState}",inline=False)
+        print("embed create 100%")
+
+        await ctx.response.send_message(embed=livedev, ephemeral = True)
+        print("embed send")
+
+    else:
+        print("= stream mode check ============================================")
+        # START ######################################################################
+        if stream == LiveMode.START:
+            print("live > if : [START]")
+
+            Cname = f"{C_START}"
+            print("live:START > 'Cname' wrote.")
+
+            if editchannel.name == Cname:
+                liveError = 1
+                print("live > error : 1")
+            else:
+                await ctx.response.defer()
+                print("live > Defer ok.")
+                
+                if url == None:
+                    Cmes = f"{uniemoji_RC}：**{ctx.user.mention}がライブ配信中！**"
+                    print(f"live:START > 'Cmes' wrote. Message:{url}")
+                else:
+                    Cmes = f"{uniemoji_RC}：**{ctx.user.mention}がライブ配信中！**\r\n{url}"
+                    print(f"live:START > 'Cmes' wrote. Message:{url}")
+
+                mes = f"{uniemoji_RC}：サーバーの配信ステータスがオンラインになりました。"
+                print("live:START > Live starting...")
+
+                if topic == None:
+                    await editchannel.create_instance(
+                        topic = (f"{ctx.user.nick}のライブ")
+                    )
+                    print("live:START > topic edited.")
+
+                if discord.VoiceClient.is_connected == False:
+                    await editchannel.connect()
+                    print("live:START > channel connected.")
+
+        # END ######################################################################
+        elif stream == LiveMode.END:
+            print("live > if check ok : END")
+
+            Cname = f"{C_END}"
+            print("live:END > 'Cname' wrote.")
+
+            if editchannel.name == Cname:
+                liveError = 2
+                print("live > error : 2")
+            else:
+                await ctx.response.defer()
+                print("live > Defer ok.")
+                
+                if topic == None:
+                    Cmes = f"{uniemoji_BC}：**ライブは終了しました。**"
+                    print(f"live:END > 'Cmes' wrote.(topic:{topic})")
+                else:
+                    Cmes = f"{uniemoji_BC}：**{topic.topic}は終了しました。**"
+                    print(f"live:END > 'Cmes' wrote.(topic:{topic})")
+
+                mes = f"{uniemoji_BC}：サーバーの配信ステータスがオフラインになりました。"
+                print("live:END > Live stopping...")
         
-        if discord.VoiceClient.is_connected == True:
-            await editchannel.guild.voice_client.disconnect()
-            print("live:END > Disconnected.")
+                if not topic == None:
+                    await topic.delete()
+                    print("live:END > Topic deleted.")
+                else:
+                    print("live:END > This command was ignored because the topic was None.")
+        
+                if discord.VoiceClient.is_connected == True:
+                    await editchannel.guild.voice_client.disconnect()
+                    print("live:END > Disconnected.")
+                else:
+                    print("live:END > This command was ignored because there is no connection to the channel.")
+
+        # Other ######################################################################
         else:
-            print("live:END > This command was ignored because there is no connection to the channel.")
-
-    # Other ######################################################################
-    else:
-        mes = f"コマンド、もしくはシステムに問題があります。もう一度やり直すか、開発者に連絡してください。"
-        print("live:failed > Command error detected.")
+            liveError = 0
+            print("live > error : 3")
     
-    print("================================================================")
-    print("live > Live ready...")
 
-    await ctx.followup.send(f"{mes}")
-    print("live > FollowUp ok.")
-   
+        if 0 <= liveError <=2:
+            if liveError == 0:
+                ErrorType = f"コマンドに誤りがあるか、システムに異常があります。"
+            elif liveError == 1:
+                ErrorType = f"既に配信ステータスがオンラインになっています。"
+            elif liveError == 2:
+                ErrorType = f"既に配信ステータスがオフラインになっています。"
 
-    await sendchannel.send(f"{Cmes}")
-    print("live > Info send ok.")
+            errortext.title = f"[!] COMMAND ERROR\n{ErrorType}\nCommand:{CommandName}"
 
-    if not editchannel.name == Cname:
-        await editchannel.edit(name=Cname)
-        print("live > Ch-name edit ok.")
-    else:
-        print("live > Ch-name passed.")
+            await ctx.response.send_modal(errortext())
 
-    print("[Command is completed.]")
+
+        else:
+            print("================================================================")
+            print("live > Live ready...")
+
+            await ctx.followup.send(f"{mes}")
+            print("live > FollowUp ok.")
+    
+
+            await sendchannel.send(f"{Cmes}")
+            print("live > Info send ok.")
+
+            if not editchannel.name == Cname:
+                await editchannel.edit(name=Cname)
+                print("live > Ch-name edit ok.")
+            else:
+                print("live > Ch-name passed.")
+
+        print("[Command is completed.]")
     print("")
 
 
 @live.error
-async def on_test_error(interaction: discord.Interaction, error: app_commands.AppCommandError):
+async def on_test_error(ctx: discord.Interaction, error: app_commands.AppCommandError):
     if isinstance(error, app_commands.CommandOnCooldown):
         retry_after_int = int(error.retry_after)
         retry_minute = retry_after_int // 60
         retry_second = retry_after_int % 60
 
         print(f"live > Cooldown now. End is [{retry_minute}:{retry_second}]")
-        await interaction.response.send_message(f"＊んごりンゴは休憩中だよ。\n(レート制限回避用クールダウン終了まで残り **{retry_minute}分{retry_second}秒** )", ephemeral = True)
+        await ctx.response.send_message(f"＊んごりンゴは休憩中だよ。\n(レート制限回避用クールダウン終了まで残り **{retry_minute}分{retry_second}秒** )", ephemeral = True)
 ####################################################################
 #雑談
 @tree.command(
