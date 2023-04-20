@@ -4,7 +4,7 @@ from discord import app_commands, ui
 import random
 from datetime import datetime
 
-token = "OTc1NzA5NzgzNTYwNjk1ODQ4.G-Bww3.cNVDFIKCUlSez31_hqbSOq-CqQqDL0-Aaxzvf0" 
+token = "DISCORD_BOT_TOKEN" 
 
 class aclient(discord.Client):
     def __init__(self):
