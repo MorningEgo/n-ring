@@ -1,6 +1,7 @@
 import define as I
 
 
+
 ####################################################################
 # セットアップ
 from command_files import _ready
