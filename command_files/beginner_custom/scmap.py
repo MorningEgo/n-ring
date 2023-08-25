@@ -1,5 +1,5 @@
 import define as I
-from storages.valorant import maps
+from nring_storage.valorant import maps
 
 @I.tree.command(name="map", description="マップをランダムに選択します。")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.scguild))

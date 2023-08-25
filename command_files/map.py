@@ -1,6 +1,6 @@
 import define as I
-from storages.splatoon3 import maps as sp3_maps
-from storages.valorant import maps as valo_maps
+from nring_storage.splatoon3 import maps as sp3_maps
+from nring_storage.valorant import maps as valo_maps
 
 class Game(I.enum.Enum):
   VALORANT = "VALORANT"

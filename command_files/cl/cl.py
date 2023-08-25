@@ -1,7 +1,7 @@
 import define as I
 from define import json
-from storages.cl.cl_editable import cl_editable
-from storages.cl.cl_list import cl_list
+from nring_storage.cl.cl_editable import cl_editable
+from nring_storage.cl.cl_list import cl_list
 from discord.ext import tasks
 
 

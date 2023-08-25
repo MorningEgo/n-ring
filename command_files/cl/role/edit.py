@@ -1,7 +1,7 @@
 import define as I
 import json
-from storages.cl.cl_editable import cl_editable
-from storages.cl.cl_list import cl_list
+from nring_storage.cl.cl_editable import cl_editable
+from nring_storage.cl.cl_list import cl_list
 from discord.ext import tasks
 from command_files.cl.cl import R
 
@@ -145,13 +145,13 @@ async def edit(ctx: I.discord.Interaction, editrole: I.discord.Role, name: str =
 							schedule_data[nowtimestamp]['schedule_mentionable'] = mentionable
 							print("16")
 						# 読み込み
-						with open('storages/cl/cl_schedule.json', 'r') as __e__:
+						with open('nring_storage/cl/cl_schedule.json', 'r') as __e__:
 							cl_scheduler = json.load(__e__)
 							print("17")
 						# 書き込み
 						cl_scheduler.update(schedule_data)
 						print("18")
-						with open('storages/cl/cl_schedule.json', 'w') as __e__:
+						with open('nring_storage/cl/cl_schedule.json', 'w') as __e__:
 							json.dump(cl_scheduler, __e__, indent=4)
 							print("19")
 						print("20")
@@ -269,7 +269,7 @@ async def cl_loop():
 	time = I.datetime.utcnow()
 	print(now)
 	# 読み込み
-	with open('storages/cl/cl_schedule.json', 'r') as __e__:
+	with open('nring_storage/cl/cl_schedule.json', 'r') as __e__:
 		cl_scheduler = json.load(__e__)
 	for _k, _v in list(cl_scheduler.items()):
 		#scheduletime = str(_v['schedule_time'])
@@ -301,7 +301,7 @@ async def cl_loop():
 				except:
 					print('\033[31m' + 'Error: Role Not Found' + '\033[0m')
 					cl_scheduler.pop(_k)
-					with open('storages/cl/cl_schedule.json', 'w') as __e__:
+					with open('nring_storage/cl/cl_schedule.json', 'w') as __e__:
 						json.dump(cl_scheduler, __e__, indent=4)
 						
 				else:
@@ -311,7 +311,7 @@ async def cl_loop():
 					except:
 						print('\033[31m' + 'Error: Missing User' + '\033[0m')
 						cl_scheduler.pop(_k)
-						with open('storages/cl/cl_schedule.json', 'w') as __e__:
+						with open('nring_storage/cl/cl_schedule.json', 'w') as __e__:
 							json.dump(cl_scheduler, __e__, indent=4)
 							
 					else:
@@ -371,7 +371,7 @@ async def cl_loop():
 							text = f"ID：{_k}"
 						)
 						cl_scheduler.pop(_k)
-						with open('storages/cl/cl_schedule.json', 'w') as __e__:
+						with open('nring_storage/cl/cl_schedule.json', 'w') as __e__:
 							json.dump(cl_scheduler, __e__, indent=4)
 	
 						if cnl is True:

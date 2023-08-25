@@ -1,6 +1,6 @@
 import define as I
-from storages.splatoon3 import _temp as t
-from storages.splatoon3 import weapons as w
+from nring_storage.splatoon3 import _temp as t
+from nring_storage.splatoon3 import weapons as w
 
 class fil(I.enum.Enum):
   追加 = "追加"
