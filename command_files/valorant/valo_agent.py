@@ -38,7 +38,7 @@ async def agt(ctx: I.discord.Interaction, mode: Mode = None):
       m = Mode.value
     else:
       agt = a
-      m = Mode.value
+      m = "すべてのエージェント"
       
     choice = I.random.choice(agt)
 
