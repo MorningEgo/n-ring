@@ -32,7 +32,7 @@ async def rwe(ctx: I.discord.Interaction,
       l.append(_[3])
     strl = "\n* ".join(l)
     await ctx.followup.send(f"> **フィルター一覧**\n```md\n* {strl}```")
-    print(f"> **フィルター一覧**\n```md\n* {strl}```")
+    #print(f"> **フィルター一覧**\n```md\n* {strl}```")
     error = -1
   else:
     if not filters is None:  # フィルターが設定されているとき

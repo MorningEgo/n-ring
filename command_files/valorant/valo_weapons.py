@@ -14,11 +14,27 @@ class WeaponType(I.enum.Enum):
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 async def wpn(ctx: I.discord.Interaction, weapontype: WeaponType):
 
-  v_sec = ["クラシック", "ショーティー", "フレンジー", "ゴースト", "シェリフ"]
+  v_sec = [
+    "クラシック", 
+    "ショーティー", 
+    "フレンジー", 
+    "ゴースト", 
+    "シェリフ"
+  ]
 
   v_pri = [
-    "スティンガー", "スペクター", "バッキー", "ジャッジ", "ブルドッグ", "ガーディアン", "ファントム", "ヴァンダル",
-    "マーシャル", "オペレーター", "アレス", "オーディン"
+    "スティンガー", 
+    "スペクター", 
+    "バッキー", 
+    "ジャッジ", 
+    "ブルドッグ", 
+    "ガーディアン", 
+    "ファントム", 
+    "ヴァンダル",
+    "マーシャル", 
+    "オペレーター", 
+    "アレス", 
+    "オーディン"
   ]
 
   v_kni = ["ナイフ"]
@@ -35,5 +51,11 @@ async def wpn(ctx: I.discord.Interaction, weapontype: WeaponType):
     wpn = v_pri + v_kni
 
   choice = I.random.choice(wpn)
-  await ctx.response.send_message(
-    f"次の{ctx.user.mention}の武器は「**{choice}**」だよ！`抽選タイプ：{weapontype.value}`")
+  embed = I.discord.Embed(
+    color = 0xff3b5a,
+    title = f"次の{ctx.user.name}の武器は**{choice}**だよ！"
+  )
+  embed.set_footer(
+    text=f"抽選タイプ：{weapontype.value}"
+  )
+  await ctx.response.send_message(embed=embed)
