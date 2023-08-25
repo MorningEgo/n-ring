@@ -31,3 +31,4 @@ async def o_e(ctx: I.discord.Interaction, error: I.app_commands.AppCommandError)
 		
 	else:
 		await ctx.followup.send(f"なんかエラーが起きたみたい。\n```\nError:\n{str(error)}```")
+		

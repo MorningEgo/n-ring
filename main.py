@@ -1,7 +1,6 @@
 import define as I
 
 
-
 ####################################################################
 # セットアップ
 from command_files import _ready
@@ -76,8 +75,8 @@ scmap
 ####################################################################
 # token
 try:
-	I.keep_alive()
-	I.client.run(I.token)
+  I.keep_alive()
+  I.client.run(I.token)
 except Exception as e:
-	print(str(e))
-	I.os.system("kill 1")
+  print(str(e))
+  I.os.system("kill 1")

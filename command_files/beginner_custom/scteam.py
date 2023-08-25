@@ -1,4 +1,5 @@
 import define as I
+import os
 @I.discord.app_commands.guilds(I.discord.Object(id=I.scguild))
 class scT(I.app_commands.Group):
   ...
@@ -65,8 +66,7 @@ async def sc_set(ctx: I.discord.Interaction, team1: str, team2: str):
   #####
   scteams_embed = I.discord.Embed(title="**チームが決定しました！**", color=0xff3b5a)
   scteams_embed.set_thumbnail(
-    url=
-    "https://lh3.googleusercontent.com/fife/APg5EObGWXHtDdmrLVRtgypwv87EzWFuBTMr6IspHFVCVvVhedztnFl8-SiAR4t8iX_Pd_EE8uvK0yurIbAYuu0cVjaplvqwSvXw_mhOzBQ4982UIe-hzxKtkpe-rFCh4gms2bgyP-VAu6UBaAaTPkzvzVp7immitXkTQjFlb_pgNFV30BHuSKLPoTAeUCUVSIoz1LCGfve9qXC1n7Ai7w_y9S10Y5bSDgaqUDroqq6w10e9n4zu6YXowgy96IY2yuyANQ-FGWm87yCPDbgjP-6Y54k5Xm5JjLo5L5sSlYbjkjtcqNTHcNcOtsC0JiVESvHSKs6h9HgWRaVZEfQlhF_9dOJxxjHX581DHdRyiRG98ZXjKUjRTHWcoOa1QfGZTcmk05lGvymTkxT6csdUULaGNXYXIBwigw2ucwVW5_vgi3Xm61jRDZ1bvmi6LwNCS4dUPzTm06XHLb9LqrzKzRI9tpVD_fQf6KDqVeV3og8sl3zQistpVwX-8XVOQkbE5PAF6-IJF0pXh9GMtCkXMm_kBYB7_mjqL2mDVNPGxAtGV_5tfXEnNI3Fkuik5ImuHkuKrxF7h2aWPDM7VUnbXg2nPeAY-a40ANsnbOFWeq5dYHXLO3Q9WUjAil8y8LuaqNQ43nXZb0LbUaC73kvim1Pum3oPkYLJEdu0EK2tICcUj-DZabzXLXmqFKgByHUNFcyGBvYF08WgUlRKwpUvZg9hi0n-D3vBFgVP--1lSwUfiK-UXKw5_XgHnMOOmzEY-W5T-I3L6GTbAfd2r0alZBtlxejYVJT0Eson1jV44LNLyo45PoKuSmbCig4wSyUHbIw3XjSbZF87GO3VLBM8hyO28APvo1FIMDe2JEhvyOF_MKjm_-Cpj3DDtmhREPXUrTpsfRU6HlA5ABrm-kZe6tZaQpYCOOjVKZuZOwW1gkhNOl_oQhXstjSmYuzGF1u3wsmeePZrmY5qK6M_3UjEiO1bDCufNmdyqooc1W5Y_7AaV26ZoHy0YO9RmU0MJKtnDW5Vq58n-enSbjC7WPFTtCcx8mpesK6d2L80ZA2pDh7TkJES5N4CzTjdwuxN2UsAta2EISt-CHnkz3k3NIuf71bHlBBy9YQOoaMXMIpoJzvGxR9-xOF5s4b-AJ9Ne_ZjWEp2Flbs0M5KFIzOmWeBgfO7Csqc3n4d4HHZY0Ue9_xS1P8TXZYkXiIqvRYEzrW0CPOnuhB7hXrPHVg9eIEbTo_QLgSL8SDCHvVL3Z1l1a7dpsgZLzl26TiXUWQOmEiauXnVUQgigzhMbF9dDZFrKZPe5tncsdO9Ttc2jVvaD8BqqjVsD7M8cPatHUoFnFBnZMz8hP50VxsTuVg-lBjFp4Veugjt2xVYpKJQxPXazFN4xlu_PtzEYPfdhHvDrwNTBRtZAW-9rDBMPjmQAGt1B_qACABzITiZ5k-j5DBq4Mh_MQ774KPa6JD8Cj2SSQyGyxN6mSmxk5sK1UImqiMzVk_X_ZesAp-wdSv9s0EQARq4IMMMXLNKLPuZk5vyaHDQ6IZ6N7P2MHH2SqrmSEJ9fafKoxmrO4CQ6xv87MZ2gDK5rc_9lCDj1A7-zcWxETztX0He4N0GEaUupLXR2tsfyCsdDkt-I4EoMcPXfagw4BXr7vqFD-7SPGikE56zHdJqX0hiuOR0ZDEMEv0fKq4-RK64em5Yt3Oz3LlbCcpzOAg3XZAu_jSqfZsv1pA"
+    url= os.environ['SC_ICON']
   )
   scteams_embed.add_field(name="**チーム1**：",
                           value=f"{t1_latest_mention}",

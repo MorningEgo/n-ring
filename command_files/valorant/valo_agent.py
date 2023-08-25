@@ -53,4 +53,4 @@ async def agt(ctx: I.discord.Interaction, mode: Mode = None):
   else:
     mes = f"次の{ctx.user.mention}のエージェントは「**{choice}**」だよ！{cond}"
 
-  await ctx.response.send_message(f"{mes}"),
+  await ctx.response.send_message(f"{mes}")
