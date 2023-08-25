@@ -41,7 +41,7 @@ async def dice(ctx: I.discord.Interaction,
                           value="多すぎるので省略！\nいっぱい！",
                           inline=True)
       rolling.add_field(name="合計", value=f"{all}", inline=False)
-  if secret == True:
-    await ctx.followup.send(embed=rolling, ephemeral=True)
-  else:
-    await ctx.followup.send(embed=rolling, ephemeral=False)
+    if secret == True:
+      await ctx.followup.send(embed=rolling, ephemeral=True)
+    else:
+      await ctx.followup.send(embed=rolling, ephemeral=False)

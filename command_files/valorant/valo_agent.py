@@ -22,20 +22,21 @@ async def agt(ctx: I.discord.Interaction, mode: Mode = None):
       color=0xff3b5a,
       title="次のロールはコレだよ！"
     )
+    m = mode.name
   else:
     if mode == Mode.デュエリストのみ:
       agt = d
-      m = Mode.value
+      m = mode.name
 
     elif mode == Mode.イニシエーターのみ:
       agt = i
-      m = Mode.value
+      m = mode.name
     elif mode == Mode.コントローラーのみ:
       agt = c
-      m = Mode.value
+      m = mode.name
     elif mode == Mode.センチネルのみ:
       agt = s
-      m = Mode.value
+      m = mode.name
     else:
       agt = a
       m = "すべてのエージェント"
