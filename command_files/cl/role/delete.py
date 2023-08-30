@@ -2,30 +2,123 @@ import define as I
 from define import json
 from nring_storage.cl.cl_editable import cl_editable
 from nring_storage.cl.cl_list import cl_list
-from discord.ext import tasks
 from command_files.cl.cl import R
 
 @R.command(name="delete_schedule", description = "予約した変更を取り消します。")
 async def delete(ctx: I.discord.Interaction, id: str):
-	await ctx.response.defer(thinking=True)
-	#### id確認 ####
-	with open('nring_storage/cl/cl_schedule.json', 'r') as __e__:
-			cl_scheduler = json.load(__e__)
-	
-	for _k, _v in list(cl_scheduler.items()):
-		if id == _k:
-			rawid = _v['user_id']
-			if I.client.fetch_user(rawid):
-				user = I.client.fetch_user(rawid)
+  await ctx.response.defer(thinking=True)
 
-				if ctx.user == user:
-					T = I.discord.Embed(
-						color = 0x0000ff,
-						title = "予約を削除しました。"
-					)
-					# 予約してた内容を表示 C =
-					cl_scheduler.pop(_k)
-					with open('nring_storage/cl/cl_schedule.json', 'w') as __e__:
-						json.dump(cl_scheduler, __e__, indent=4)
+  E = I.discord.Embed(
+      color = 0xff0000,
+      title = "エラー"
+    )
+  
+  #### id確認 ####
+  with open('nring_storage/cl/cl_schedule.json', 'r') as __e__:
+      cl_scheduler = json.load(__e__)
 	
-	await ctx.followup.send("ンゴ～")
+  for _k, _v in list(cl_scheduler.items()):
+    if id == _k:
+      rawid = _v['user_id']
+
+      user = I.client.fetch_user(rawid)
+      
+      myguild = I.client.get_guild(int(I.guildid))
+      Owner = myguild.get_role(1038481824109842494)
+      try:
+        schedule_role = int(_v['schedule_role'])
+        editrole = myguild.get_role(schedule_role)
+        
+        if ctx.user == user or Owner in ctx.user.roles:  
+          T = I.discord.Embed(
+            color = 0x5865f2,
+            title = "予約を削除しました。"
+          )
+          
+          T.add_field(
+            name = "予約ID:",
+            value = _k
+          )
+
+          if _v['schedule_color'] is not None:
+            C = I.discord.Embed(
+              color= _v['schedule_color'],
+              title= "削除した予約内容"
+            )
+          else:
+            C = I.discord.Embed(
+              color= editrole.color,
+              title= "削除した予約内容"
+            )
+          
+          C.add_field(
+             name = "ロール：",
+             value = editrole.mention
+          )
+          
+          if _v['schedule_name'] is not None:
+            name = _v['schedule_name']
+            C.add_field(
+              name = "ロール名：",
+              value = f"{editrole.name}　>>　{name}",
+              inline = False
+            )
+          else:
+            C.add_field(
+              name = "ロール名(このバーの色です)：",
+              value = f"{editrole.name}",
+              inline = False
+            )
+          
+          if _v['schedule_color'] is not None:
+            color = _v['schedule_color']
+            C.add_field(
+              name = "ロール色(このバーの色です)：",
+              value = f"{editrole.color}　>>　#{hex(int(color, 16))[2:]}",
+              inline = False
+            )
+          
+          if _v['schedule_mentionable'] is not None:
+            mentionable = _v['schedule_mentionable']
+            C.add_field(
+              name = "メンションの可否",
+              value = f"{editrole.mentionable}　>>　{mentionable}",
+              inline = False
+            )
+            C.set_author(
+              name = user.name,
+              icon_url = user.avatar.url
+            )
+          cl_scheduler.pop(_k)
+          with open('nring_storage/cl/cl_schedule.json', 'w') as __e__:
+            json.dump(cl_scheduler, __e__, indent=4)
+          break
+        
+        else:
+          T = E
+          C = I.discord.Embed(
+          color = 0xff0000,
+          title = "予約したユーザーではないため、削除をキャンセルしました。"
+          )
+          break
+      except:
+        T = E
+        C = I.discord.Embed(
+          color = 0xff0000,
+          title = "変更予定のロールが見つからないため、予約を削除しました。"
+        )
+          
+        cl_scheduler.pop(_k)
+        with open('nring_storage/cl/cl_schedule.json', 'w') as __e__:
+          json.dump(cl_scheduler, __e__, indent=4)
+        
+        break
+        
+  else:
+    T = E
+    C = I.discord.Embed(
+          color = 0xff0000,
+          title = "入力されたIDの予約が見つかりません。"
+        )
+    
+  await ctx.followup.send(embed=[T,C])

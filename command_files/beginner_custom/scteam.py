@@ -20,14 +20,10 @@ async def sc_set(ctx: I.discord.Interaction, team1: str, team2: str):
   #sc_team2 = scguild.get_role(1117515234123460608)
 
   #いったんロールから全員削除
-  sct1_users = []
-  sct1_users = sc_team1.members
-  for delsct1 in sct1_users:
+  for delsct1 in sc_team1.members:
     await delsct1.remove_roles(sc_team1)
 
-  sct2_users = []
-  sct2_users = sc_team2.members
-  for delsct2 in sct2_users:
+  for delsct2 in sc_team2.members:
     await delsct2.remove_roles(sc_team2)
 
   # team1の割り当て

@@ -52,10 +52,8 @@ async def wpn(ctx: I.discord.Interaction, weapontype: WeaponType):
 
   choice = I.random.choice(wpn)
   embed = I.discord.Embed(
-    color = 0xff3b5a,
-    title = f"次の{ctx.user.name}の武器は**{choice}**だよ！"
+    color=0xff3b5a,
+    title=f"次の{ctx.user.name}の武器は**{choice}**だよ！"
   )
-  embed.set_footer(
-    text=f"抽選タイプ：{weapontype.value}"
-  )
+  embed.set_footer(text=f"抽選タイプ：{weapontype.value}")
   await ctx.response.send_message(embed=embed)

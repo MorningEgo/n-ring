@@ -53,6 +53,11 @@ from command_files import dice
 dice
 
 ####################################################################
+# ンゴチャレンジ
+from command_files import challenge
+challenge
+
+####################################################################
 # CL用：ロール設定変更
 from command_files.cl import cl
 from command_files.cl.role import edit, delete, remove
