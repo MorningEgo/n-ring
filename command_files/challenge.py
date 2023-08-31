@@ -22,6 +22,8 @@ async def challenge(ctx:I.discord.Interaction):
     match = "\n\n......？"
   elif _ == "ンゴりンゴ":
     match = "\n\n......？"
+  elif _ == "ゴンりごん":
+    match = "\n\n\N{Clockwise Rightwards and Leftwards Open Circle Arrows}"
   elif _ == "んごりンゴんごりンゴ":
     match = "\n\n\n\n### D  O  U  B  L  E    N    G    O"
   elif _ == "んごりンゴんごりンゴんごりンゴ":
