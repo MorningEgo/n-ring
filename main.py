@@ -60,11 +60,12 @@ challenge
 ####################################################################
 # CL用：ロール設定変更
 from command_files.cl import cl
-from command_files.cl.role import edit, delete, remove
+from command_files.cl.role import edit, delete, remove, set
 cl
 edit
 delete
-remove
+#remove
+#set
 
 ####################################################################
 # 初心者カスタム用
