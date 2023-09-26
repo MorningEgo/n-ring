@@ -121,4 +121,6 @@ async def delete(ctx: I.discord.Interaction, id: str):
           title = "入力されたIDの予約が見つかりません。"
         )
     
+    
+
   await ctx.followup.send(embed=[T,C])

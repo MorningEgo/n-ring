@@ -31,7 +31,7 @@ async def remove(ctx: I.discord.Interaction, role: I.discord.Role, user: I.disco
         
         list = []
         for _ in role.members:
-          await _.remove_roles(role, reason=f"{ctx.user.name}による/cl removeの実行")
+          await _.remove_roles(role, reason=f"{ctx.user.name}による/cl remove allの実行")
           list.append(_.mention)
 
         T = I.discord.Embed(
