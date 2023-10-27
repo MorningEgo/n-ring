@@ -2,7 +2,7 @@ import define as I
 
 @I.tree.command(name="おはよう", description="起きます")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
-async def ohayou(ctx: I.discord.Interaction, comment: str = None):
+async def ohayou(ctx:I.discord.Interaction, comment: str = None):
   await ctx.response.defer(thinking=True)
   
   weekjp = ["月", "火", "水", "木", "金", "土", "日"]

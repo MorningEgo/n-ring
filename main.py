@@ -85,9 +85,11 @@ scmap
 
 ####################################################################
 # token
-try:
-  I.keep_alive()
-  I.client.run(I.token)
-except Exception as e:
-  print(str(e))
-  I.os.system("kill 1")
+while __name__ == '__main__':
+  try:
+    I.keep_alive()
+    I.client.run(I.token)
+  except I.discord.errors.HTTPException as e:
+    print(e)
+    print("\n\n\nBLOCKED BY RATE LIMITS\nRESTARTING NOW\n\n\n")
+    I.os.system('kill 1')
