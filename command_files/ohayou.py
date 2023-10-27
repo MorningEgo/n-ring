@@ -13,7 +13,11 @@ async def challenge(ctx: I.discord.Interaction, comment: str = None):
   nowstr = I.datetime.strftime(now, f'%m月%d日({weekday}) %H時%M分%S秒')
   E = I.discord.Embed(title="おきました", description=f"{nowstr}に起きました")
   E.set_thumbnail(url="https://cdn.discordapp.com/attachments/1071319610550399036/1167499500722597908/646_20220307080036.png")
-  E.set_author(name=ctx.user.nick, icon_url=ctx.user.display_avatar.url)
+  if ctx.user.nick is None:
+    username = ctx.user.name
+  else:
+    username = ctx.user.nick
+  E.set_author(name=username, icon_url=ctx.user.display_avatar.url)
   if comment is not None:
     E.add_field(name="ひとこと", value=comment)
   ##### user_data #####
