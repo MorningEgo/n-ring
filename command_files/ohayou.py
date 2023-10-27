@@ -3,7 +3,7 @@ import locale
 @I.tree.command(name="おはよう", description="起きます")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 async def challenge(ctx:I.discord.Interaction, comment:str = None):
-    locale.setlocale(locale.LC_TIME, "ja_JP.UTF-8")
+    locale.setlocale(locale.LC_TIME, "Japanese_Japan.UTF-8")
     JST = I.timezone(I.timedelta(hours=+9), 'JST')
     now = I.datetime.now(JST)
     nowstr = I.datetime.strptime(now, '%B%d日(%a) %p%I時%M分%S秒')
