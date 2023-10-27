@@ -3,12 +3,13 @@ import locale
 @I.tree.command(name="おはよう", description="起きます")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 async def challenge(ctx:I.discord.Interaction, comment:str = None):
-    locale.setlocale(locale.LC_TIME, "Japanese_Japan.UTF-8")
+    
+    weekjp = ["月","火","水","木","金","土","日"]
     JST = I.timezone(I.timedelta(hours=+9), 'JST')
     now = I.datetime.now(JST)
-    nowstr = I.datetime.strptime(now, '%B%d日(%a) %p%I時%M分%S秒')
-    
-
+    Week = I.datetime.date.weekday()
+    weekday = weekjp[Week]
+    nowstr = I.datetime.strptime(now, f'%B%d日({weekday}) %H時%M分%S秒')
     E = I.discord.Embed(
         title = "おきました",
         description = f"{nowstr}に起きました"
