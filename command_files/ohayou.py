@@ -7,7 +7,7 @@ async def challenge(ctx:I.discord.Interaction, comment:str = None):
     weekjp = ["月","火","水","木","金","土","日"]
     JST = I.timezone(I.timedelta(hours=+9), 'JST')
     now = I.datetime.now(JST)
-    Week = I.datetime.date.weekday()
+    Week = I.datetime.weekday()
     weekday = weekjp[Week]
     nowstr = I.datetime.strptime(now, f'%B%d日({weekday}) %H時%M分%S秒')
     E = I.discord.Embed(
