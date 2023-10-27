@@ -125,6 +125,7 @@ async def edit(ctx: I.discord.Interaction, editrole: I.discord.Role, name: str =
 						# データ入力
 						schedule_data = {
 							nowtimestamp : {
+								'data_type' :"edit",
 								'user_id' : ctx.user.id,
 								'schedule_time' : schedule,
 								'schedule_role' : editrole.id,
@@ -160,6 +161,10 @@ async def edit(ctx: I.discord.Interaction, editrole: I.discord.Role, name: str =
 							title = "変更を予約しました！",
 							description = "必ず入力した内容を確認してください。\nミスがあった場合は[</cl role delete_schedule:1137310779033526302>]で予約を削除してください。",
 							timestamp = time
+						)
+						embed.add_field(
+							name = "実行タイプ",
+							value= "edit"
 						)
 						embed.add_field(
 							name = "実行日時",
@@ -227,7 +232,11 @@ async def edit(ctx: I.discord.Interaction, editrole: I.discord.Role, name: str =
 
 					############# 2 #############
 					embed2 = I.discord.Embed(
-						color = setcolor
+						color = setcolor,	
+					)
+					embed2.add_field(
+						name = "実行タイプ",
+						value= "edit"
 					)
 					embed2.add_field(
 							name = "**[ ! ]** 入力された日時：",
@@ -274,7 +283,7 @@ async def cl_loop():
 	for _k, _v in list(cl_scheduler.items()):
 		#scheduletime = str(_v['schedule_time'])
 		#scheduletime = I.datetime.strptime(___, "%Y/%m/%d %H:%M")
-		if now == _v['schedule_time']:
+		if now == _v['schedule_time'] and _v['data_type'] == "edit":
 			print(f"execute: {_k}")
 			gid = int(I.guildid)
 			myguild = I.client.get_guild(gid)
@@ -328,6 +337,10 @@ async def cl_loop():
 							color= setcolor,
 							title = "予約された変更を実行しました。",
 							timestamp = time
+						)
+						embed.add_field(
+							name = "実行タイプ",
+							value= "edit"
 						)
 						embed.add_field(
 							name = "変更されたロール：",
