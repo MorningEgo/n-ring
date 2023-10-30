@@ -42,7 +42,7 @@ async def remove(ctx: I.discord.Interaction, role: I.discord.Role, user: I.disco
 
       T = I.discord.Embed(
           color=0x5865f2,
-          title=f"ロール：{role.mention}を空にしました。"
+          title=f"ロール：{role.name}を空にしました。"
         )
       T.add_field(
         name = "削除したメンバー",
