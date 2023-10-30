@@ -39,13 +39,19 @@ async def remove(ctx: I.discord.Interaction, role: I.discord.Role, user: I.disco
         if role in user.roles:
           await user.remove_roles(role, reason=f"{ctx.user.name}による/cl remove user_onlyの実行")
           list.append(user.mention)
+        else:
+          list = user.mention
 
       T = I.discord.Embed(
           color=0x5865f2,
-          title=f"ロール：{role.name}を空にしました。"
+          title=f"ロールからユーザーを除去しました！"
         )
       T.add_field(
-        name = "削除したメンバー",
+        name = "取り除いたロール",
+        value = role.mention
+      )
+      T.add_field(
+        name = "指定したユーザー",
         value = '\n'.join(list)
       )
       await ctx.followup.send(embed=T)
