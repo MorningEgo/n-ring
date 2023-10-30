@@ -21,7 +21,10 @@ async def remove(ctx: I.discord.Interaction, role: I.discord.Role, user: I.disco
       if role.id in int(_cle[1]):
         cl_auth = 1
         break
-
+    if Owner in ctx.user.roles:
+      cl_auth = 1
+      break
+  
 	# 権限のチェック
   if cl_auth == 0:
     await ctx.followup.send("選択したロールの編集権限がありません。\n別のロールを選択するか、権限があるはずのロールを選択している場合は管理者に報告してください。")
