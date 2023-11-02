@@ -5,7 +5,7 @@ import define as I
 async def oyasumi(ctx:I.discord.Interaction, comment: str = None):
   await ctx.response.defer(thinking=True)
   
-  file = I.discord.File("pictures\cmd_oyasumi.png", filename="image.png")
+  file = I.discord.File("pictures/cmd_oyasumi.png", filename="image.png")
   
   weekjp = ["月", "火", "水", "木", "金", "土", "日"]
   JST = I.timezone(I.timedelta(hours=+9), 'JST')
