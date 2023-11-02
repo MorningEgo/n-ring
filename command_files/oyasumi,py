@@ -1,8 +1,8 @@
 import define as I
 
-@I.tree.command(name="おはよう", description="起きます")
+@I.tree.command(name="おやすみ", description="寝ます　はよ寝ろ")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
-async def ohayou(ctx:I.discord.Interaction, comment: str = None):
+async def oyasumi(ctx:I.discord.Interaction, comment: str = None):
   await ctx.response.defer(thinking=True)
   
   weekjp = ["月", "火", "水", "木", "金", "土", "日"]
@@ -11,8 +11,8 @@ async def ohayou(ctx:I.discord.Interaction, comment: str = None):
   Week = I.datetime.weekday(now)
   weekday = weekjp[Week]
   nowstr = I.datetime.strftime(now, f'%m月%d日({weekday}) %H時%M分%S秒')
-  E = I.discord.Embed(title="おきました", description=f"{nowstr}に起きました")
-  E.set_thumbnail(url="pictures\cmd_ohayou.png")
+  E = I.discord.Embed(title="ねます", description=f"{nowstr}に一日を終えました")
+  E.set_thumbnail(url="pictures\cmd_oyasumi.png")
   username = ctx.user.nick
   if username is None:
     username = ctx.user.name
@@ -23,7 +23,7 @@ async def ohayou(ctx:I.discord.Interaction, comment: str = None):
   # # 読み込み
   #   with open('nring_storage/n_users/user_data.json', 'r') as __e__:
   #        = json.load(__e__)
-  #   ohayou_count = _v[ohayou_count] + 1
+  #   oyasumi_count = _v[oyasumi_count] + 1
   # 書き込み #
   #####################
   await ctx.followup.send(embed=E)
