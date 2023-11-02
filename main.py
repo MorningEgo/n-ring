@@ -63,6 +63,11 @@ from command_files import ohayou
 ohayou
 
 ####################################################################
+# おやすみ
+from command_files import oyasumi
+oyasumi
+
+####################################################################
 # CL用：ロール設定変更
 from command_files.cl import cl
 from command_files.cl.role import edit, delete, remove, set
