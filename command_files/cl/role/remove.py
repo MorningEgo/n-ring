@@ -18,9 +18,10 @@ async def remove(ctx: I.discord.Interaction, role: I.discord.Role, user: I.disco
   cl_auth = 0
   for _cle in cl_editable:
     if myguild.get_role(int(_cle[0])) in ctx.user.roles:
-      if role.id in int(_cle[1]):
-        cl_auth = 1
-        break
+      for _editable_role_ in _cle[1]:
+        if role.id in int(_editable_role_):
+          cl_auth = 1
+          break
     if Owner in ctx.user.roles:
       cl_auth = 1
       break
