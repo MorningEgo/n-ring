@@ -22,8 +22,8 @@ async def remove(ctx: I.discord.Interaction, role: I.discord.Role, user: I.disco
         try:
           role_er = myguild.get_role(int(_editable_role_))
         except:
-          pass
-        if role.id is role_er.id:
+          ...
+        if role.id == role_er.id:
           cl_auth = 1
           break
     if Owner in ctx.user.roles:
