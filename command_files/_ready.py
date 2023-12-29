@@ -2,7 +2,7 @@ import define as I
 from command_files.beginner_custom.scteam import sct
 from command_files.cl.cl import clc, R
 from loop import loop_1s,loop_1m,loop_1h
-from command_files.cl.role.edit import cl_loop
+from command_files.cl.role.loop import cl_loop
 from discord.ext import tasks
 ####################################################################
 # 起動メッセージ
