@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 @I.tree.command(name="team",
               description="入力したチームのいずれかに割り当てます。半角空白で区切ってチーム名を入力してください。")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))

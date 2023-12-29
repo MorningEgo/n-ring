@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 from nring_storage.valorant.agents import r, d, i, c, s, a
 class Mode(I.enum.Enum):
   デュエリストのみ = "デュエリスト"

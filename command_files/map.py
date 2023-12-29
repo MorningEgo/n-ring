@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 from nring_storage.splatoon3 import maps as sp3_maps
 from nring_storage.valorant import maps as valo_maps
 

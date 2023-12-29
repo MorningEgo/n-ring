@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 from nring_storage.valorant import maps
 
 @I.tree.command(name="map", description="マップをランダムに選択します。")

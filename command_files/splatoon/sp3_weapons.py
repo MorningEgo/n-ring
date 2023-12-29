@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 from nring_storage.splatoon3 import _temp as t
 from nring_storage.splatoon3 import weapons as w
 

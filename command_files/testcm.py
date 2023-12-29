@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 
 @I.tree.command(name="test", description="テスト用")
 @I.discord.app_commands.guilds(

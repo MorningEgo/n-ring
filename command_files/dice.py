@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 @I.tree.command(name="dice", description="サイコロを振ります。")
 @I.discord.app_commands.describe(
   rolls="サイコロを何回振るか。",

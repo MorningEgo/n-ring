@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 
 @I.tree.error
 async def CommandError(ctx: I.discord.Interaction, error: I.app_commands.AppCommandError):

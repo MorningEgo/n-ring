@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 import os
 @I.discord.app_commands.guilds(I.discord.Object(id=I.scguild))
 class scT(I.app_commands.Group):

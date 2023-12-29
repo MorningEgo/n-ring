@@ -1,5 +1,5 @@
-import define as I
-from define import json
+import define_first as I
+from define_first import json
 from nring_storage.cl.cl_editable import cl_editable
 from nring_storage.cl.cl_list import cl_list
 from discord.ext import tasks

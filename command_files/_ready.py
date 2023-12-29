@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 from command_files.beginner_custom.scteam import sct
 from command_files.cl.cl import clc, R
 from loop import loop_1s,loop_1m,loop_1h

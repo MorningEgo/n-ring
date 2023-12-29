@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 
 class LiveMode(I.enum.Enum):
   START = "START"

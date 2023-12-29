@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 @I.tree.command(name="soyjoy")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 async def sj(ctx: I.discord.Interaction):

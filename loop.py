@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 import json
 from discord.ext import tasks
   

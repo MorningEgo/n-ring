@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 
 
 @I.tree.command(name="ngo", description="てきと～に話すよ")

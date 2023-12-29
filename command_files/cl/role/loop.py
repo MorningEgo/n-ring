@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 import json
 from nring_storage.cl.cl_editable import cl_editable
 from nring_storage.cl.cl_list import cl_list

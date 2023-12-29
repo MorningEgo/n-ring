@@ -1,5 +1,5 @@
-import define as I
-from define import json
+import define_first as I
+from define_first import json
 from nring_storage import omikuji_list as o_list
 
 

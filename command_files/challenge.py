@@ -1,4 +1,4 @@
-import define as I
+import define_first as I
 import random
 
 @I.tree.command(name="ンゴチャレンジ", description="「んごりンゴ」の文字列を揃えるチャレンジです。")
