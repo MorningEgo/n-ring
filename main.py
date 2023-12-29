@@ -68,14 +68,20 @@ from command_files import oyasumi
 oyasumi
 
 ####################################################################
+# 御神籤
+from command_files import omikuji
+omikuji
+
+####################################################################
 # CL用：ロール設定変更
 from command_files.cl import cl
-from command_files.cl.role import edit, delete, remove, set
+from command_files.cl.role import edit, delete, remove, set, loop
 cl
 edit
 delete
-#remove
+remove
 #set
+#loop
 
 ####################################################################
 # 初心者カスタム用
@@ -85,8 +91,8 @@ scmap
 
 ####################################################################
 # エラー
-#from command_files import _error
-#_error
+from command_files import _error
+_error
 
 ####################################################################
 # token

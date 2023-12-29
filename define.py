@@ -9,7 +9,7 @@ import urllib.request, urllib.error
 import re
 import json
 import typing
-
+from time import sleep
 token = os.environ['DISCORD_BOT_TOKEN']
 
 class aclient(discord.Client):
