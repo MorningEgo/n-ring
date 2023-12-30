@@ -91,8 +91,8 @@ scmap
 
 ####################################################################
 # エラー
-#from command_files import _error
-#_error
+from command_files import _error
+_error
 
 ####################################################################
 # token

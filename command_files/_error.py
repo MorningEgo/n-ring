@@ -2,7 +2,7 @@ import define_first as I
 
 @I.tree.error
 async def CommandError(ctx: I.discord.Interaction, error: I.app_commands.AppCommandError):
-	#channel = I.client.fetch_channel(int(1021687560436727808))
+	channel = I.client.fetch_channel(int(1021687560436727808))
 	owner =  I.client.get_guild(int(I.guildid)).get_role(1038481824109842494)
 	if isinstance(error, I.app_commands.CommandOnCooldown):
 		retry_after_int = int(error.retry_after)
@@ -34,8 +34,8 @@ async def CommandError(ctx: I.discord.Interaction, error: I.app_commands.AppComm
 			"まだ使えないようだ。"
 		]
 		c = I.random.choice(_)
-		await ctx.followup.send(f"({c}{str(retry_hour)}時間{str(retry_minute)}分{str(retry_second)}秒後にまた訪ねてみよう...")
+		await ctx.response.send_message(f"({c}{str(retry_hour)}時間{str(retry_minute)}分{str(retry_second)}秒後にまた訪ねてみよう...)")
 		
 	else:
-		await ctx.followup.send(f"なんかエラーが起きたみたい。\nもう一回やってみて、ダメだったら{owner.mention}に聞いてみて。")
-		#await channel.send(f"{owner.mention}```\n{str(error.with_traceback())}```")
+		await ctx.response.send_message(f"なんかエラーが起きたみたい。\nもう一回やってみて、ダメだったら{owner.mention}に聞いてみて。")
+		await channel.send(f"{owner.mention}```\n{error}```")
