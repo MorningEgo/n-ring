@@ -2,8 +2,8 @@ import define_first as I
 
 @I.tree.error
 async def CommandError(ctx: I.discord.Interaction, error: I.app_commands.AppCommandError):
-	channel = I.client.fetch_channel(1021687560436727808)
-	owner = I.client.get_guild(int(I.guildid)).get_role(1038481824109842494)
+	#channel = I.client.fetch_channel(int(1021687560436727808))
+	owner =  I.client.get_guild(int(I.guildid)).get_role(1038481824109842494)
 	if isinstance(error, I.app_commands.CommandOnCooldown):
 		retry_after_int = int(error.retry_after)
 		retry_hour = retry_after_int // 3600
@@ -38,4 +38,4 @@ async def CommandError(ctx: I.discord.Interaction, error: I.app_commands.AppComm
 		
 	else:
 		await ctx.followup.send(f"なんかエラーが起きたみたい。\nもう一回やってみて、ダメだったら{owner.mention}に聞いてみて。")
-		await channel.send(f"{owner.mention} {ctx.command}```\n{str(error.__cause__)}```")
+		#await channel.send(f"{owner.mention}```\n{str(error.with_traceback())}```")

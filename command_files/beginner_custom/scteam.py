@@ -61,9 +61,7 @@ async def sc_set(ctx: I.discord.Interaction, team1: str, team2: str):
     t2_latest_mention = "\n".join(t2_latest)
   #####
   scteams_embed = I.discord.Embed(title="**チームが決定しました！**", color=0xff3b5a)
-  scteams_embed.set_thumbnail(
-    url= os.environ['SC_ICON']
-  )
+  #scteams_embed.set_thumbnail(url= os.environ['SC_ICON'])
   scteams_embed.add_field(name="**チーム1**：",
                           value=f"{t1_latest_mention}",
                           inline=False)

@@ -1,8 +1,8 @@
 import define_first as I
 from command_files.beginner_custom.scteam import sct
 from command_files.cl.cl import clc, R
-from loop import loop_1s,loop_1m,loop_1h
-from command_files.cl.role.loop import cl_loop
+#from loop import loop_1s,loop_1m,loop_1h
+#from command_files.cl.role.loop import cl_loop
 from discord.ext import tasks
 ####################################################################
 # 起動メッセージ
@@ -13,7 +13,7 @@ async def on_ready():
   #loop_1m.start()
   #loop_1h.start()
 
-  cl_loop.start()
+  #cl_loop.start()
 		
   mode = [
     "VALORANT", "Overwatch2", "Apex Legends", "Splatoon3", "Minecraft",

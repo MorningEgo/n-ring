@@ -91,8 +91,8 @@ scmap
 
 ####################################################################
 # エラー
-from command_files import _error
-_error
+#from command_files import _error
+#_error
 
 ####################################################################
 # token
@@ -104,3 +104,4 @@ while __name__ == '__main__':
     print(e)
     print("\n\n\nBLOCKED BY RATE LIMITS\nRESTARTING NOW\n\n\n")
     I.os.system('kill 1')
+

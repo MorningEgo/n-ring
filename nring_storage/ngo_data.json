@@ -1,0 +1,47 @@
+{
+    "agent": 0,
+    "dice": {
+        "normal": 0,
+        "Cheating": 0
+    },
+    "map": 0,
+    "ngo": 0,
+    "soyjoy": 0,
+    "sp3_wpn": 0,
+    "team": 0,
+    "v_wpn": 0,
+    "ohayou": 0,
+    "oyasumi": 0,
+    "challenge": {
+        "roll": 0,
+        "near_0": 0,
+        "near_1": 0,
+        "near_2": 0,
+        "reverse": 0,
+        "glitch": 0,
+        "collect_0": 0,
+        "collect_1": 0,
+        "collect_2": 0,
+        "collect_3": 0,
+        "ngo_0": 0,
+        "ngo_1": 0,
+        "ngo_2": 0,
+        "apple_0": 0,
+        "apple_1": 0
+    },
+    "omikuji": {
+        "roll": 1,
+        "musubi": {
+            "musubi_count": 0,
+            "target_number": 6
+        },
+        "Luck_00": 0,
+        "Luck_01": 0,
+        "Luck_02": 0,
+        "Luck_03": 1,
+        "Luck_04": 0,
+        "Luck_05": 0,
+        "Luck_06": 0,
+        "Luck_07": 0
+    }
+}

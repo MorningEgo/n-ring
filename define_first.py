@@ -10,6 +10,9 @@ import re
 import json
 import typing
 from time import sleep
+from dotenv import load_dotenv
+load_dotenv()
+
 token = os.environ['DISCORD_BOT_TOKEN']
 
 class aclient(discord.Client):
@@ -29,17 +32,16 @@ client = aclient()
 tree = app_commands.CommandTree(client)
 
 #-------------------------------------------------------------------------------------------#
-#サーバーid(んご、TestMain)
-scguild = os.environ['SCG_ID']
-guildid = os.environ['GUILD_ID']
-
-#メッセージ送信チャンネル(んご：登校動画・ライブ配信、test：チャンネル指定メッセージ)
-send_ch = 1053725844448739398
-#send_ch = 1022544579611856996
+#サーバーid
+guildid = int(os.environ['GUILD_ID'])
+scguild = int(os.environ['SCG_ID'])
+#メッセージ送信チャンネル(んご：投稿動画・ライブ配信、test：チャンネル指定メッセージ)
+send_ch = int(os.environ['LIVE_SEND_CH'])
+#send_ch = int(os.environ['LIVE_SEND_CH_OP'])
 
 #名前更新チャンネル(んご：専用ステージ、最下層のボイス)
-rename_ch = 1054417954038632578
-#rename_ch = 1054419304155721858
+rename_ch = int(os.environ['LIVE_RENAME_CH'])
+#rename_ch = int(os.environ['LIVE_RENAME_CH_OP'])
 #-------------------------------------------------------------------------------------------#
 
 if __name__ == '__main__':
