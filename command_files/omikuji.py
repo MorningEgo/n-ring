@@ -6,8 +6,8 @@ from nring_storage import omikuji_list as o_list
 
 @I.tree.command(name="ンゴみくじ", description="今日のンゴみくじを引くよ\nお布施してないんだから、当たらなくても文句言わないでよね！")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
-@I.discord.app_commands.checks.cooldown(1, 4.0, key=None)
-async def omikuji(ctx:I.discord.Interaction, view:int = None):
+@I.discord.app_commands.checks.cooldown(1, 4.0)
+async def omikuji(ctx:I.discord.Interaction):
     await ctx.response.defer(thinking=False)
     ###################################################
     file_path = 'nring_storage/ngo_data.json'

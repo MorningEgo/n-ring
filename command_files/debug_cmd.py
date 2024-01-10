@@ -3,7 +3,7 @@ import define_first as I
 @I.tree.command(name="debug", description="デバッグ用")
 @I.discord.app_commands.guilds(
   I.discord.Object(id=I.guildid))
-async def test(ctx: I.discord.Interaction, input: str = None, input2: str = None):
+async def test(ctx: I.discord.Interaction, input: str = None):
 	await ctx.response.defer(thinking=True)
 	
 	if input is None:
@@ -23,13 +23,11 @@ async def test(ctx: I.discord.Interaction, input: str = None, input2: str = None
 		with open(file_path, 'r') as __e__:
 			ngo_data = json.load(__e__)
 		
-		if input2 == "list":
-			await ctx.followup.send(f"```json\n{ngo_data}```")
-		else:
-			try:
-				await ctx.followup.send(input2)
-			except:
-				await ctx.followup.send("そのキーは存在しません。")
+		await ctx.followup.send(f"```json\n{ngo_data}```")
 
+	elif input == "20220920":
+		await ctx.followup.send(f"覚えてくれていてありがとう！")
+	elif input == "面白くない":
+		await ctx.followup.send(f"覚えてろよ")
 	else:
 		await ctx.followup.send(input)

@@ -30,18 +30,18 @@
         "apple_1": 0
     },
     "omikuji": {
-        "roll": 0,
+        "roll": 637,
         "musubi": {
-            "musubi_count": 0,
-            "target_number": 7
+            "musubi_count": 13,
+            "target_number": 58
         },
-        "Luck_00": 0,
-        "Luck_01": 0,
-        "Luck_02": 0,
-        "Luck_03": 0,
-        "Luck_04": 0,
-        "Luck_05": 0,
-        "Luck_06": 0,
-        "Luck_07": 0
+        "Luck_00": 10,
+        "Luck_01": 5,
+        "Luck_02": 112,
+        "Luck_03": 207,
+        "Luck_04": 204,
+        "Luck_05": 91,
+        "Luck_06": 6,
+        "Luck_07": 2
     }
 }

@@ -32,6 +32,7 @@ async def wpn(ctx: I.discord.Interaction, weapontype: WeaponType):
     "ファントム", 
     "ヴァンダル",
     "マーシャル", 
+    "アウトロー",
     "オペレーター", 
     "アレス", 
     "オーディン"
