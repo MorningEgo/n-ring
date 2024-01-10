@@ -8,8 +8,8 @@ _ready
 
 ####################################################################
 # Test
-from command_files import testcm
-testcm
+from command_files import debug_cmd
+debug_cmd
 
 ####################################################################
 # ライブモード
