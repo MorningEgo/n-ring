@@ -41,5 +41,6 @@ sp3_temp = [
   ["sp", "p_mtm", "sp_mtm", "マルチミサイル"],
   ["sp", "p_ncd", "sp_ncd", "ナイスダマ"],
   ["sp", "p_jtp", "sp_jtp", "ジェットパック"],
-  ["sp", "p_uth", "sp_uth", "ウルトラハンコ"]
+  ["sp", "p_uth", "sp_uth", "ウルトラハンコ"],
+  ["sp", "p_smn", "sp_smn", "スミナガシート"]
 ]
