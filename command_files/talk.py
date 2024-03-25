@@ -1,6 +1,4 @@
 import define_first as I
-
-
 @I.client.event
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 async def on_message(message):
@@ -24,7 +22,7 @@ async def on_message(message):
 			"タルコフ",
 			"ンゴチャレンジ"
 		]
-
+		choice_games = I.random.choice(games)
 
 		ngo = [
 		"ンゴだよ～",
@@ -32,13 +30,13 @@ async def on_message(message):
 		"ンゴいるンゴ",
 		"ンゴ～",
 		""
-		f"{message.user.nick}じゃん、どしたの",
+		f"{message.author.nick}じゃん、どしたの",
 		f""
 		"やっほ～",
 		"むむ",
 		"なんだァ...？テメェ...",
-		f"{games}やらない？やらんか...",
-		f"{games}、最近ハマってるんだよね",
+		f"{choice_games}やらない？やらんか...",
+		f"{choice_games}、最近ハマってるんだよね",
 		"わかる",
 		"呼んだ？",
 		"呼ばれた気がしたんだよね、ココで",
@@ -48,4 +46,4 @@ async def on_message(message):
 
 		]
 		choice = I.random.choice(ngo)
-		await I.reply(f"{choice}")
+		await message.reply(f"{choice}")
