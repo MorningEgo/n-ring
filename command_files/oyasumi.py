@@ -13,7 +13,7 @@ async def oyasumi(ctx:I.discord.Interaction, comment: str = None):
   Week = I.datetime.weekday(now)
   weekday = weekjp[Week]
   nowstr = I.datetime.strftime(now, f'%m月%d日({weekday}) %H時%M分%S秒')
-  E = I.discord.Embed(title="ねます", description=f"{nowstr}に一日を終えました")
+  E = I.discord.Embed(title="ねます", description=f"{nowstr}に一日を終えました",color=0x1810c7)
   E.set_thumbnail(url="attachment://image.png")
   username = ctx.user.nick
   if username is None:

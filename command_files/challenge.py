@@ -3,13 +3,18 @@ import random
 
 @I.tree.command(name="ンゴチャレンジ", description="「んごりンゴ」の文字列を揃えるチャレンジです。")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
-async def challenge(ctx:I.discord.Interaction):
+async def challenge(ctx:I.discord.Interaction, HardMode: bool = None):
   await ctx.response.defer(thinking=True)
   N = ["ん","ご","り","ン","ゴ"]
   A = []
-  for _ in range(random.randint(1, 20)):
-    R = random.choice(N)
-    A.append(R)
+  if HardMode is True:
+    for _ in range(random.randint(1, 20)):
+      R = random.choice(N)
+      A.append(R)
+  elif HardMode is None or HardMode is False:
+    for _ in range(random.randint(1, 10)):
+      R = random.choice(N)
+      A.append(R)
   
   _ = ''.join(A)
   match = ""
@@ -35,7 +40,7 @@ async def challenge(ctx:I.discord.Interaction):
     match = "\n\n\n\n### D  O  U  B  L  E    N    G    O"
     # 5005 NP
   elif _ == "んごりンゴんごりンゴんごりンゴ":
-    match = "\n\n\n\n### T  R  I  P  L  E    N    G    O"
+    match = "\n\n\n\n## T  R  I  P  L  E    N    G    O"
     # 50505 NP
   elif _ == "んごりンゴんごりンゴんごりンゴんごりンゴ":
     match = "\n\n\n\n# _N  G  O      P  A  R  T  Y_"
@@ -57,5 +62,5 @@ async def challenge(ctx:I.discord.Interaction):
   elif _ == "ごんり":
     match = "\n\n\N{Red Apple}"
   
-  
-  await ctx.followup.send(f"## {_}！！！{match}")
+  if HardMode is True:
+    await ctx.followup.send(f"## {_}！！！{match}\n`ハードモード有効`")

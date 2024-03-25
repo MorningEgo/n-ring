@@ -13,7 +13,7 @@ async def ohayou(ctx:I.discord.Interaction, comment: str = None):
   Week = I.datetime.weekday(now)
   weekday = weekjp[Week]
   nowstr = I.datetime.strftime(now, f'%m月%d日({weekday}) %H時%M分%S秒')
-  E = I.discord.Embed(title="おきました", description=f"{nowstr}に起きました")
+  E = I.discord.Embed(title="おきました", description=f"{nowstr}に起きました", color=0xfff054)
   E.set_thumbnail(url="attachment://image.png")
   username = ctx.user.nick
   if username is None:

@@ -1,81 +1,101 @@
 map = [
   #1.0.0
   [
-  'ユノハナ大渓谷',
-  "https://img.game8.jp/7196432/5ee0bbe2c33aabcd2072d01b476c34e1.png/show"
+    "ユノハナ大渓谷",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/1/1c/S3_Stage_Scorch_Gorge.png"
   ],
   [
-  "ゴンズイ地区",
-  "https://img.game8.jp/7197440/feaef8c08f9b81ac1356d2a934f48abe.png/show"
+    "ゴンズイ地区",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/7/7d/S3_Stage_Eeltail_Alley.png"
   ],
   [
-  "キンメダイ美術館",
-  "https://img.game8.jp/7197389/3d5820c321ab15cebfb073b3dc7e2a7e.png/show"
+    "キンメダイ美術館",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/6/6a/S3_Stage_Museum_d%27Alfonsino.png"
   ],
   [
-  "マテガイ放水路",
-  "https://img.game8.jp/7197419/a2b84166a74fd3a669c90f858298cf6e.png/show"
+    "マテガイ放水路",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/a/ad/S3_Stage_Undertow_Spillway.png"
   ],
   [
-  "ナメロウ金属",
-  "https://img.game8.jp/7694807/980501fe6091f78879e84f154745f2e8.png/show"
+    "ナメロウ金属",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/d/d1/S3_Stage_Mincemeat_Metalworks.png"
   ],
   [
-  "ヤガラ市場",
-  "https://img.game8.jp/7197427/4ec34fccf92c4fcc5cdeaa95bdca14e5.png/show"
+    "ヤガラ市場",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/a/ad/S3_Stage_Hagglefish_Market.png"
   ],
   [
-  "マサバ海峡大橋",
-  "https://img.game8.jp/7197397/482bf7bf64f74591cb47ab3aeced56f8.png/show"
+    "マサバ海峡大橋",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/94/S3_Stage_Hammerhead_Bridge.png"
   ],
   [
-  "マヒマヒリゾート&スパ",
-  "https://img.game8.jp/7197383/529e92b476979baadfb0a7602b812d00.png/show"
+    "マヒマヒリゾート&スパ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/archive/6/6b/20230225034609%21S3_Stage_Mahi-Mahi_Resort.png"
   ],
   [
-  "海女美術大学",
-  "https://img.game8.jp/7197373/a5e6c50a91b53dfd08d89d2b8363cebd.png/show"
+    "海女美術大学",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/45/S3_Stage_Inkblot_Art_Academy.png"
   ],
   [
-  "チョウザメ造船",
-  "https://img.game8.jp/7197361/7e1463ffe99df08e5c5799937de1770f.png/show"
+    "チョウザメ造船",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/45/S3_Stage_Sturgeon_Shipyard.png"
   ],
   [
-  "ザトウマーケット",
-  "https://img.game8.jp/7197341/918c6800e389abef8a4761dd5eb4f2b2.png/show"
+    "ザトウマーケット",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/47/S3_Stage_MakoMart.png"
   ],
   [
-  "スメーシーワールド",
-  "https://img.game8.jp/7197312/5c75dc8ac716aa9aa2f87f2b7619a227.png/show"
+    "スメーシーワールド",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/7/71/S3_Stage_Wahoo_World.png"
   ],
   ## 2.0.0
   [
-  "クサヤ温泉",
-  "https://img.game8.jp/7454566/37bd85831bc6b5c51539bd564ec47b9f.png/show"
+    "クサヤ温泉",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/f/fc/S3_Stage_Brinewater_Springs.png"
   ],
   [
-  "ヒラメが丘団地",
-  "https://img.game8.jp/7454115/8c0b81a8b6035d35d2605b9d6707f27d.png/show"
+    "ヒラメが丘団地",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/2/23/S3_Stage_Flounder_Heights.png"
   ],
   ## 3.0.0
   [
-  "ナンプラー遺跡",
-  "https://img.game8.jp/7770429/cc1567d56a9563374e4d65235dd63235.png/show"
+    "ナンプラー遺跡",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/95/S3_Stage_Um%27ami_Ruins.png"
   ],
   [
-  "マンタマリア号",
-  "https://img.game8.jp/7773580/dd103c0d5f9fd03241511cab07264a8d.png/show"
+    "マンタマリア号",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/8/86/S3_Stage_Manta_Maria.png"
   ],
   ## 4.0.0
   [
     "タラポートショッピングパーク",
-    "https://img.game8.jp/8098948/1f5ba50f492ac40af03cb80f8959e4da.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/2/2a/S3_Stage_Barnacle_%26_Dime.png"
   ],
   [
     "コンブトラック",
-    "https://img.game8.jp/8098949/edf5348be354f318ecfdcce2a9518ba2.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/5/57/S3_Stage_Humpback_Pump_Track.png"
   ],
   ## 5.0.0
-  #["タカアシ経済特区",""],
-  #["オヒョウ海運",""],
+  [
+    "タカアシ経済特区",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/b/bb/S3_Stage_Crableg_Capital.png"
+  ],
+  [
+    "オヒョウ海運",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/8/8b/S3_Stage_Shipshape_Cargo_Co..png"
+  ],
+  ## 6.0.0
+  [
+    "バイガイ亭",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/92/S3_Stage_Robo_ROM-en.png"
+  ],
+  [
+    "ネギトロ炭鉱",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/6/69/S3_Stage_Bluefin_Depot.png"
+  ],
+  ## 7.0.0
+  [
+    "カジキ空港",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/b/b6/S3_Stage_Marlin_Airport.png"
+  ]
 ]

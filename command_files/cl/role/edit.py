@@ -16,7 +16,6 @@ from command_files.cl.cl import R
 async def edit(ctx: I.discord.Interaction, editrole: I.discord.Role, name: str = None, color: int = None, mentionable: bool = None, schedule: str = None):
 	await ctx.response.defer(thinking=True)
 	JST = I.timezone(I.timedelta(hours=+9), 'JST')
-	time = I.datetime.utcnow()
 	now = I.datetime.now(JST)
 	oldname = editrole.name
 	oldcolor = editrole.color
@@ -117,7 +116,7 @@ async def edit(ctx: I.discord.Interaction, editrole: I.discord.Role, name: str =
 							color = setcolor,
 							title = "ロールの設定を変更しました！",
 							description = "必ず入力した内容を確認してください。\nミスがあった場合はもう一度設定してください。",
-							timestamp = time
+							timestamp = now
 						)
 					else:
 						nowtimestamp = I.datetime.now(JST).strftime('%Y%m%d%H%M%S%f')
@@ -160,7 +159,7 @@ async def edit(ctx: I.discord.Interaction, editrole: I.discord.Role, name: str =
 							color = setcolor,
 							title = "変更を予約しました！",
 							description = "必ず入力した内容を確認してください。\nミスがあった場合は[</cl role delete_schedule:1137310779033526302>]で予約を削除してください。",
-							timestamp = time
+							timestamp = now
 						)
 						embed.add_field(
 							name = "実行タイプ",

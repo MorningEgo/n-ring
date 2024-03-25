@@ -36,7 +36,7 @@ async def omikuji(ctx:I.discord.Interaction):
     
     item_levels = []
 
-    # 確変チェック
+    # 確定演出チェック
     if ngo_data['omikuji']['musubi']['target_number'] == 0:
         ngo_data['omikuji']['musubi']['musubi_count'] = ngo_data['omikuji']['musubi']['musubi_count'] + 1
         ngo_data['omikuji']['musubi']['target_number'] = I.random.randrange(start=30,stop=77)

@@ -28,7 +28,7 @@ async def map(ctx: I.discord.Interaction, game: Game):
 
 		embed = I.discord.Embed(
       color=0xf0fc3c,
-      title=f"次のマップは{choice[0]}だっ！",
+      title=f"次のマップは**{choice[0]}**だっ！",
 		)
 		embed.set_image(url=f"{choice[1]}")
 		await ctx.response.send_message(embed=embed)

@@ -4,291 +4,354 @@ sp3_wpn_all = [
   ## 1.0.0
   [
     "シューター", "わかばシューター", "スプラッシュボム", "グレートバリア",
-    "https://img.game8.jp/7148627/09d5a8b68bbba723e7c88a1714426861.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/8/81/S3_Weapon_Main_Splattershot_Jr._2D_Current.png"
   ],
   [
     "シューター", "スプラシューター", "キューバンボム", "ウルトラショット",
-    "https://img.game8.jp/7148643/4e06ead46c6555012efe69eb304a7a05.png/show"
+    "https://splatoonwiki.org/wiki/File:S3_Weapon_Main_Splattershot_2D_Current.png"
   ],
   [
     "シューター", "ボールドマーカー", "カーリングボム", "ウルトラハンコ",
-    "https://img.game8.jp/7148618/eb18396687d5d85388992084b7787198.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/d/da/S3_Weapon_Main_Sploosh-o-matic_2D_Current.png"
   ],
   [
     "シューター", "シャープマーカー", "クイックボム", "カニタンク",
-    "https://img.game8.jp/7148600/0c66d7d2fa119eb20bced330b9aeb035.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/4c/S3_Weapon_Main_Splash-o-matic_2D_Current.png"
   ],
   [
     "シューター", "プロモデラーMG", "タンサンボム", "サメライド",
-    "https://img.game8.jp/7148609/cfc5a5064b90a59b70537a65312c0755.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/2/22/S3_Weapon_Main_Aerospray_MG_2D_Current.png"
   ],
   [
     "シューター", "N-ZAP85", "キューバンボム", "エナジースタンド",
-    "https://img.game8.jp/7148602/316e55e56eaa4df73e4867b2fab4e4ec.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/1/1d/S3_Weapon_Main_N-ZAP_%2785_2D_Current.png"
   ],
   [
     "シューター", "プライムシューター", "ラインマーカー", "カニタンク",
-    "https://img.game8.jp/7148617/ff4b56f2126407af71a12e1cd383edc1.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/1/1c/S3_Weapon_Main_Splattershot_Pro_2D_Current.png"
   ],
   [
     "シューター", ".52ガロン", "スプラッシュシールド", "メガホンレーザー5.1ch",
-    "https://img.game8.jp/7148594/c0d4f5dc565d07d0cd242d805872cd58.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/4d/S3_Weapon_Main_.52_Gal_2D_Current.png"
   ],
   [
     "シューター", ".96ガロン", "スプリンクラー", "キューインキ",
-    "https://img.game8.jp/7148593/27085e4df514d879cd658dd1e117af08.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/6/66/S3_Weapon_Main_.96_Gal_2D_Current.png"
   ],
   [
     "シューター", "L3リールガン", "カーリングボム", "カニタンク",
-    "https://img.game8.jp/7158592/947a5aaccff5af4b56e3a67479c1034c.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/1/10/S3_Weapon_Main_L-3_Nozzlenose_2D_Current.png"
   ],
   [
     "シューター", "H3リールガン", "ポイントセンサー", "エナジースタンド",
-    "https://img.game8.jp/7158594/710adc47626c626c8f1d934d1137ad0b.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/91/S3_Weapon_Main_H-3_Nozzlenose_2D_Current.png"
   ],
   [
     "シューター", "ジェットスイーパー", "ラインマーカー", "キューインキ",
-    "https://img.game8.jp/7148641/1e02d396f45617c29a3adee2150cacdc.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/90/S3_Weapon_Main_Jet_Squelcher_2D_Current.png"
+  ],
+  [
+    "シューター", "ボトルガイザー", "スプラッシュシールド", "ウルトラショット",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/e/e5/S3_Weapon_Main_Squeezer_2D_Current.png"
   ],
   ## 2.0.0
   [
     "シューター", "もみじシューター", "トーピード", "ホップソナー",
-    "https://img.game8.jp/7495588/cde90b4a4941271210bbd709e57c272b.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/f/f2/S3_Weapon_Main_Custom_Splattershot_Jr._2D_Current.png"
   ],
   [
     "シューター", "スプラシューターコラボ", "スプラッシュボム", "トリプルトルネード",
-    "https://img.game8.jp/7495587/675e167855f0a04ade8c7ed0ff779b04.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/7/79/S3_Weapon_Main_Tentatek_Splattershot_2D_Current.png"
   ],
   [
     "シューター", "プロモデラーRG", "スプリンクラー", "ナイスダマ",
-    "https://img.game8.jp/7495589/ca7b90870078eb9e6d4f21bb0dd41dee.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/a/aa/S3_Weapon_Main_Aerospray_RG_2D_Current.png"
   ],
   [
     "シューター", "プライムシューターコラボ", "キューバンボム", "ナイスダマ",
-    "https://img.game8.jp/7495598/52cde296df562ffe145f2c6f6a84f613.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/a/a9/S3_Weapon_Main_Forge_Splattershot_Pro_2D_Current.png"
   ],
   [
     "シューター", "スペースシューター", "ポイントセンサー", "メガホンレーザー5.1ch",
-    "https://img.game8.jp/7495591/2cee92461905fc08f5190b14bf0daa1c.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/1/13/S3_Weapon_Main_Splattershot_Nova_2D_Current.png"
   ],
   ## 3.0.0
   [
     "シューター", "ボールドマーカーネオ", "ジャンプビーコン", "メガホンレーザー5.1ch",
-    "https://img.game8.jp/7805299/3f83f1b384fac121765089a4028f5e96.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/3/37/S3_Weapon_Main_Neo_Sploosh-o-matic_2D_Current.png"
   ],
   [
     "シューター", "シャープマーカーネオ", "キューバンボム", "トリプルトルネード",
-    "https://img.game8.jp/7805289/e3fc57e1b04da22ec567c873860955f8.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/e/e8/S3_Weapon_Main_Neo_Splash-o-matic_2D_Current.png"
   ],
   [
     "シューター", "N-ZAP89", "ロボットボム", "デコイチラシ",
-    "https://img.game8.jp/7805262/d028f830d6abb69162fecc79c56d6047.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/5/59/S3_Weapon_Main_N-ZAP_%2789_2D_Current.png"
   ],
   [
     "シューター", ".96ガロンデコ", "スプラッシュシールド", "テイオウイカ",
-    "https://img.game8.jp/7805258/be4a802485f9d47676d22c0696bcc100.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/1/1f/S3_Weapon_Main_.96_Gal_Deco_2D_Current.png"
   ],
   [
     "シューター", "L3リールガンD", "クイックボム", "ウルトラハンコ",
-    "https://img.game8.jp/7805274/032ccc5508e6a61026a805b54622cf59.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/2/25/S3_Weapon_Main_L-3_Nozzlenose_D_2D_Current.png"
   ],
   [
     "シューター", "ジェットスイーパーカスタム", "ポイズンミスト", "アメフラシ",
-    "https://img.game8.jp/7805293/71533755ec22bd83495a284056b69cd6.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/b/b7/S3_Weapon_Main_Custom_Jet_Squelcher_2D_Current.png"
   ],
   ## 4.0.0
   [
     "シューター", "H3リールガンD", "スプラッシュシールド", "グレートバリア", 
-    "https://img.game8.jp/8111112/db839133703a4340f35be209cdc39eed.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/7/7b/S3_Weapon_Main_H-3_Nozzlenose_D_2D_Current.png"
   ],
   [
     "シューター", "スペースシューターコラボ", "トラップ", "ジェットパック", 
-    "https://img.game8.jp/8111087/7e9cd6b40b5f9f4a866107744fef9cf5.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/0/08/S3_Weapon_Main_Annaki_Splattershot_Nova_2D_Current.png"
   ],
-  
+  ## 6.0.0
+  [
+    "シューター","ボトルガイザーフォイル","ロボットボム","スミナガシート",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/b/b1/S3_Weapon_Main_Foil_Squeezer_2D_Current.png"
+  ],
+  ## 7.0.0
+  [
+    "シューター",".52ガロンデコ","カーリングボム","スミナガシート",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/3/3b/S3_Weapon_Main_.52_Gal_Deco_2D_Current.png"
+  ],
+
+
+
   #############################################################
   # ローラー
   ## 1.0.0
   [
     "ローラー", "カーボンローラー", "ロボットボム", "ショクワンダー",
-    "https://img.game8.jp/7158596/b1018c374eaa935c887f76c93273ac86.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/6/65/S3_Weapon_Main_Carbon_Roller_2D_Current.png"
   ],
   [
     "ローラー", "スプラローラー", "カーリングボム", "グレートバリア",
-    "https://img.game8.jp/7148614/572c38d3ef656ea9b78b6e2ec50a2c2b.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/7/70/S3_Weapon_Main_Splat_Roller_2D_Current.png"
   ],
   [
     "ローラー", "ダイナモローラー", "スプリンクラー", "エナジースタンド",
-    "https://img.game8.jp/7148625/6c7cbb9ffb432b83a9132f415d53b410.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/98/S3_Weapon_Main_Dynamo_Roller_2D_Current.png"
   ],
   [
     "ローラー", "ヴァリアブルローラー", "トラップ", "マルチミサイル",
-    "https://img.game8.jp/7148604/1451ddc947988ee9838ab655c351c590.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/b/bc/S3_Weapon_Main_Flingza_Roller_2D_Current.png"
   ],
   ## 2.0.0
   [
     "ローラー", "カーボンローラーデコ", "クイックボム", "ウルトラショット",
-    "https://img.game8.jp/7495595/cff19021d3d821c7063251eacf91a130.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/7/7d/S3_Weapon_Main_Carbon_Roller_Deco_2D_Current.png"
   ],
   [
     "ローラー", "ワイドローラー", "スプラッシュシールド", "キューインキ",
-    "https://img.game8.jp/7495590/3e13e7fe95057d1f75604bcdbd8b08fb.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/49/S3_Weapon_Main_Big_Swig_Roller_2D_Current.png"
   ],
   ## 3.0.0
   [
     "ローラー", "スプラローラーコラボ", "ジャンプビーコン", "テイオウイカ",
-    "https://img.game8.jp/7805257/3530d25a77799328ab3ac198e8257a38.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/f/f4/S3_Weapon_Main_Krak-On_Splat_Roller_2D_Current.png"
   ],
   ## 4.0.0
   [
     "ローラー", "ワイドローラーコラボ", "ラインマーカー", "アメフラシ", 
-    "https://img.game8.jp/8111099/f1404a52a861ec1a90d2c781eaf0c5fe.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/d/dc/S3_Weapon_Main_Big_Swig_Roller_Express_2D_Current.png"
   ],
   ## 5.0.0
-  #[
-  #  "ローラー", "ダイナモローラーテスラ", "スプラッシュボム", "デコイチラシ",
-  #  ""
-  #],
+  [
+    "ローラー", "ダイナモローラーテスラ", "スプラッシュボム", "デコイチラシ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/7/75/S3_Weapon_Main_Gold_Dynamo_Roller_2D_Current.png"
+  ],
+  ## 7.0.0
+  [
+    "ローラー","ヴァリアブルローラーフォイル","キューバンボム","スミナガシート",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/e/e8/S3_Weapon_Main_Foil_Flingza_Roller_2D_Current.png"
+  ],
   
+
+
   #############################################################
   # チャージャー
   ## 1.0.0
   [
     "チャージャー", "スプラチャージャー", "スプラッシュボム", "キューインキ",
-    "https://img.game8.jp/7148610/f867d05747c2af70da4e2ee71f65f6f8.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/d/d5/S3_Weapon_Main_Splat_Charger_2D_Current.png"
   ],
   [
     "チャージャー", "スプラスコープ", "スプラッシュボム", "キューインキ",
-    "https://img.game8.jp/7148623/eaa9118201d3e1c04270e6dea43b19a9.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/93/S3_Weapon_Main_Splatterscope_2D_Current.png"
   ],
   [
     "チャージャー", "スクイックリンα", "ポイントセンサー", "グレートバリア",
-    "https://img.game8.jp/7148631/db83352071b5dd7a630b85a6e9e2e2ba.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/d/d3/S3_Weapon_Main_Classic_Squiffer_2D_Current.png"
   ],
   [
     "チャージャー", "リッター4K", "トラップ", "ホップソナー",
-    "https://img.game8.jp/7148616/e439af25bab82fc7448a25e44f186c8f.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/5/51/S3_Weapon_Main_E-liter_4K_2D_Current.png"
   ],
   [
     "チャージャー", "4Kスコープ", "トラップ", "ホップソナー",
-    "https://img.game8.jp/7148634/36064e1be6436357fd4b82cfdaf14945.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/8/88/S3_Weapon_Main_E-liter_4K_Scope_2D_Current.png"
   ],
   [
     "チャージャー", "14式竹筒銃・甲", "ロボットボム", "メガホンレーザー5.1ch",
-    "https://img.game8.jp/7158590/82dff8d9a64dc11f5f8b1e1ed9d75b4b.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/8/83/S3_Weapon_Main_Bamboozler_14_Mk_I_2D_Current.png"
   ],
   [
     "チャージャー", "ソイチューバー", "トーピード", "マルチミサイル",
-    "https://img.game8.jp/7158875/18f33ff466d7e0a2ce2256fac1d7e752.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/5/5a/S3_Weapon_Main_Goo_Tuber_2D_Current.png"
   ],
   ## 2.0.0
   [
     "チャージャー", "R-PEN/5H", "スプリンクラー", "エナジースタンド",
-    "https://img.game8.jp/7495592/ba433b581dbc5d58795f881d36167894.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/8/8a/S3_Weapon_Main_Snipewriter_5H_2D_Current.png"
   ],
   ## 3.0.0
   [
     "チャージャー", "スプラチャージャーコラボ", "スプラッシュシールド", "トリプルトルネード",
-    "https://img.game8.jp/7805268/4abed768445a8ee9fb52f2c44109d0a9.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/43/S3_Weapon_Main_Z%2BF_Splat_Charger_2D_Current.png"
   ],
   [
     "チャージャー", "スプラスコープコラボ", "スプラッシュシールド", "トリプルトルネード",
-    "https://img.game8.jp/7805272/a838bce961e48d2adf62c47149061356.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/a/ad/S3_Weapon_Main_Z%2BF_Splatterscope_2D_Current.png"
   ],
   ## 5.0.0
-  #[
-  #  "チャージャー", "ソイチューバーカスタム", "タンサンボム", "ウルトラハンコ",
-  #  ""
-  #],
-  
+  [
+    "チャージャー", "ソイチューバーカスタム", "タンサンボム", "ウルトラハンコ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/8/81/S3_Weapon_Main_Custom_Goo_Tuber_2D_Current.png"
+  ],
+  ## 6.0.0
+  [
+    "チャージャー","R-PEN/5B","スプラッシュシールド","アメフラシ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/7/7c/S3_Weapon_Main_Snipewriter_5B_2D_Current.png"
+  ],
+  ## 7.0.0
+  [
+    "チャージャー","スクイックリンβ","ロボットボム","ショクワンダー",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/e/ed/S3_Weapon_Main_New_Squiffer_2D_Current.png"
+  ],
+  [
+    "チャージャー","リッター4Kカスタム","ジャンプビーコン","テイオウイカ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/c/c7/S3_Weapon_Main_Custom_E-liter_4K_2D_Current.png"
+  ],
+  [
+    "チャージャー","4Kスコープカスタム","ジャンプビーコン","テイオウイカ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/8/85/S3_Weapon_Main_Custom_E-liter_4K_Scope_2D_Current.png"
+  ],
+
+
+
   #############################################################
   # スピナー
   ## 1.0.0
   [
     "スピナー", "バレルスピナー", "スプリンクラー", "ホップソナー",
-    "https://img.game8.jp/7148612/f07dec1cf225b05848ad6232e4df30fc.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/e/e3/S3_Weapon_Main_Heavy_Splatling_2D_Current.png"
   ],
   [
     "スピナー", "スプラスピナー", "クイックボム", "ウルトラハンコ",
-    "https://img.game8.jp/7158616/9d1e1d13ceef6458d128b571a5fb2269.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/94/S3_Weapon_Main_Mini_Splatling_2D_Current.png"
   ],
   [
     "スピナー", "ハイドラント", "ロボットボム", "ナイスダマ",
-    "https://img.game8.jp/7148621/30bb568f12b4457c59e1d3fd85ccd754.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/3/3d/S3_Weapon_Main_Hydra_Splatling_2D_Current.png"
   ],
   [
     "スピナー", "ノーチラス47", "ポイントセンサー", "アメフラシ",
-    "https://img.game8.jp/7158607/18f310a126aee708e1cc136ea92d9388.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/c/cf/S3_Weapon_Main_Nautilus_47_2D_Current.png"
   ],
   [
     "スピナー", "クーゲルシュライバー", "タンサンボム", "ジェットパック",
-    "https://img.game8.jp/7158595/0963f84527306ca195019bbb78888809.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/44/S3_Weapon_Main_Ballpoint_Splatling_2D_Current.png"
   ],
   ## 2.0.0
   [
     "スピナー", "スプラスピナーコラボ", "ポイズンミスト", "グレートバリア",
-    "https://img.game8.jp/7495596/5f1222656f792c5a338dced465e8db42.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/96/S3_Weapon_Main_Zink_Mini_Splatling_2D_Current.png"
   ],
   ## 4.0.0
   [
     "スピナー", "バレルスピナーデコ", "ポイントセンサー", "テイオウイカ", 
-    "https://img.game8.jp/8111095/d8333621af2d533d9c45c6691686076b.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/49/S3_Weapon_Main_Heavy_Splatling_Deco_2D_Current.png"
   ],
   ## 5.0.0
-  #[
-  #  "スピナー", "クーゲルシュライバーヒュー", "トラップ", "キューインキ",
-  #  ""
-  #],
-  #[
-  #  "スピナー", "イグザミナー", "カーリングボム", "エナジースタンド",
-  #  ""
-  #],
-  
+  [
+    "スピナー", "クーゲルシュライバーヒュー", "トラップ", "キューインキ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/c/ce/S3_Weapon_Main_Ballpoint_Splatling_Nouveau_2D_Current.png"
+  ],
+  [
+    "スピナー", "イグザミナー", "カーリングボム", "エナジースタンド",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/2/24/S3_Weapon_Main_Heavy_Edit_Splatling_2D_Current.png"
+  ],
+  ## 7.0.0
+  [
+    "スピナー","ノーチラス79","キューバンボム","ウルトラチャクチ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/3/33/S3_Weapon_Main_Nautilus_79_2D_Current.png"
+  ],
+
+
+
   #############################################################
   # ブラスター
   ## 1.0.0
   [
     "ブラスター", "ホットブラスター", "ロボットボム", "グレートバリア",
-    "https://img.game8.jp/7148628/e7284a4a8c67eae74c6b3c3b56cbbafe.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/5/5e/S3_Weapon_Main_Blaster_2D_Current.png"
   ],
   [
     "ブラスター", "ロングブラスター", "キューバンボム", "ホップソナー",
-    "https://img.game8.jp/7148636/f7af7bcc5f2f2addf986e76ab31daea0.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/0/00/S3_Weapon_Main_Range_Blaster_2D_Current.png"
   ],
   [
     "ブラスター", "ラピッドブラスター", "トラップ", "トリプルトルネード",
-    "https://img.game8.jp/7158606/011d9e678754a1aaf230dd2cae9d5b56.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/1/15/S3_Weapon_Main_Rapid_Blaster_2D_Current.png"
   ],
   [
     "ブラスター", "Rブラスターエリート", "ポイズンミスト", "キューインキ",
-    "https://img.game8.jp/7158593/922df3d936a7e045e9b5973ae7cf8ef1.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/6/6c/S3_Weapon_Main_Rapid_Blaster_Pro_2D_Current.png"
   ],
   [
     "ブラスター", "ノヴァブラスター", "スプラッシュボム", "ショクワンダー",
-    "https://img.game8.jp/7148622/d9f9c73053cf62a68f64ffdb978bc8d9.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/3/37/S3_Weapon_Main_Luna_Blaster_2D_Current.png"
   ],
   [
     "ブラスター", "クラッシュブラスター", "スプラッシュボム", "ウルトラショット",
-    "https://img.game8.jp/7158597/5b49e333dc22fb4da27056410f7aed72.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/6/62/S3_Weapon_Main_Clash_Blaster_2D_Current.png"
   ],
   ## 2.0.0
   [
     "ブラスター", "ノヴァブラスターネオ", "タンサンボム", "ウルトラハンコ",
-    "https://img.game8.jp/7495594/9ecaeae7626b4463d697bdb65ac5b2c6.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/2/2d/S3_Weapon_Main_Luna_Blaster_Neo_2D_Current.png"
   ],
   ## 3.0.0
   [
     "ブラスター", "ラピッドブラスターデコ", "トーピード", "ジェットパック",
-    "https://img.game8.jp/7805283/3a62ddd6e0896a63816c1e31a1d71687.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/0/02/S3_Weapon_Main_Rapid_Blaster_Deco_2D_Current.png"
   ],
   [
     "ブラスター", "クラッシュブラスターネオ", "カーリングボム", "デコイチラシ",
-    "https://img.game8.jp/7805264/874bc59b22d03933428a3a71750698b7.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/7/7e/S3_Weapon_Main_Clash_Blaster_Neo_2D_Current.png"
   ],
   ## 4.0.0
   [
     "ブラスター", "Rブラスターエリートデコ", "ラインマーカー", "メガホンレーザー5.1ch", 
-    "https://img.game8.jp/8111115/2dada8f38ea12b5c09afcd9ef090fd76.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/c/ce/S3_Weapon_Main_Rapid_Blaster_Pro_Deco_2D_Current.png"
+  ],
+  [
+    "ブラスター", "S-BLAST92", "スプリンクラー", "サメライド",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/e/e7/S3_Weapon_Main_S-BLAST_%2792_2D_Current.png"
+  ],
+  ## 6.0.0
+  [
+    "ブラスター","ホットブラスターカスタム","ポイントセンサー","ウルトラチャクチ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/5/57/S3_Weapon_Main_Custom_Blaster_2D_Current.png"
+  ],
+  [
+    "ブラスター","S-BLAST91","クイックボム","ナイスダマ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/a/ad/S3_Weapon_Main_S-BLAST_%2791_2D_Current.png"
   ],
   
   #############################################################
@@ -296,110 +359,147 @@ sp3_wpn_all = [
   ## 1.0.0
   [
     "フデ", "パブロ", "スプラッシュボム", "メガホンレーザー5.1ch",
-    "https://img.game8.jp/7148608/2e0eebe74944b411f32bb39edecb9f27.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/d/d4/S3_Weapon_Main_Inkbrush_2D_Current.png"
   ],
   [
     "フデ", "ホクサイ", "キューバンボム", "ショクワンダー",
-    "https://img.game8.jp/7148615/5cae276144e2243fd5aa84a593798c20.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/0/04/S3_Weapon_Main_Octobrush_2D_Current.png"
   ],
   ## 2.0.0
   [
     "フデ", "パブロ・ヒュー", "トラップ", "ウルトラハンコ",
-    "https://img.game8.jp/7495597/e904a46e7b53d5cee0ded48b554b6a23.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/4a/S3_Weapon_Main_Inkbrush_Nouveau_2D_Current.png"
+  ],
+  ## 4.0.0
+  [
+    "フデ", "フィンセント", "カーリングボム", "ホップソナー",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/3/30/S3_Weapon_Main_Painbrush_2D_Current.png"
   ],
   ## 5.0.0
-  #[
-  #  "フデ", "ホクサイ・ヒュー", "ジャンプビーコン", "アメフラシ",
-  #  ""
-  #],
+  [
+    "フデ", "ホクサイ・ヒュー", "ジャンプビーコン", "アメフラシ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/4a/S3_Weapon_Main_Octobrush_Nouveau_2D_Current.png"
+  ],
+  ## 6.0.0
+  [
+    "フデ","フィンセント・ヒュー","ポイントセンサー","マルチミサイル",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/0/07/S3_Weapon_Main_Painbrush_Nouveau_2D_Current.png"
+  ],
   
   #############################################################
   # スロッシャー
   ## 1.0.0
   [
     "スロッシャー", "バケットスロッシャー", "スプラッシュボム", "トリプルトルネード",
-    "https://img.game8.jp/7148632/ae16f76fbcd89ec2ef2394386e61f9b0.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/9a/S3_Weapon_Main_Slosher_2D_Current.png"
   ],
   [
     "スロッシャー", "ヒッセン", "ポイズンミスト", "ジェットパック",
-    "https://img.game8.jp/7148637/292fadcef5d154f1b016ae76b305e72e.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/49/S3_Weapon_Main_Tri-Slosher_2D_Current.png"
   ],
   [
     "スロッシャー", "スクリュースロッシャー", "タンサンボム", "ナイスダマ",
-    "https://img.game8.jp/7158608/430982c19701243004f68dd4026200d7.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/0/0f/S3_Weapon_Main_Sloshing_Machine_2D_Current.png"
   ],
   [
     "スロッシャー", "オーバーフロッシャー", "スプリンクラー", "アメフラシ",
-    "https://img.game8.jp/7158591/41a9e3ec14ee99e022b3880df4de4569.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/3/3e/S3_Weapon_Main_Bloblobber_2D_Current.png"
   ],
   [
     "スロッシャー", "エクスプロッシャー", "ポイントセンサー", "アメフラシ",
-    "https://img.game8.jp/7148619/2a418cddc4733bffe76283a9b60ac7db.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/0/0d/S3_Weapon_Main_Explosher_2D_Current.png"
   ],
   ## 2.0.0
   [
     "スロッシャー", "バケットスロッシャーデコ", "ラインマーカー", "ショクワンダー",
-    "https://img.game8.jp/7495599/811df48a3ad21d1bd7375068980722c0.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/b/b0/S3_Weapon_Main_Slosher_Deco_2D_Current.png"
   ],
   ## 3.0.0
   [
     "スロッシャー", "ヒッセン・ヒュー", "タンサンボム", "エナジースタンド",
-    "https://img.game8.jp/7805296/d8ce82ad7e8f32fda673f3b661955d44.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/1/15/S3_Weapon_Main_Tri-Slosher_Nouveau_2D_Current.png"
   ],
   ## 5.0.0
-  #[
-  #  "スロッシャー", "スクリュースロッシャーネオ", "ポイントセンサー", "ウルトラショット",
-  #  ""
-  #],
-  #[
-  #  "スロッシャー", "オーバーフロッシャーデコ", "ラインマーカー", "テイオウイカ",
-  #  ""
-  #],
-  #[
-  #  "スロッシャー", "モップリン", "キューバンボム", "サメライド",
-  #  ""
-  #],
-  
+  [
+    "スロッシャー", "スクリュースロッシャーネオ", "ポイントセンサー", "ウルトラショット",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/c/c4/S3_Weapon_Main_Sloshing_Machine_Neo_2D_Current.png"
+  ],
+  [
+    "スロッシャー", "オーバーフロッシャーデコ", "ラインマーカー", "テイオウイカ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/e/e0/S3_Weapon_Main_Bloblobber_Deco_2D_Current.png"
+  ],
+  [
+    "スロッシャー", "モップリン", "キューバンボム", "サメライド",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/c/c4/S3_Weapon_Main_Dread_Wringer_2D_Current.png"
+  ],
+  ## 7.0.0
+  [
+    "スロッシャー","エクスプロッシャーカスタム","スプラッシュシールド","ウルトラチャクチ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/d/da/S3_Weapon_Main_Custom_Explosher_2D_Current.png"
+  ],
+  [
+    "スロッシャー","モップリンD","ジャンプビーコン","ホップソナー",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/94/S3_Weapon_Main_Dread_Wringer_D_2D_Current.png"
+  ],
+
+
   #############################################################
   # シェルター
   ## 1.0.0
   [
     "シェルター", "パラシェルター", "スプリンクラー", "トリプルトルネード",
-    "https://img.game8.jp/7148629/9fb80ab48c4a4ac8068ffcfcd52b16dc.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/b/b4/S3_Weapon_Main_Splat_Brella_2D_Current.png"
   ],
   [
     "シェルター", "キャンピングシェルター", "ジャンプビーコン", "キューインキ",
-    "https://img.game8.jp/7148639/2bb2395bf138ee8a5bb8b03b3c6dc18c.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/3/39/S3_Weapon_Main_Tenta_Brella_2D_Current.png"
   ],
   [
     "シェルター", "スパイガジェット", "トラップ", "サメライド",
-    "https://img.game8.jp/7148611/bab35fcb26cd453c1140d626a06115cb.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/e/e0/S3_Weapon_Main_Undercover_Brella_2D_Current.png"
   ],
   ## 4.0.0
   [
     "シェルター", "キャンピングシェルターソレーラ", "トラップ", "ウルトラショット",
-    "https://img.game8.jp/8111106/77b5bbd70c43089fb4226d7284bd9234.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/9d/S3_Weapon_Main_Tenta_Sorella_Brella_2D_Current.png"
   ],
   ## 5.0.0
-  #[
-  #  "シェルター", "パラシェルターソレーラ", "ロボットボム", "ジェットパック",
-  #  ""
-  #],
+  [
+    "シェルター", "パラシェルターソレーラ", "ロボットボム", "ジェットパック",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/8/8f/S3_Weapon_Main_Sorella_Brella_2D_Current.png"
+  ],
+  ## 6.0.0
+  [
+    "シェルター","スパイガジェットソレーラ","トーピード","スミナガシート",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/9/9d/S3_Weapon_Main_Undercover_Sorella_Brella_2D_Current.png"
+  ],
+  ## 7.0.0
+  [
+    "シェルター","24式張替傘・甲","ラインマーカー","グレートバリア",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/a/a1/S3_Weapon_Main_Recycled_Brella_24_Mk_I_2D_Current.png"
+  ],
+
+  
   
   #############################################################
   # ワイパー
   ## 1.0.0
   [
     "ワイパー", "ドライブワイパー", "トーピード", "ウルトラハンコ",
-    "https://img.game8.jp/7148642/203c086b3609750b77b76a0de6f09c58.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/1/1f/S3_Weapon_Main_Splatana_Wiper_2D_Current.png"
   ],
   [
     "ワイパー", "ジムワイパー", "クイックボム", "ショクワンダー",
-    "https://img.game8.jp/7148595/509e22e3f7dae7d0c5db0f5da5d752f2.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/7/78/S3_Weapon_Main_Splatana_Stamper_2D_Current.png"
   ],
   [
     "ワイパー", "ドライブワイパーデコ", "ジャンプビーコン", "マルチミサイル",
-    "https://img.game8.jp/8111082/82f0b1a651eb0a4aadd3bbc23122fb65.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/1/18/S3_Weapon_Main_Splatana_Wiper_Deco_2D_Current.png"
+  ],
+  ## 6.0.0
+  [
+    "ワイパー","ジムワイパー・ヒュー","ポイズンミスト","カニタンク",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/b/b6/S3_Weapon_Main_Splatana_Stamper_Nouveau_2D_Current.png"
   ],
   
   #############################################################
@@ -407,37 +507,51 @@ sp3_wpn_all = [
   ## 1.0.0
   [
     "マニューバー", "スプラマニューバー", "キューバンボム", "カニタンク",
-    "https://img.game8.jp/7148620/ec62c29e14276198165a0f3aea39c026.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/5/5c/S3_Weapon_Main_Splat_Dualies_2D_Current.png"
   ],
   [
     "マニューバー", "デュアルスイーパー", "スプラッシュボム", "ホップソナー",
-    "https://img.game8.jp/7148635/3b7e7ee467d11a6d6d83027331e88178.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/4/49/S3_Weapon_Main_Dualie_Squelchers_2D_Current.png"
   ],
   [
     "マニューバー", "スパッタリー", "ジャンプビーコン", "エナジースタンド",
-    "https://img.game8.jp/7148606/47525c2d4562dac86acd5292a925f750.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/c/c5/S3_Weapon_Main_Dapple_Dualies_2D_Current.png"
   ],
   [
     "マニューバー", "クアッドホッパーブラック", "ロボットボム", "サメライド",
-    "https://img.game8.jp/7148603/3d40b0ba16c6aaacd3dd6d3cc35c6bc3.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/5/51/S3_Weapon_Main_Dark_Tetra_Dualies_2D_Current.png"
   ],
   [
     "マニューバー", "ケルビン525", "スプラッシュシールド", "ナイスダマ",
-    "https://img.game8.jp/7199997/4a19fc984a7dfb16bf951a9275ccf2a6.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/0/05/S3_Weapon_Main_Glooga_Dualies_2D_Current.png"
   ],
   ## 2.0.0
   [
     "マニューバー", "スパッタリー・ヒュー", "トーピード", "サメライド",
-    "https://img.game8.jp/7495593/b25c02a3bb322e1f7f0815e5e93fbd16.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/c/c2/S3_Weapon_Main_Dapple_Dualies_Nouveau_2D_Current.png"
   ],
   ## 4.0.0
   [
     "マニューバー", "デュアルスイーパーカスタム", "ジャンプビーコン", "デコイチラシ",
-    "https://img.game8.jp/8111098/8feaf98d4f560c92820e8533b5dcdc8e.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/f/f4/S3_Weapon_Main_Custom_Dualie_Squelchers_2D_Current.png"
   ],
   [
     "マニューバー", "クアッドホッパーホワイト", "スプリンクラー", "ショクワンダー",
-    "https://img.game8.jp/8111110/4c390b58c4308ce2aba5f86daeddccc4.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/c/ce/S3_Weapon_Main_Light_Tetra_Dualies_2D_Current.png"
+  ],
+  ## 6.0.0
+  [
+    "マニューバー","スプラマニューバーコラボ","カーリングボム","ウルトラチャクチ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/f/f6/S3_Weapon_Main_Enperry_Splat_Dualies_2D_Current.png"
+  ],
+  ## 7.0.0
+  [
+    "マニューバー","ケルビン525デコ","ポイントセンサー","ウルトラショット",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/d/dd/S3_Weapon_Main_Glooga_Dualies_Deco_2D_Current.png"
+  ],
+  [
+    "マニューバー","ガエンFF","トラップ","メガホンレーザー5.1ch",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/d/d9/S3_Weapon_Main_Douser_Dualies_FF_2D_Current.png"
   ],
   
   #############################################################
@@ -445,15 +559,20 @@ sp3_wpn_all = [
   ## 1.0.0
   [
     "ストリンガー", "トライストリンガー", "ポイズンミスト", "メガホンレーザー5.1ch",
-    "https://img.game8.jp/7148630/2965b18f45d24db147aaf75093ee57b7.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/0/09/S3_Weapon_Main_Tri-Stringer_2D_Current.png"
   ],
   [
     "ストリンガー", "LACT-450", "カーリングボム", "マルチミサイル",
-    "https://img.game8.jp/7199998/390f4a0b68ab51d89cb81bd13327fa1d.png/show"
+    "https://cdn.wikimg.net/en/splatoonwiki/images/2/21/S3_Weapon_Main_REEF-LUX_450_2D_Current.png"
   ],
   ## 5.0.0
-  #[
-  #  "ストリンガー", "トライストリンガーコラボ", "スプリンクラー", "デコイチラシ",
-  #  ""
-  #],
+  [
+    "ストリンガー", "トライストリンガーコラボ", "スプリンクラー", "デコイチラシ",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/5/53/S3_Weapon_Main_Inkline_Tri-Stringer_2D_Current.png"
+  ],
+  ## 6.0.0
+  [
+    "ストリンガー","LACT-450デコ","スプラッシュシールド","サメライド",
+    "https://cdn.wikimg.net/en/splatoonwiki/images/e/ee/S3_Weapon_Main_REEF-LUX_450_Deco_2D_Current.png"
+  ],
 ]
