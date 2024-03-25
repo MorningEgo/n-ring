@@ -60,10 +60,10 @@ async def test(ctx: I.discord.Interaction,type: str = None , input: str = None):
 			embed.set_image(url={input_dic["image"]})
 		
 		if input_dic["thumbnail"]:
-			embed.set_thumbnail(url=f"{input_dic["thumbnail"]}")
+			embed.set_thumbnail(url={input_dic["thumbnail"]})
 
 		if input_dic["author"]:
-			embed.set_author(url=f"{input_dic["author"]}")
+			embed.set_author(url={input_dic["author"]})
 		if input_dic[""]:
 			embed
 
