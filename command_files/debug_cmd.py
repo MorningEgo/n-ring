@@ -57,7 +57,7 @@ async def test(ctx: I.discord.Interaction,type: str = None , input: str = None):
 		)
 
 		if input_dic["image"]:
-			embed.set_image(url=f"{input_dic["image"]}")
+			embed.set_image(url={input_dic["image"]})
 		
 		if input_dic["thumbnail"]:
 			embed.set_thumbnail(url=f"{input_dic["thumbnail"]}")
