@@ -5,42 +5,117 @@ r = [
 	["勝利を目指しエリアを強化する。", "センチネル", "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt72ffc2e48d4a7a58/5eaa06852b79652f27c31ff6/Sentinel.png"],
 ]
 
+# デュエリスト
 d = [
-	# デュエリスト
-	["デュエリスト", "ジェット", "https://static.wikia.nocookie.net/valorant/images/4/41/VALORANT_Jett_Card_Small.png"], 
-	["デュエリスト", "ネオン", "https://static.wikia.nocookie.net/valorant/images/4/44/VALORANT_Neon_Card_Small.png"],
-	["デュエリスト", "フェニックス", "https://static.wikia.nocookie.net/valorant/images/0/03/VALORANT_Phoenix_Card_Small.png"], 
-	["デュエリスト", "ヨル", "https://static.wikia.nocookie.net/valorant/images/a/a1/VALORANT_Yoru_Card_Small.png"], 
-	["デュエリスト", "レイズ", "https://static.wikia.nocookie.net/valorant/images/0/09/VALORANT_Raze_Card_Small.png"], 
-	["デュエリスト", "レイナ", "https://static.wikia.nocookie.net/valorant/images/9/9b/VALORANT_Reyna_Card_Small.png"],
+	[
+        "デュエリスト", "ジェット", 
+        "https://static.wikia.nocookie.net/valorant/images/3/35/Jett_icon.png/revision/latest/scale-to-width-down/1024?cb=20230909031447"
+    	], 
+	[
+        "デュエリスト", "ネオン", 
+        "https://static.wikia.nocookie.net/valorant/images/d/d0/Neon_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180744"
+    	],
+	[
+        "デュエリスト", "フェニックス", 
+  		"https://static.wikia.nocookie.net/valorant/images/1/14/Phoenix_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161016"
+        ], 
+	[
+        "デュエリスト", "ヨル", 
+  		"https://static.wikia.nocookie.net/valorant/images/d/d4/Yoru_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161616"
+        ], 
+	[
+        "デュエリスト", "レイズ", 
+  		"https://static.wikia.nocookie.net/valorant/images/9/9c/Raze_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180834"
+        ], 
+	[
+        "デュエリスト", "レイナ", 
+  		"https://static.wikia.nocookie.net/valorant/images/b/b0/Reyna_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161102"
+        ],
+    [
+        "デュエリスト", "アイソ", 
+     	"https://static.wikia.nocookie.net/valorant/images/b/b7/Iso_icon.png/revision/latest/scale-to-width-down/1024?cb=20231031131018"
+     	],
 ]
 
+# イニシエーター
 i = [
-	# イニシエーター
-	["イニシエーター", "KAY/O", "https://static.wikia.nocookie.net/valorant/images/6/6f/VALORANT_KAYO_Card_Small.png"],
-	["イニシエーター", "ゲッコー", "https://static.wikia.nocookie.net/valorant/images/d/d1/VALORANT_Gekko_Card_Small.png"], 
-	["イニシエーター", "スカイ", "https://static.wikia.nocookie.net/valorant/images/9/99/VALORANT_Skye_Card_Small.png"],
-	["イニシエーター", "ソーヴァ", "https://static.wikia.nocookie.net/valorant/images/5/57/VALORANT_Sova_Card_Small.png"], 
-	["イニシエーター", "フェイド", "https://static.wikia.nocookie.net/valorant/images/0/03/VALORANT_Fade_Card_Small.png"], 
-	["イニシエーター", "ブリーチ", "https://static.wikia.nocookie.net/valorant/images/9/97/VALORANT_Breach_Card_Small.png"], 
+	[
+        "イニシエーター", "KAY/O", 
+        "https://static.wikia.nocookie.net/valorant/images/f/f0/KAYO_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180711"
+        ],
+	[
+        "イニシエーター", "ゲッコー", 
+        "https://static.wikia.nocookie.net/valorant/images/6/66/Gekko_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180641"
+        ], 
+	[
+        "イニシエーター", "スカイ", 
+        "https://static.wikia.nocookie.net/valorant/images/3/33/Skye_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161546"
+        ],
+	[
+        "イニシエーター", "ソーヴァ", 
+        "https://static.wikia.nocookie.net/valorant/images/4/49/Sova_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180933"
+        ], 
+	[
+        "イニシエーター", "フェイド", 
+        "https://static.wikia.nocookie.net/valorant/images/a/a6/Fade_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523161332"
+        ], 
+	[
+        "イニシエーター", "ブリーチ", 
+        "https://static.wikia.nocookie.net/valorant/images/5/53/Breach_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180542"
+        ], 
 ]
 
+# コントローラー
 c = [
-	# コントローラー
-	["コントローラー", "アストラ", "https://static.wikia.nocookie.net/valorant/images/4/4a/VALORANT_Astra_Card_Small.png"], 
-	["コントローラー", "ヴァイパー", "https://static.wikia.nocookie.net/valorant/images/3/3f/VALORANT_Viper_Card_Small.png"],
-	["コントローラー", "オーメン", "https://static.wikia.nocookie.net/valorant/images/d/d7/VALORANT_Omen_Card_Small.png"], 
-	["コントローラー", "ハーバー", "https://static.wikia.nocookie.net/valorant/images/4/49/VALORANT_Harbor_Card_Small.png"], 
-	["コントローラー", "ブリムストーン", "https://static.wikia.nocookie.net/valorant/images/7/78/VALORANT_Brimstone_Card_Small.png"],
+	[
+        "コントローラー", "アストラ", 
+        "https://static.wikia.nocookie.net/valorant/images/0/08/Astra_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180525"
+        ], 
+	[
+        "コントローラー", "ヴァイパー", 
+        "https://static.wikia.nocookie.net/valorant/images/5/5f/Viper_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180950"
+        ],
+	[
+        "コントローラー", "オーメン", 
+        "https://static.wikia.nocookie.net/valorant/images/b/b0/Omen_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180801"
+        ], 
+	[
+        "コントローラー", "ハーバー", 
+        "https://static.wikia.nocookie.net/valorant/images/f/f3/Harbor_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523161242"
+        ], 
+	[
+        "コントローラー", "ブリムストーン", 
+        "https://static.wikia.nocookie.net/valorant/images/4/4d/Brimstone_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180558"
+        ],
+    [
+        "コントローラー", "クローヴ",
+        "https://static.wikia.nocookie.net/valorant/images/3/30/Clove_icon.png/revision/latest/scale-to-width-down/1024?cb=20240324202115"
+	]
 ]
 
+
+# センチネル
 s = [
-	# センチネル
-	["センチネル", "キルジョイ", "https://static.wikia.nocookie.net/valorant/images/7/73/VALORANT_Killjoy_Card_Small.png"], 
-	["センチネル", "サイファー", "https://static.wikia.nocookie.net/valorant/images/9/95/VALORANT_Cypher_Card_Small.png"], 
-	["センチネル", "デッドロック", "https://static.wikia.nocookie.net/valorant/images/4/4f/VALORANT_Deadlock_Card_Small.png"],
-  ["センチネル", "セージ", "https://static.wikia.nocookie.net/valorant/images/f/fe/VALORANT_Sage_Card_Small.png"], 
-	["センチネル", "チェンバー", "https://static.wikia.nocookie.net/valorant/images/e/e0/VALORANT_Chamber_Card_Small.png"], 
+	[
+        "センチネル", "キルジョイ", 
+        "https://static.wikia.nocookie.net/valorant/images/1/15/Killjoy_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180727"
+        ], 
+	[
+        "センチネル", "サイファー", 
+        "https://static.wikia.nocookie.net/valorant/images/8/88/Cypher_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180623"
+        ], 
+	[
+        "センチネル", "デッドロック", 
+        "https://static.wikia.nocookie.net/valorant/images/e/eb/Deadlock_icon.png/revision/latest/scale-to-width-down/1024?cb=20230627132804"
+        ],
+	[
+        "センチネル", "セージ", 
+        "https://static.wikia.nocookie.net/valorant/images/7/74/Sage_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161159"
+        ], 
+	[
+        "センチネル", "チェンバー", 
+        "https://static.wikia.nocookie.net/valorant/images/0/09/Chamber_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180616"
+        ], 
 ]
 
 a = d + i + c + s
