@@ -23,15 +23,21 @@ async def on_message(message):
 			"ンゴチャレンジ"
 		]
 		choice_games = I.random.choice(games)
+		choice_games2 = I.random.choice(games)
+		choice_games3 = I.random.choice(games)
 
 		ngo = [
 		"ンゴだよ～",
 		"ンゴで～す",
 		"ンゴいるンゴ",
 		"ンゴ～",
-		""
+		"ンゴですが、なにか",
+		"はいンゴです"
 		f"{message.author.nick}じゃん、どしたの",
-		f""
+		f"{message.author.nick}のンボムﾐｮミの部分"
+		f"{message.author.nick}・D・ロジャーじゃん、どこに置いてきたの",
+		f"{message}だァ？そんな子知らないよ！",
+		f"たしかに、{message}はそうだよな"
 		"やっほ～",
 		"むむ",
 		"なんだァ...？テメェ...",
@@ -43,6 +49,11 @@ async def on_message(message):
 		"見てるよ",
 		"眠い！！！！！！！！！！！寝かせろ！！！！！！！！！！！！！！！！！！！！！！！！！！",
 		"＠ ～＠)?",
+		"ﾋﾟﾖ～～",
+		f"うーんゲームスロットチャレンジ！！！！！！！！！\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
+		"え、それ明日じゃダメ...？",
+		"おっけ～"
+
 
 		]
 		choice = I.random.choice(ngo)

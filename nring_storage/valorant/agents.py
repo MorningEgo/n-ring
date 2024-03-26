@@ -17,21 +17,21 @@ d = [
     	],
 	[
         "デュエリスト", "フェニックス", 
-  		"https://static.wikia.nocookie.net/valorant/images/1/14/Phoenix_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161016"
+  	"https://static.wikia.nocookie.net/valorant/images/1/14/Phoenix_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161016"
         ], 
 	[
         "デュエリスト", "ヨル", 
-  		"https://static.wikia.nocookie.net/valorant/images/d/d4/Yoru_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161616"
+  	"https://static.wikia.nocookie.net/valorant/images/d/d4/Yoru_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161616"
         ], 
 	[
         "デュエリスト", "レイズ", 
-  		"https://static.wikia.nocookie.net/valorant/images/9/9c/Raze_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180834"
+  	"https://static.wikia.nocookie.net/valorant/images/9/9c/Raze_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180834"
         ], 
 	[
         "デュエリスト", "レイナ", 
-  		"https://static.wikia.nocookie.net/valorant/images/b/b0/Reyna_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161102"
+  	"https://static.wikia.nocookie.net/valorant/images/b/b0/Reyna_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161102"
         ],
-    [
+        [
         "デュエリスト", "アイソ", 
      	"https://static.wikia.nocookie.net/valorant/images/b/b7/Iso_icon.png/revision/latest/scale-to-width-down/1024?cb=20231031131018"
      	],
@@ -87,7 +87,7 @@ c = [
         "コントローラー", "ブリムストーン", 
         "https://static.wikia.nocookie.net/valorant/images/4/4d/Brimstone_icon.png/revision/latest/scale-to-width-down/1024?cb=20230523180558"
         ],
-    [
+        [
         "コントローラー", "クローヴ",
         "https://static.wikia.nocookie.net/valorant/images/3/30/Clove_icon.png/revision/latest/scale-to-width-down/1024?cb=20240324202115"
 	]
@@ -107,7 +107,7 @@ s = [
 	[
         "センチネル", "デッドロック", 
         "https://static.wikia.nocookie.net/valorant/images/e/eb/Deadlock_icon.png/revision/latest/scale-to-width-down/1024?cb=20230627132804"
-        ],
+        ], 
 	[
         "センチネル", "セージ", 
         "https://static.wikia.nocookie.net/valorant/images/7/74/Sage_icon.png/revision/latest/scale-to-width-down/1024?cb=20230606161159"
