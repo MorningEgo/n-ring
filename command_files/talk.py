@@ -22,17 +22,19 @@ async def on_message(message):
 				"タルコフ",
 				"ンゴチャレンジ"
 			]
-		rps = [
-			"グー",
-			"チョキ",
-			"パー",
-		]
-
 		choice_games = I.random.choice(games)
 		choice_games2 = I.random.choice(games)
 		choice_games3 = I.random.choice(games)
 		choice_games4 = I.random.choice(games)
 		choice_games5 = I.random.choice(games)
+
+		rps_raw = [
+			"グー",
+			"チョキ",
+			"パー",
+		]
+		rps = I.random.choice(rps_raw)
+		
 
 		if "おはよう" in message.content or "ohayou" in message.content:
 			await message.reply(f"おは～")
@@ -96,7 +98,7 @@ async def on_message(message):
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
 
-		elif "スロット" == message.content or "スロットやらせて" in message.content or "スロットやりたい" in message.content or "スロット頼む" in message.content or "スロットやろ" in message.content or "スロットやる" in message.content:
+		elif message.content is "スロット" or "スロットやらせて" in message.content or "スロットやりたい" in message.content or "スロット頼む" in message.content or "スロットやろ" in message.content or "スロットやる" in message.content:
 			ngo = [
 				f"OK！！！！ゲームスロットチャレンジ！！！！！！！！！\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
 				f"しかたないな～\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
@@ -121,7 +123,7 @@ async def on_message(message):
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
 
-		elif "じゃんけん" == message.content or "じゃんけんやらせて" in message.content or "じゃんけんやりたい" in message.content or "じゃんけん頼む" in message.content or "じゃんけんやろ" in message.content or "じゃんけんやる" in message.content:
+		elif message.content is "じゃんけん"  or "じゃんけんやらせて" in message.content or "じゃんけんやりたい" in message.content or "じゃんけん頼む" in message.content or "じゃんけんやろ" in message.content or "じゃんけんやる" in message.content:
 			ngo = [
 				f"OK！！！！最初はグー！！！！！！！！！じゃんけんポン！！！！！！！！！！！\n\n...ンゴは{rps}を出したぞ",
 				f"しかたないな～\n\n最初はグー！！！！！！！！！じゃんけんポン！！！！！！！！！！！\n\n...ンゴは{rps}を出したぞ",
