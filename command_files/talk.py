@@ -15,8 +15,6 @@ async def on_message(message):
 			await message.reply(f"今バカって言った！？！？？！？！？！？？！？！？！？？！？！？！？！？！？！？！？！？！？！？！？？！")
 		elif "しね" in message.content or "死ね" in message.content or "タヒね" in message.content or "ﾀﾋね" in message.content:
 			await message.reply(f"そっか")
-		elif "ンゴ" in message.content or "んご" in message.content or "ngo" in message.content:
-			await message.reply(f"ンゴ～")
 		elif "んごりンゴ" in message.content:
 			ngo = [
 			"ンゴだよ～",
@@ -30,7 +28,36 @@ async def on_message(message):
 			"呼んだ？",
 			"よっす～",
 			]
-		
+			choice = I.random.choice(ngo)
+			await message.reply(f"{choice}")
+		elif "ンゴ" == message.content or "んご" == message.content or "ngo" == message.content:
+			await message.reply(f"ンゴ～")
+		elif "つらい" in message.content or "辛い" in message.content:
+			ngo = [
+				"むりしないで",
+				"がんばれ",
+				"なんとかなれ",
+				"ねよう",
+				"つらいか",
+				"話なら適当に聞くよ",
+				"ずっとみてるよ",
+				"なるほど",
+			]
+			choice = I.random.choice(ngo)
+			await message.reply(f"{choice}")
+		elif "たのしい" in message.content or "楽しい" in message.content:
+			ngo = [
+				"それはよかった",
+				"そうか",
+				"いいね～",
+				"楽しいのが一番よ",
+				"ほんまか",
+				"なるほど",
+				"楽しければ何でもいいとか思ってないよね？思ってないか",
+				"ほえ～"
+			]
+			choice = I.random.choice(ngo)
+			await message.reply(f"{choice}")
 		else:
 			games = [
 				"VALORANT",
@@ -84,6 +111,18 @@ async def on_message(message):
 			f"うーんゲームスロットチャレンジ！！！！！！！！！\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
 			"え、それ明日じゃダメ...？",
 			"おっけ～",
+			f"うるさい！{choice_games}でもやってろ！！！！！",
+			f"わかる、ところで{choice_games}やらない？{choice_games2}でもいい",
+			"わからん",
+			"なるほど",
+			"すごい",
+			"えらい",
+			"何が？",
+			"バグって見えない",
+			"霞でも食ってろ",
+			"ンゴになら何してもいいと思ってるな？",
+			"嘘だろ",
+			"ほう",
 			]
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
