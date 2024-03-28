@@ -204,8 +204,7 @@ async def on_message(message):
 			ngo = [
 			# さらなる飯テロ無法地帯・おこのみ鯖https://discord.gg/bDDJF88Mjk 
 			# 8MFDkみる
-			"上から7番目、後ろから、4、3、6、9、1、1行目、> 。。。2。。。。。。。・。。。1。"
-			
+			"上から7番目、後ろから、4、3、6、9、1、1行目、> 。。。2。。。。。。。・。。。1。",
 			"ンゴだよ～",
 			"ンゴで～す",
 			"ンゴいるンゴ",
@@ -257,7 +256,6 @@ async def on_message(message):
 			"なるほど、[これ](<https://www.youtube.com/watch?v=dQw4w9WgXcQ>)が近いかもな",
 			"サーバー規約読んだ？",
 			f"{message.content}って言われてもな～",
-			f"わかる、{message.content}",
 			"ひえ～",
 			"こわ",
 			"お前がな",
