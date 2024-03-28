@@ -53,7 +53,7 @@ async def on_message(message):
 				"知ってるわけないだろ！！！！！！！！"
 			]
 			choice = I.random.choice(ngo)
-			await message.reply(f"choice")
+			await message.reply(f"{choice}")
 
 		elif "おはよう" in message.content or "ohayou" in message.content:
 			ngo = [
@@ -66,7 +66,7 @@ async def on_message(message):
 				"今日は何するの",
 			]
 			choice = I.random.choice(ngo)
-			await message.reply(f"choice")
+			await message.reply(f"{choice}")
 
 		elif "おやすみ" in message.content or "oyasumi" in message.content:
 			ngo = [
@@ -79,7 +79,7 @@ async def on_message(message):
 				"今日はどうだった？",
 			]
 			choice = I.random.choice(ngo)
-			await message.reply(f"choice")
+			await message.reply(f"{choice}")
 
 		elif "カス" in message.content or "かす" in message.content or "kasu" in message.content:
 			await message.reply(f"今カスって言った！？！？！？！？！？！？！？？！！？？！？！？！？？？！？！？！？！？！？！？！？？！")
