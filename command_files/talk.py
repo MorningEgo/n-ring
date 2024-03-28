@@ -34,13 +34,52 @@ async def on_message(message):
 			"パー",
 		]
 		rps = I.random.choice(rps_raw)
-		
+		if ("？" in message.content or "?" in message.content) and "しってる" in message.content or "知ってる" in message.content or "しらない" in message.content or "知らない" in message.content:
+			ngo = [
+				"知ってるよ",
+				"知ってるかも",
+				"知ってるに決まってんだろ！！！！！！",
+				"知っ.....てる",
+				"聞いたことなら",
+				"どっかできいた",
+				"どっかでみた",
+				"だれかにきいた",
+				"それすき",
+				"それきらい",
+				"知らんな",
+				"しらないかも",
+				"しらん",
+				"しるか",
+				"知ってるわけないだろ！！！！！！！！"
+			]
+			choice = I.random.choice(ngo)
+			await message.reply(f"choice")
 
 		if "おはよう" in message.content or "ohayou" in message.content:
-			await message.reply(f"おは～")
+			ngo = [
+				"おは～",
+				"おはよ～",
+				"おはも～にん～",
+				"朝...朝か...？",
+				"まだねかせて",
+				"今日も一日ってやつか",
+				"今日は何するの",
+			]
+			choice = I.random.choice(ngo)
+			await message.reply(f"choice")
 
 		elif "おやすみ" in message.content or "oyasumi" in message.content:
-			await message.reply(f"おや～")
+			ngo = [
+				"おや～",
+				"おやすみ～",
+				"はよねろ",
+				"まだねるな",
+				"もうねるの？",
+				"おつかれさま",
+				"今日はどうだった？",
+			]
+			choice = I.random.choice(ngo)
+			await message.reply(f"choice")
 
 		elif "カス" in message.content or "かす" in message.content or "kasu" in message.content:
 			await message.reply(f"今カスって言った！？！？！？！？！？！？！？？！！？？！？！？！？？？！？！？！？！？！？！？！？？！")
@@ -98,13 +137,13 @@ async def on_message(message):
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
 
-		elif message.content is "スロット" or "スロットやらせて" in message.content or "スロットやりたい" in message.content or "スロット頼む" in message.content or "スロットやろ" in message.content or "スロットやる" in message.content:
+		elif "スロットやらせて" in message.content or "スロットやりたい" in message.content or "スロット頼む" in message.content or "スロットやろ" in message.content or "スロットやる" in message.content or "スロットしたい" in message.content or "スロットしよ" in message.content:
 			ngo = [
 				f"OK！！！！ゲームスロットチャレンジ！！！！！！！！！\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
 				f"しかたないな～\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
 				f"はい！！！！\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
 				f"ゲームスロットチャrrrrrrrrrrrrrレンジ！！！！！！！！！\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
-				f"{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！"
+				f"{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
 				f"{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！\n{choice_games4}！！！！",
 				f"{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！\n{choice_games4}！！！！\n{choice_games5}！！！！！",
 				f"{choice_games}、はい",
@@ -123,7 +162,7 @@ async def on_message(message):
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
 
-		elif message.content is "じゃんけん"  or "じゃんけんやらせて" in message.content or "じゃんけんやりたい" in message.content or "じゃんけん頼む" in message.content or "じゃんけんやろ" in message.content or "じゃんけんやる" in message.content:
+		elif "じゃんけんやらせて" in message.content or "じゃんけんやりたい" in message.content or "じゃんけん頼む" in message.content or "じゃんけんやろ" in message.content or "じゃんけんやる" in message.content or "じゃんけんしたい" in message.content or "じゃんけんしよ" in message.content:
 			ngo = [
 				f"OK！！！！最初はグー！！！！！！！！！じゃんけんポン！！！！！！！！！！！\n\n...ンゴは{rps}を出したぞ",
 				f"しかたないな～\n\n最初はグー！！！！！！！！！じゃんけんポン！！！！！！！！！！！\n\n...ンゴは{rps}を出したぞ",
@@ -153,6 +192,10 @@ async def on_message(message):
 
 		else:
 			ngo = [
+			# さらなる飯テロ無法地帯・おこのみ鯖https://discord.gg/bDDJF88Mjk 
+			# 8MFDkみる
+			"7番目、後ろから、4、3、6、9、1、1行目、> 。。。2。。。。。。。・。。。1。"
+			
 			"ンゴだよ～",
 			"ンゴで～す",
 			"ンゴいるンゴ",
@@ -180,7 +223,7 @@ async def on_message(message):
 			"眠い！！！！！！！！！！！寝かせろ！！！！！！！！！！！！！！！！！！！！！！！！！！",
 			"＠ ～＠)?",
 			"ﾋﾟﾖ～～",
-			f"うーんゲームスロットチャレンジ！！！！！！！！！\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
+			f"知らん！！唐突なゲームスロットチャレンジ！！！！！！！！！\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
 			"え、それ明日じゃダメ...？",
 			"おっけ～",
 			f"うるさい！{choice_games}でもやってろ！！！！！",
@@ -195,6 +238,31 @@ async def on_message(message):
 			"ンゴになら何してもいいと思ってるな？",
 			"嘘だろ",
 			"ほう",
+			"ok",
+			"知らんな",
+			"わからん、もうちょい詳しく",
+			"いいね",
+			"それきらい",
+			"それすき",
+			"なるほど、[これ](<https://www.youtube.com/watch?v=dQw4w9WgXcQ>)が近いかもな",
+			"サーバー規約読んだ？",
+			f"{message.content}って言われてもな～",
+			f"わかる、{message.content}",
+			"ひえ～",
+			"こわ",
+			"お前がな",
+			"貴様がな",
+			"お主がな",
 			]
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
+		
+		if message.content == f"{I.client.user.mention} 人に成る":
+			#しきさいのすうじたせ
+			await message.reply(f"ンゴにアクセスしようとしてる？\nこっちはこれだけアクセスしてるんだけど、名前が分からないんだよね、教えてくれない？\n```\n〇〇〇〇７〇〇〇\n〇４〇〇〇〇〇〇〇〇〇〇〇〇〇〇９〇〇、〇〇〇〇〇〇〇〇〇〇〇〇１〇〇。\n〇〇〇〇５\n〇〇〇〇〇〇〇〇〇〇〇〇３〇〇〇〇８〇〇、〇〇〇〇〇〇〇〇・〇〇０〇〇〇〇〇〇〇〇〇〇〇。\n〇〇〇６\n〇〇２〇〇〇〇〇〇〇、〇〇〇〇〇〇〇〇、〇〇〇〇〇〇、〇〇〇〇〇〇〇〇〇〇〇〇。\n\n０１２３４５６７８９。\nその先で1が無いもの。これはバグ。```")
+		if message.content == f"{I.client.user.mention} #E6D263":
+			role = message.guild.get_role(1223022775715893368)
+			await message.author.add_roles(role)
+			await message.reply(f"ようやくみつけた")
+		if message.content == f"{I.client.user.mention} 17567":
+			await message.reply(f"")

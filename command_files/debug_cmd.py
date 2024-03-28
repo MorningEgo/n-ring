@@ -66,8 +66,10 @@ async def test(ctx: I.discord.Interaction,type: str = None , input: str = None):
 			embed.set_author(url={input_dic["author"]})
 		if input_dic[""]:
 			embed
-
+		
 		await ctx.followup.send(embed=embed)
 	
+	elif input == "#E6D263":
+		await ctx.followup.send("https://colorbase.app/ja/colors/e6d263")
 	else:
 		await ctx.followup.send(input)
