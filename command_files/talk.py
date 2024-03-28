@@ -193,9 +193,9 @@ async def on_message(message):
 		
 		elif message.content == f"{I.client.user.mention} 人に成る":
 			#しきさいのすうじたせ
-			await message.reply(f"ンゴにアクセスしようとしてる？\nこっちはこれだけアクセスしてるんだけど、名前が分からないんだよね、教えてくれない？\n```\n〇〇〇〇７〇〇〇\n〇４〇〇〇〇〇〇〇〇〇〇〇〇〇〇９〇〇、〇〇〇〇〇〇〇〇〇〇〇〇１〇〇。\n〇〇〇〇５\n〇〇〇〇〇〇〇〇〇〇〇〇３〇〇〇〇８〇〇、〇〇〇〇〇〇〇〇・〇〇０〇〇〇〇〇〇〇〇〇〇〇。\n〇〇〇６\n〇〇２〇〇〇〇〇〇〇、〇〇〇〇〇〇〇〇、〇〇〇〇〇〇、〇〇〇〇〇〇〇〇〇〇〇〇。\n\n5つの０１２３４５６７８９。\nその先で1が無いもの。これはバグ。```")
+			ms_reply = await message.reply(f"ンゴにアクセスしようとしてる？\nこっちはこれだけアクセスしてるんだけど、名前が分からないんだよね、教えてくれない？\nもうちょいで消すからスクショかコピーでメモってね\n```\n〇〇〇〇７〇〇〇\n〇４〇〇〇〇〇〇〇〇〇〇〇〇〇〇９〇〇、〇〇〇〇〇〇〇〇〇〇〇〇１〇〇。\n〇〇〇〇５\n〇〇〇〇〇〇〇〇〇〇〇〇３〇〇〇〇８〇〇、〇〇〇〇〇〇〇〇・〇〇０〇〇〇〇〇〇〇〇〇〇〇。\n〇〇〇６\n〇〇２〇〇〇〇〇〇〇、〇〇〇〇〇〇〇〇、〇〇〇〇〇〇、〇〇〇〇〇〇〇〇〇〇〇〇。\n\n5つの０１２３４５６７８９。\nその先で1が無いもの。これはバグ。```")
 			await message.delete()
-			await message.reply.delete(delay=20)
+			await ms_reply.delete(delay=10)
 		elif message.content == f"{I.client.user.mention} Confetti":
 			role = message.guild.get_role(1223022775715893368)
 			await message.author.add_roles(role)
