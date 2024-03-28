@@ -4,8 +4,12 @@ import define_first as I
 @I.discord.app_commands.guilds(
   I.discord.Object(id=I.guildid))
 async def test(ctx: I.discord.Interaction,type: str = None , input: str = None):
-	await ctx.response.defer(thinking=True)
-	
+	if input == "#E6D263":
+		await ctx.response.defer(thinking=True,ephemeral=True)
+	else:
+		await ctx.response.defer(thinking=True,ephemeral=False)
+
+		
 	if input is None:
 		await ctx.followup.send("ンゴ〜")
 	elif input == "20220920":
@@ -70,6 +74,6 @@ async def test(ctx: I.discord.Interaction,type: str = None , input: str = None):
 		await ctx.followup.send(embed=embed)
 	
 	elif input == "#E6D263":
-		await ctx.followup.send("https://colorbase.app/ja/colors/e6d263",ephemeral=True)
+		await ctx.followup.send("https://colorbase.app/ja/colors/e6d263", ephemeral=True)
 	else:
 		await ctx.followup.send(input)
