@@ -9,6 +9,7 @@ import urllib.request, urllib.error
 import re
 import json
 import typing
+import time 
 from time import sleep
 from dotenv import load_dotenv
 load_dotenv()
