@@ -106,9 +106,6 @@ async def on_message(message):
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
 
-		elif "ンゴ" == message.content or "んご" == message.content or "ngo" == message.content:
-			await message.reply(f"ンゴ～")
-
 		elif "つらい" in message.content or "辛い" in message.content:
 			ngo = [
 				"むりしないで",
@@ -137,7 +134,7 @@ async def on_message(message):
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
 
-		elif "スロットやらせて" in message.content or "スロットやりたい" in message.content or "スロット頼む" in message.content or "スロットやろ" in message.content or "スロットやる" in message.content or "スロットしたい" in message.content or "スロットしよ" in message.content:
+		elif "スロット" in message.content:
 			ngo = [
 				f"OK！！！！ゲームスロットチャレンジ！！！！！！！！！\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
 				f"しかたないな～\n\n{choice_games}！\n{choice_games2}！！\n{choice_games3}！！！",
@@ -162,7 +159,7 @@ async def on_message(message):
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
 
-		elif "じゃんけんやらせて" in message.content or "じゃんけんやりたい" in message.content or "じゃんけん頼む" in message.content or "じゃんけんやろ" in message.content or "じゃんけんやる" in message.content or "じゃんけんしたい" in message.content or "じゃんけんしよ" in message.content:
+		elif "じゃんけん" in message.content:
 			ngo = [
 				f"OK！！！！最初はグー！！！！！！！！！じゃんけんポン！！！！！！！！！！！\n\n...ンゴは{rps}を出したぞ",
 				f"しかたないな～\n\n最初はグー！！！！！！！！！じゃんけんポン！！！！！！！！！！！\n\n...ンゴは{rps}を出したぞ",
@@ -190,7 +187,82 @@ async def on_message(message):
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
 
-		
+		elif "チンチロ" in message.content:
+			entry = I.random.randint(0,1)
+
+			if entry == 1:
+				entry_mes = [
+					"OK！！！！じゃあ最初にンゴが振るね",
+					"しかたないな～\n先に振るね",
+					"行くぞ！先に振らせろ！！！！！！！！！！！"
+					"振るよ～",
+					"行くよ～～",
+				]
+				await message.reply(f"{entry_mes}")
+				I.time.sleep(3)
+				## ダイス
+				rolling = I.discord.Embed(title=f"チンチロ！！せーの！！", )
+				ceelo_roll_a = I.random.randint(1, 6)
+				ceelo_roll_b = I.random.randint(1, 6)
+				ceelo_roll_c = I.random.randint(1, 6)
+				ceelo_l = [ceelo_roll_a,ceelo_roll_b,ceelo_roll_c].sort()
+				
+				#| None=目無し | 1~6=目あり | 11~16=ゾロ目 | 0=ヒフミ | 9=シゴロ |#
+				dealer = f""
+				roll = 0
+				dealer_try = {
+					1:[],
+					2:[],
+					3:[],
+				}
+				while dealer is not None or roll==3:
+					roll = roll + 1
+					if ceelo_roll_a==ceelo_roll_b!=ceelo_roll_c:
+						dealer = f"役あり！「**{ceelo_roll_c}**」！"
+					elif ceelo_roll_b==ceelo_roll_c!=ceelo_roll_a:
+						dealer = f"役あり！「**{ceelo_roll_a}**」！"
+					elif ceelo_roll_a==ceelo_roll_c!=ceelo_roll_b:
+						dealer = f"役あり！「**{ceelo_roll_b}**」！"
+					elif ceelo_roll_a==ceelo_roll_b==ceelo_roll_c==1:
+						dealer = f"「**ピンゾロ**」！！！！"
+					elif ceelo_roll_a==ceelo_roll_b==ceelo_roll_c:
+						dealer = f"ゾロ目！「{ceelo_roll_a}」！！！"
+					elif ceelo_l==[1,2,3]:
+						dealer = f"「**ヒフミ**」！よわ！！！！！"
+					elif ceelo_l==[4,5,6]:
+						dealer = f"「**シゴロ**」！！"
+					else:
+						dealer = None
+					
+					dealer_try[roll] = ceelo_l
+
+				if roll == 1:
+					dl = f"一回目！{'・'.join(dealer_try[1])}！\n\n**{ceelo_l[0]}**！ **{ceelo_l[1]}**！！ **{ceelo_l[2]}**！！！\n{dealer}"
+				elif roll == 2:
+					dl = f"一回目！{'・'.join(dealer_try[1])}！二回目！{'・'.join(dealer_try[2])}！！\n\n**{ceelo_l[0]}**！ **{ceelo_l[1]}**！！ **{ceelo_l[2]}**！！！\n{dealer}"
+				else:
+					dl = f"一回目！{'・'.join(dealer_try[1])}！二回目！{'・'.join(dealer_try[2])}！！三回目！{'・'.join(dealer_try[3])}！！！\n\n**{ceelo_l[0]}**！ **{ceelo_l[1]}**！！ **{ceelo_l[2]}**！！！\n{dealer}"
+				
+				rolling.add_field(name="なにがでたかな", value=f"{''.join(dl)}", inline=True)
+				await message.reply(embed=rolling)
+				
+
+			else:
+				entry_mes = [
+					"今はちょっと...",
+					"明日ならいいよ",
+					"もうちょいまって！",
+					"だる",
+					"だめ",
+					"霞でも食ってろ",
+					"さっきやったでしょ！",
+					"ねむ～い",
+					"あとでね",
+					"おとといきやがれください",
+				]
+				choice = I.random.choice(entry_mes)
+				await message.reply(f"{choice}")
+
 		elif message.content == f"{I.client.user.mention} 人に成る":
 			#しきさいのすうじたせ
 			ms_reply = await message.reply(f"ンゴにアクセスしようとしてる？\nこっちはこれだけアクセスしてるんだけど、名前が分からないんだよね、教えてくれない？\nもうちょいで消すからスクショかコピーでメモってね\n```\n〇〇〇〇７〇〇〇\n〇４〇〇〇〇〇〇〇〇〇〇〇〇〇〇９〇〇、〇〇〇〇〇〇〇〇〇〇〇〇１〇〇。\n〇〇〇〇５\n〇〇〇〇〇〇〇〇〇〇〇〇３〇〇〇〇８〇〇、〇〇〇〇〇〇〇〇・〇〇０〇〇〇〇〇〇〇〇〇〇〇。\n〇〇〇６\n〇〇２〇〇〇〇〇〇〇、〇〇〇〇〇〇〇〇、〇〇〇〇〇〇、〇〇〇〇〇〇〇〇〇〇〇〇。\n\n5つの０１２３４５６７８９。\nその先で1が無いもの。これはバグ。```")
