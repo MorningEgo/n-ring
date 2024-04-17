@@ -3,15 +3,16 @@ import define_first as I
 @I.discord.app_commands.describe(
   rolls="サイコロを何回振るか。",
   sides="何面サイコロを使用するか。",
+  hope="何を考えながら振るか。オプションを付けない場合は時の流れに身を任せます。",
   secret="他人に見せないようにサイコロを振るか。オプションを付けない場合はFalse扱いになります。")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 async def dice(ctx: I.discord.Interaction,
                rolls: int,
                sides: int,
+               hope: str = None,
                secret: bool = None):
   await ctx.response.defer(thinking=True)
 
-  import random
   if rolls == 0:
     await ctx.followup.send("サイコロも振れない人は一歩踏み出すこともできないんだよ")
   elif sides == 0:
@@ -19,9 +20,10 @@ async def dice(ctx: I.discord.Interaction,
   elif sides == 1:
     await ctx.followup.send("ズルはよくないよ")
   else:
+    I.random.seed(a= hope, version=2)
     rolling = I.discord.Embed(title=f"ダイスロール！ {rolls}D{sides}！！！", )
     if rolls == 1:
-      rolling.add_field(name=f"{random.randrange(1,sides)}",
+      rolling.add_field(name=f"{I.random.randint(1,sides)}",
                         value="",
                         inline=True)
     else:
@@ -29,7 +31,7 @@ async def dice(ctx: I.discord.Interaction,
       dl = []
       for _ in range(rolls):
         rl = _ + 1
-        res = random.randrange(1, sides)
+        res = I.random.randint(1, sides)
         all = all + res
         dl.extend(f"**{rl}回目**\n{res}\n\n")
 
