@@ -198,15 +198,11 @@ async def on_message(message):
 					"振るよ～",
 					"行くよ～～",
 				]
-				await message.reply(f"{entry_mes}")
+				choice = I.random.choice(entry_mes)
+				await message.reply(f"{choice}")
 				I.time.sleep(3)
 				## ダイス
 				rolling = I.discord.Embed(title=f"チンチロ！！せーの！！", )
-				ceelo_roll_a = I.random.randint(1, 6)
-				ceelo_roll_b = I.random.randint(1, 6)
-				ceelo_roll_c = I.random.randint(1, 6)
-				ceelo_l = [ceelo_roll_a,ceelo_roll_b,ceelo_roll_c].sort()
-				
 				#| None=目無し | 1~6=目あり | 11~16=ゾロ目 | 0=ヒフミ | 9=シゴロ |#
 				dealer = f""
 				roll = 0
@@ -215,38 +211,67 @@ async def on_message(message):
 					2:[],
 					3:[],
 				}
-				while dealer is not None or roll==3:
-					roll = roll + 1
+				for i in range(2):
+					roll = i + 1
+					ceelo_roll_a = I.random.randint(1, 6)
+					ceelo_roll_b = I.random.randint(1, 6)
+					ceelo_roll_c = I.random.randint(1, 6)
+					ceelo_l = [ceelo_roll_a,ceelo_roll_b,ceelo_roll_c]
+					ceelo_l.sort()
+					print(ceelo_l)
+
+					dealer_try[roll] = []
+					for i in range(3):
+						dealer_try[roll].append(str(ceelo_l[i]))
+					print(str(dealer_try[roll]))
+					
 					if ceelo_roll_a==ceelo_roll_b!=ceelo_roll_c:
-						dealer = f"役あり！「**{ceelo_roll_c}**」！"
+						dealer = f"役あり「**{ceelo_roll_c}**」！"
+						ngo_mes = f"役ありの「`{ceelo_roll_c}`」"
+						break
 					elif ceelo_roll_b==ceelo_roll_c!=ceelo_roll_a:
-						dealer = f"役あり！「**{ceelo_roll_a}**」！"
+						dealer = f"役あり「**{ceelo_roll_a}**」！"
+						ngo_mes = f"役ありの「`{ceelo_roll_a}`」"
+						break
 					elif ceelo_roll_a==ceelo_roll_c!=ceelo_roll_b:
-						dealer = f"役あり！「**{ceelo_roll_b}**」！"
+						dealer = f"役あり「**{ceelo_roll_b}**」！"
+						ngo_mes = f"役ありの「`{ceelo_roll_b}`」"
+						break
 					elif ceelo_roll_a==ceelo_roll_b==ceelo_roll_c==1:
 						dealer = f"「**ピンゾロ**」！！！！"
+						ngo_mes = f"ピンゾロ"
+						break
 					elif ceelo_roll_a==ceelo_roll_b==ceelo_roll_c:
 						dealer = f"ゾロ目！「{ceelo_roll_a}」！！！"
+						ngo_mes = f"`{ceelo_roll_a}`のゾロ目"
+						break
 					elif ceelo_l==[1,2,3]:
 						dealer = f"「**ヒフミ**」！よわ！！！！！"
+						ngo_mes = f"ヒフミ"
+						break
 					elif ceelo_l==[4,5,6]:
 						dealer = f"「**シゴロ**」！！"
+						ngo_mes = f"シゴロ"
+						break
 					else:
-						dealer = None
+						dealer = "「**役なし**」！よわ！！"
+						ngo_mes = f"役なし"
 					
-					dealer_try[roll] = ceelo_l
-
+				try_1 = '・'.join(dealer_try[1])
 				if roll == 1:
-					dl = f"一回目！{'・'.join(str(dealer_try[1]))}！\n\n**{str(ceelo_l[0])}**！ **{str(ceelo_l[1])}**！！ **{str(ceelo_l[2])}**！！！\n{dealer}"
+					dl = f"一回目！「`{try_1}`」！\n\n\n{dealer}"
 				elif roll == 2:
-					dl = f"一回目！{'・'.join(str(dealer_try[1]))}！二回目！{'・'.join(str(dealer_try[2]))}！！\n\n**{str(ceelo_l[0])}**！ **{str(ceelo_l[1])}**！！ **{str(ceelo_l[2])}**！！！\n{dealer}"
+					try_2 = '・'.join(dealer_try[2])
+					dl = f"一回目！「`{try_1}`」！\n二回目！「`{try_2}`」！！\n\n\n{dealer}"
 				else:
-					dl = f"一回目！{'・'.join(str(dealer_try[1]))}！二回目！{'・'.join(str(dealer_try[2]))}！！三回目！{'・'.join(str(dealer_try[3]))}！！！\n\n**{str(ceelo_l[0])}**！ **{str(ceelo_l[1])}**！！ **{str(ceelo_l[2])}**！！！\n{dealer}"
+					try_2 = '・'.join(dealer_try[2])
+					try_3 = '・'.join(dealer_try[3])
+					dl = f"一回目！「`{try_1}`」！\n二回目！「`{try_2}`」！！\n三回目！「`{try_3}`」！！！\n\n\n{dealer}"
 				
 				rolling.add_field(name="なにがでたかな", value=f"{''.join(dl)}", inline=True)
-				await message.reply(embed=rolling)
-				
-
+				await message.channel.send(embed=rolling)
+				I.sleep(1)
+				await message.channel.send(f"ンゴは{ngo_mes}だったよ、そっちは？")
 			else:
 				entry_mes = [
 					"今はちょっと...",
