@@ -40,12 +40,12 @@ async def ceelo(ctx: I.discord.Interaction):
         player_try[roll] = ceelo_l
 
     if roll == 1:
-        dl = f"一回目！{'・'.join(player_try[1])}！\n\n**{ceelo_l[0]}**！ **{ceelo_l[1]}**！！ **{ceelo_l[2]}**！！！\n{player}"
+        dl = f"一回目！{'・'.join(str(player_try[1]))}！\n\n**{str(ceelo_l[0])}**！ **{str(ceelo_l[1])}**！！ **{str(ceelo_l[2])}**！！！\n{player}"
     elif roll == 2:
-        dl = f"一回目！{'・'.join(player_try[1])}！二回目！{'・'.join(player_try[2])}！！\n\n**{ceelo_l[0]}**！ **{ceelo_l[1]}**！！ **{ceelo_l[2]}**！！！\n{player}"
+        dl = f"一回目！{'・'.join(str(player_try[1]))}！二回目！{'・'.join(str(player_try[2]))}！！\n\n**{str(ceelo_l[0])}**！ **{str(ceelo_l[1])}**！！ **{str(ceelo_l[2])}**！！！\n{player}"
     else:
-        dl = f"一回目！{'・'.join(player_try[1])}！二回目！{'・'.join(player_try[2])}！！三回目！{'・'.join(player_try[3])}！！！\n\n**{ceelo_l[0]}**！ **{ceelo_l[1]}**！！ **{ceelo_l[2]}**！！！\n{player}"
+        dl = f"一回目！{'・'.join(str(player_try[1]))}！二回目！{'・'.join(str(player_try[2]))}！！三回目！{'・'.join(str(player_try[3]))}！！！\n\n**{str(ceelo_l[0])}**！ **{str(ceelo_l[1])}**！！ **{str(ceelo_l[2])}**！！！\n{player}"
     
-    rolling.add_field(name="なにがでたかな", value=f"{''.join(dl)}", inline=True)
+    rolling.add_field(name="なにがでたかな", value=f"{dl}", inline=True)
 
     await ctx.followup.send(embed=rolling)

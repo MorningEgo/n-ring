@@ -237,11 +237,11 @@ async def on_message(message):
 					dealer_try[roll] = ceelo_l
 
 				if roll == 1:
-					dl = f"一回目！{'・'.join(dealer_try[1])}！\n\n**{ceelo_l[0]}**！ **{ceelo_l[1]}**！！ **{ceelo_l[2]}**！！！\n{dealer}"
+					dl = f"一回目！{'・'.join(str(dealer_try[1]))}！\n\n**{str(ceelo_l[0])}**！ **{str(ceelo_l[1])}**！！ **{str(ceelo_l[2])}**！！！\n{dealer}"
 				elif roll == 2:
-					dl = f"一回目！{'・'.join(dealer_try[1])}！二回目！{'・'.join(dealer_try[2])}！！\n\n**{ceelo_l[0]}**！ **{ceelo_l[1]}**！！ **{ceelo_l[2]}**！！！\n{dealer}"
+					dl = f"一回目！{'・'.join(str(dealer_try[1]))}！二回目！{'・'.join(str(dealer_try[2]))}！！\n\n**{str(ceelo_l[0])}**！ **{str(ceelo_l[1])}**！！ **{str(ceelo_l[2])}**！！！\n{dealer}"
 				else:
-					dl = f"一回目！{'・'.join(dealer_try[1])}！二回目！{'・'.join(dealer_try[2])}！！三回目！{'・'.join(dealer_try[3])}！！！\n\n**{ceelo_l[0]}**！ **{ceelo_l[1]}**！！ **{ceelo_l[2]}**！！！\n{dealer}"
+					dl = f"一回目！{'・'.join(str(dealer_try[1]))}！二回目！{'・'.join(str(dealer_try[2]))}！！三回目！{'・'.join(str(dealer_try[3]))}！！！\n\n**{str(ceelo_l[0])}**！ **{str(ceelo_l[1])}**！！ **{str(ceelo_l[2])}**！！！\n{dealer}"
 				
 				rolling.add_field(name="なにがでたかな", value=f"{''.join(dl)}", inline=True)
 				await message.reply(embed=rolling)
