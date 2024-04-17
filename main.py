@@ -53,6 +53,11 @@ from command_files import dice
 dice
 
 ####################################################################
+# サイコロ
+from command_files import ceelo
+ceelo
+
+####################################################################
 # ンゴチャレンジ
 from command_files import challenge
 challenge
