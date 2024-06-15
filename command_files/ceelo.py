@@ -103,6 +103,6 @@ async def ceelo(ctx: I.discord.Interaction, bet: int):
         ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=ngcheck)
         await ctx.followup.send(embed=ng_embed)
     elif ngcheck < 0:
-        ng_remove(userid=ctx.user.id,buyer=I.client.user.id,ng=ngcheck)
-        ng_embed = ng_send_embed(send=I.client.user,receive=ctx.user,value=ngcheck)
+        ng_remove(userid=ctx.user.id,buyer=I.client.user.id,ng=-ngcheck)
+        ng_embed = ng_send_embed(send=ctx.user,receive=I.client.user,value=-ngcheck)
         await ctx.followup.send(embed=ng_embed)

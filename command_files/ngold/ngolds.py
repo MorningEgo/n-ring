@@ -180,7 +180,7 @@ def ng_deal_update(userid=int,new=int,value=int):
     print(f"\033[32m<<[ Ngolds ]>>\033[0m Deal updating...")
 
     df.at[ids,'deal03'] = df.at[ids,'deal02']
-    df.at[ids,'deal03val'] = df.at[ids,'deal02']
+    df.at[ids,'deal03val'] = df.at[ids,'deal02val']
     df.at[ids,'deal02'] = df.at[ids,'deal01']
     df.at[ids,'deal02val'] = df.at[ids,'deal01val']
     df.at[ids,'deal01'] = new

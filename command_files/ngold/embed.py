@@ -6,7 +6,7 @@ def ng_send_embed(send:I.discord.User,receive:I.discord.User,value:int):
     id_send = f"i{send.id}"
     data = ng_read(send.id)
     new_send = data.at[id_send,'ng']
-    old_send = new_send + value
+    old_send = int(new_send + value)
     
 
     remove_embed = I.discord.Embed(
