@@ -5,7 +5,7 @@ from command_files.ngold.embed import *
 @I.tree.command(name="チンチロ", description="チンチロをします。")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 @I.discord.app_commands.describe(bet = "賭けるNgoldの数。0で賭けずにプレイします。")
-async def ceelo(ctx: I.discord.Interaction, bet = int):
+async def ceelo(ctx: I.discord.Interaction, bet: int):
     await ctx.response.defer(thinking=True)
     data = ng_watch(userid=ctx.user.id)
     if bet < 0:
