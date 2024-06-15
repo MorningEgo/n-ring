@@ -1,26 +1,7 @@
 import define_first as I
 from define_first import pd
 from .ngolds import *
-
 from command_files.ngold.embed import *
-
-
-def errormes(mes=int):
-    meslist = [
-        "取引相手に自分自身を指定することはできません。",
-        "送るngの値は1以上でなければなりません。",
-        "あなたはngを所持していません。",
-        "負債がある状態でngを送ることはできません。",
-        "自身の所持している以上のngを送ることはできません。",
-
-    ]
-
-    error = remove_embed = I.discord.Embed(
-            title = "Ngold 取引拒否",
-            description= meslist[mes],
-            color= 0xed2f50
-        )
-    return error
 
 
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
@@ -48,15 +29,15 @@ async def transfer(ctx: I.discord.Interaction, to:I.discord.Member, value: int):
         check_id = False
     
     if to.id == ctx.user.id or check_id is False:
-        await ctx.followup.send(embed=errormes(0))
+        await ctx.followup.send(embed=ng_errormes(0))
     elif value <= 0:
-        await ctx.followup.send(embed=errormes(1))
+        await ctx.followup.send(embed=ng_errormes(1))
     elif data.at[ids,'ng'] == 0 or check_id is False:
-        await ctx.followup.send(embed=errormes(2))
+        await ctx.followup.send(embed=ng_errormes(2))
     elif data.at[ids,'ng'] <= -1 or check_id is False:
-        await ctx.followup.send(embed=errormes(3))
+        await ctx.followup.send(embed=ng_errormes(3))
     elif data.at[ids,'ng'] < value or check_id is False:
-        await ctx.followup.send(embed=errormes(4))
+        await ctx.followup.send(embed=ng_errormes(4))
     else:
         ng_add(userid=to.id, supplier=ctx.user.id, ng=value)
         ng_remove(userid=ctx.user.id, buyer=to.id, ng=value)
