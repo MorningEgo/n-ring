@@ -89,6 +89,11 @@ remove
 #loop
 
 ####################################################################
+# Ngold
+from command_files.ngold import ng_user_cmd
+ng_user_cmd
+
+####################################################################
 # 初心者カスタム用
 from command_files.beginner_custom import scteam, scmap
 scteam

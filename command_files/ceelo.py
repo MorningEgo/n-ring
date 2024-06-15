@@ -1,4 +1,7 @@
 import define_first as I
+from command_files.ngold.ngolds import *
+from command_files.ngold.embed import *
+
 @I.tree.command(name="チンチロ", description="チンチロをします。")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 async def ceelo(ctx: I.discord.Interaction):
@@ -26,7 +29,7 @@ async def ceelo(ctx: I.discord.Interaction):
         for i in range(3):
             player_try[roll].append(str(ceelo_l[i]))
         print(str(player_try[roll]))
-        
+        ngcheck = 0
         if ceelo_roll_a==ceelo_roll_b!=ceelo_roll_c:
             player = f"役あり「**{ceelo_roll_c}**」！"
             break
@@ -38,15 +41,24 @@ async def ceelo(ctx: I.discord.Interaction):
             break
         elif ceelo_roll_a==ceelo_roll_b==ceelo_roll_c==1:
             player = f"「**ピンゾロ**」！！！！"
+            ngcheck = 111
+            ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=111)
             break
         elif ceelo_roll_a==ceelo_roll_b==ceelo_roll_c:
             player = f"ゾロ目！「{ceelo_roll_a}」！！！"
+            ngcheck = 50
+            ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=50)
             break
         elif ceelo_l==[1,2,3]:
             player = f"「**ヒフミ**」！よわ！！！！！"
+            ngcheck = 20
+            ng_remove(userid=ctx.user.id,buyer=I.client.user.id,ng=20)
+            
             break
         elif ceelo_l==[4,5,6]:
             player = f"「**シゴロ**」！！"
+            ngcheck = 10
+            ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=10)
             break
         else:
             player = "「**役なし**」！よわ！！"
@@ -65,3 +77,7 @@ async def ceelo(ctx: I.discord.Interaction):
     
     rolling.add_field(name="なにがでたかな", value=f"{dl}", inline=True)
     await ctx.followup.send(embed=rolling)
+
+    if ngcheck > 0:
+        ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=ngcheck)
+        await ctx.followup.send(embed=ng_embed)

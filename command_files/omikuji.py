@@ -1,7 +1,8 @@
 import define_first as I
 from define_first import json
 from nring_storage import omikuji_list as o_list
-
+from command_files.ngold.ngolds import *
+from command_files.ngold.embed import *
 
 
 @I.tree.command(name="ンゴみくじ", description="今日のンゴみくじを引くよ\nお布施してないんだから、当たらなくても文句言わないでよね！")
@@ -199,9 +200,15 @@ async def omikuji(ctx:I.discord.Interaction):
         name = ctx.user.display_name,
         icon_url = ctx.user.display_avatar.url
     )
-
     await ctx.edit_original_response(embed=roll)
     print(f"{omikuji_num}番")
+
+    
+    ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=5)
+    ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=5)
+
+    await ctx.followup.send(embed=ng_embed)
+    
 
     ###################################################
     # 書き込み

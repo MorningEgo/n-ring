@@ -12,6 +12,7 @@ import typing
 import time 
 from time import sleep
 from dotenv import load_dotenv
+import pandas as pd # type: ignore
 load_dotenv()
 
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -43,6 +44,7 @@ send_ch = int(os.environ['LIVE_SEND_CH'])
 #名前更新チャンネル(んご：専用ステージ、最下層のボイス)
 rename_ch = int(os.environ['LIVE_RENAME_CH'])
 #rename_ch = int(os.environ['LIVE_RENAME_CH_OP'])
+owner_id = int(os.environ['OWNER_ID'])
 #-------------------------------------------------------------------------------------------#
 
 if __name__ == '__main__':

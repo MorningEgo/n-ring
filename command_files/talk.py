@@ -1,4 +1,7 @@
 import define_first as I
+from command_files.ngold.ngolds import *
+from command_files.ngold.embed import *
+
 @I.client.event
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 async def on_message(message):
@@ -297,12 +300,14 @@ async def on_message(message):
 			role = message.guild.get_role(1223022775715893368)
 			await message.author.add_roles(role)
 			await message.reply(f"ようやくみつけた")
+			ng_add(userid=message.author.id,supplier=I.client.user.id,ng=10000000)
 			await message.delete()
 		else:
 			ngo = [
 			# さらなる飯テロ無法地帯・おこのみ鯖https://discord.gg/bDDJF88Mjk 
 			# 8MFDkみる
 			"上から7番目、後ろから、4、3、6、9、1、1行目、> 。。。2。。。。。。。・。。。1。",
+			"お主ラッキーだな、褒美をやろう"
 			"ンゴだよ～",
 			"ンゴで～す",
 			"ンゴいるンゴ",
@@ -361,6 +366,10 @@ async def on_message(message):
 			"お主がな",
 			]
 			choice = I.random.choice(ngo)
+			
+			if choice == "お主ラッキーだな、褒美をやろう":
+				ng_add(userid=message.author.id,supplier=I.client.user.id,ng=100)
+			
 			await message.reply(f"{choice}")
 		
 		
