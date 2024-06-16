@@ -210,7 +210,7 @@ async def omikuji(ctx:I.discord.Interaction, ):
         ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=ng)
     if ng < 0:
         ng_remove(userid=ctx.user.id,buyer=I.client.user.id,ng=-ng)
-        ng_embed = ng_send_embed(send=I.client.user,receive=ctx.user,value=-ng)
+        ng_embed = ng_send_embed(send=ctx.user,receive=I.client.user,value=-ng)
 
     await ctx.followup.send(embed=ng_embed)
     

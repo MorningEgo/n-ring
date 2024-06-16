@@ -60,4 +60,36 @@ async def transfer(ctx: I.discord.Interaction):
     await ctx.followup.send(embed=embed)
 
     print("=================")
+
+@ngg.command(name="add", description = "選択したユーザーのNgoldを増やします。管理者コマンド。")
+async def transfer(ctx: I.discord.Interaction, user:I.discord.Member, add:int):
+    print("=================")
+    print("<< << << Add >> >> >>")
+    await ctx.response.defer(thinking=True)
     
+    ng_add(userid=user.id,supplier=I.client.user.id,ng=add)
+    embed = ng_receive_embed(send=I.client.user,receive=user,value=add)
+
+    await ctx.followup.send(embed=embed)
+
+@ngg.command(name="remove", description = "選択したユーザーのNgoldを減らします。管理者コマンド。")
+async def transfer(ctx: I.discord.Interaction, user:I.discord.Member, remove:int):
+    print("=================")
+    print("<< << << Remove >> >> >>")
+    await ctx.response.defer(thinking=True)
+    
+    ng_remove(userid=user.id,buyer=I.client.user.id,ng=remove)
+    embed = ng_send_embed(send=I.client.user,receive=user,value=remove)
+
+    await ctx.followup.send(embed=embed)
+
+@ngg.command(name="remove", description = "選択したユーザーのNgoldをリセットします。管理者コマンド。")
+async def transfer(ctx: I.discord.Interaction, user:I.discord.Member):
+    print("=================")
+    print("<< << << Reset >> >> >>")
+    await ctx.response.defer(thinking=True)
+    
+    ng_reset(userid=user.id)
+    embed = ng_watch_embed(user=user)
+
+    await ctx.followup.send(embed=embed)
