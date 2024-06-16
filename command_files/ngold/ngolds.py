@@ -70,11 +70,6 @@ def ng_write(export_data = pd.DataFrame):
         export_data.to_csv(FILE_PATH,index_label='ids')
         print(f"\033[32m<<[ Ngolds ]>>\033[0m Exported:\n{export_data}")
 
-        try:
-            await DB_PATH.send(export_data) # type: ignore
-        except:
-            print("export error")
-
     except:
         print(f"\033[33m<<[ Ngolds ]>>\033[0m Export failed:\n{export_data}")
         return ng_read()
