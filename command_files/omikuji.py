@@ -7,7 +7,7 @@ from command_files.ngold.embed import *
 
 @I.tree.command(name="ンゴみくじ", description="今日のンゴみくじを引くよ\nお布施してないんだから、当たらなくても文句言わないでよね！")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
-@I.discord.app_commands.checks.cooldown(1, 4.0)
+@I.discord.app_commands.checks.cooldown(10, 300)
 async def omikuji(ctx:I.discord.Interaction, ):
     await ctx.response.defer(thinking=False)
     ###################################################

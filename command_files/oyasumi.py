@@ -4,6 +4,7 @@ from command_files.ngold.embed import *
 
 @I.tree.command(name="おやすみ", description="寝ます　はよ寝ろ")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
+@I.discord.app_commands.checks.cooldown(1, 3600)
 async def oyasumi(ctx:I.discord.Interaction, comment: str = None):
 	await ctx.response.defer(thinking=True)
 	
@@ -32,4 +33,4 @@ async def oyasumi(ctx:I.discord.Interaction, comment: str = None):
 	#####################
 	await ctx.followup.send(file=file, embed=E)
 
-	ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=10)
+	ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=30)

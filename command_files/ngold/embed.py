@@ -16,7 +16,7 @@ def ng_send_embed(send:I.discord.User,receive:I.discord.User,value:int):
     )
     remove_embed.add_field(
         name = f"**{int(old_send)}**ng  >>  **{int(new_send)}**ng",
-        value= f"**{receive.display_name}** へ **{value}**ng渡しました。"
+        value= f"**{receive.display_name}** へ **{int(value)}**ng渡しました。"
     )
     return remove_embed
 
@@ -35,7 +35,7 @@ def ng_receive_embed(send:I.discord.User,receive:I.discord.User,value:int):
     )
     add_embed.add_field(
         name = f"**{int(old_receive)}**ng  >>  **{int(new_receive)}**ng",
-        value= f"**{send.display_name}** から **{value}**ng受け取りました。"
+        value= f"**{send.display_name}** から **{int(value)}**ng受け取りました。"
     )
     return add_embed
 
