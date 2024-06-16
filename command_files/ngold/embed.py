@@ -116,7 +116,7 @@ def ng_watch_embed(user:I.discord.User):
     return watch_embed
 
 
-def ng_errormes(mes=int):
+def ng_errormes(mes:int):
     meslist = [
         "取引相手に自分自身を指定することはできません。",
         "送るngの値は1以上でなければなりません。",
@@ -134,3 +134,15 @@ def ng_errormes(mes=int):
             color= 0xed2f50
         )
     return error
+
+def ng_import(result:int):
+    meslist = [
+        "データの読み込みに成功しました。",
+        "データの読み込みに失敗しました。",
+    ]
+
+    res = remove_embed = I.discord.Embed(
+            title = "Ngold Import",
+            description= meslist[result]
+        )
+    return res

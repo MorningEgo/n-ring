@@ -4,6 +4,8 @@ from .ngolds import *
 from command_files.ngold.embed import *
 
 
+DB_PATH = I.client.get_channel(int(I.ngold_db))
+
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 class Ngold(I.app_commands.Group):
   ...
@@ -94,6 +96,23 @@ async def transfer(ctx: I.discord.Interaction, user:I.discord.Member):
     if ctx.user.id == I.owner_id:
         ng_reset(userid=user.id)
         embed = ng_watch_embed(user=user)
+    else:
+        embed = ng_errormes(mes=7)
+    await ctx.followup.send(embed=embed)
+
+
+@ngg.command(name="import", description="データを読み込みます。 管理者コマンド。")
+async def transfer(ctx: I.discord.Interaction, data:pd.DataFrame):
+    await ctx.response.defer(thinking=True)
+
+    if ctx.user.id == I.owner_id:
+        try:
+            ng_write(export_data=data)
+            res = 0
+        except:
+            res = 1
+
+        embed = ng_import(result=res)
     else:
         embed = ng_errormes(mes=7)
     await ctx.followup.send(embed=embed)

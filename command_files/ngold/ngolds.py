@@ -2,7 +2,10 @@ import define_first as I
 from define_first import pd
 from typing import *
 
+
 FILE_PATH = 'nring_storage/n_users/ng_storage.csv'
+DB_PATH = I.client.get_channel(int(I.ngold_db))
+
 
 def ng_read(userid : int|list[int]|None):
     """
@@ -66,6 +69,12 @@ def ng_write(export_data = pd.DataFrame):
     try:
         export_data.to_csv(FILE_PATH,index_label='ids')
         print(f"\033[32m<<[ Ngolds ]>>\033[0m Exported:\n{export_data}")
+
+        try:
+            await DB_PATH.send(export_data) # type: ignore
+        except:
+            print("export error")
+
     except:
         print(f"\033[33m<<[ Ngolds ]>>\033[0m Export failed:\n{export_data}")
         return ng_read()

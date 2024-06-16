@@ -44,7 +44,9 @@ send_ch = int(os.environ['LIVE_SEND_CH'])
 #名前更新チャンネル(んご：専用ステージ、最下層のボイス)
 rename_ch = int(os.environ['LIVE_RENAME_CH'])
 #rename_ch = int(os.environ['LIVE_RENAME_CH_OP'])
+
 owner_id = int(os.environ['OWNER_ID'])
+ngold_db = int(os.environ['NGOLD_DB_CH'])
 #-------------------------------------------------------------------------------------------#
 
 if __name__ == '__main__':
