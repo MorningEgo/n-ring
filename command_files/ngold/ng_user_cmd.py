@@ -130,7 +130,8 @@ async def export_csv(ctx: I.discord.Interaction):
         df = ng_read(None)
         data = df.to_json()
         DB_PATH = I.client.get_channel(int(I.ngold_db))
-        await DB_PATH.send(f"```json\n{data}```")
+        #await DB_PATH.send(f"```json\n{data}```")
+        await DB_PATH.send(file=I.discord.File(FILE_PATH))
         mes = 0
         embed = ng_import(result=mes)
     else:
