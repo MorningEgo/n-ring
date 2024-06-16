@@ -89,7 +89,8 @@ async def challenge(ctx:I.discord.Interaction, hardmode: bool = None):
       ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=addng)
     mes = f"## {_}！！！{match}\n`ハードモード有効  報酬1.5倍`"
   elif hardmode is None or hardmode is False:
-    ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=addng)
+    if not match == "":
+      ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=addng)
     mes = f"## {_}！！！{match}"
 
 
