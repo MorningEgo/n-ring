@@ -8,7 +8,7 @@ from command_files.ngold.embed import *
 @I.tree.command(name="ンゴみくじ", description="今日のンゴみくじを引くよ\nお布施してないんだから、当たらなくても文句言わないでよね！")
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
 @I.discord.app_commands.checks.cooldown(1, 4.0)
-async def omikuji(ctx:I.discord.Interaction):
+async def omikuji(ctx:I.discord.Interaction, ):
     await ctx.response.defer(thinking=False)
     ###################################################
     file_path = 'nring_storage/ngo_data.json'
@@ -203,9 +203,14 @@ async def omikuji(ctx:I.discord.Interaction):
     await ctx.edit_original_response(embed=roll)
     print(f"{omikuji_num}番")
 
-    
-    ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=5)
-    ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=20)
+
+    ng = Key_Scale[n][3]
+    if ng > 0:
+        ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=ng)
+        ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=ng)
+    if ng < 0:
+        ng_remove(userid=ctx.user.id,buyer=I.client.user.id,ng=-ng)
+        ng_embed = ng_send_embed(send=I.client.user,receive=ctx.user,value=-ng)
 
     await ctx.followup.send(embed=ng_embed)
     
