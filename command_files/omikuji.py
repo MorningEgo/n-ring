@@ -205,7 +205,7 @@ async def omikuji(ctx:I.discord.Interaction):
 
     
     ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=5)
-    ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=5)
+    ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=20)
 
     await ctx.followup.send(embed=ng_embed)
     

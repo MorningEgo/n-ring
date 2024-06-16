@@ -32,4 +32,4 @@ async def oyasumi(ctx:I.discord.Interaction, comment: str = None):
 	#####################
 	await ctx.followup.send(file=file, embed=E)
 
-	ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=1)
+	ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=10)
