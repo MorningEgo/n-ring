@@ -153,3 +153,7 @@ site
 #.idea/
 
 fly.toml
+
+/nring_storage/ngo_data.json
+/nring_storage/n_users/user_data.json
+/nring_storage/n_users/ng_storage.csv

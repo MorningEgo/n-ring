@@ -125,7 +125,7 @@ def ng_errormes(mes=int):
         "自身の所持している以上のngを使用することはできません。",
         "ベットは0かそれ以上である必要があります。",
         "ngが足りません。",
-
+        "権限がありません。",
     ]
 
     error = remove_embed = I.discord.Embed(
