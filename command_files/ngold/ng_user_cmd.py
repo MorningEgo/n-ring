@@ -83,7 +83,7 @@ async def transfer(ctx: I.discord.Interaction, user:I.discord.Member, remove:int
 
     await ctx.followup.send(embed=embed)
 
-@ngg.command(name="remove", description = "選択したユーザーのNgoldをリセットします。管理者コマンド。")
+@ngg.command(name="reset", description = "選択したユーザーのNgoldをリセットします。管理者コマンド。")
 async def transfer(ctx: I.discord.Interaction, user:I.discord.Member):
     print("=================")
     print("<< << << Reset >> >> >>")
