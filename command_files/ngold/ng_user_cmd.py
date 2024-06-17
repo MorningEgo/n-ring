@@ -76,6 +76,7 @@ async def add(ctx: I.discord.Interaction, user:I.discord.Member, add:int):
         embed = ng_errormes(mes=7)
     await ctx.followup.send(embed=embed)
 
+
 @ngg.command(name="remove", description = "選択したユーザーのNgoldを減らします。管理者コマンド。")
 async def remove(ctx: I.discord.Interaction, user:I.discord.Member, remove:int):
     print("=================")
@@ -87,6 +88,7 @@ async def remove(ctx: I.discord.Interaction, user:I.discord.Member, remove:int):
     else:
         embed = ng_errormes(mes=7)
     await ctx.followup.send(embed=embed)
+
 
 @ngg.command(name="reset", description = "選択したユーザーのNgoldをリセットします。管理者コマンド。")
 async def reset(ctx: I.discord.Interaction, user:I.discord.Member):
