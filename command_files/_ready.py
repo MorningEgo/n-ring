@@ -2,6 +2,7 @@ import define_first as I
 from command_files.beginner_custom.scteam import sct
 from command_files.cl.cl import clc, R
 from command_files.ngold.ng_user_cmd import ngg
+from command_files.ngold.ng_sys_cmd import ngsys
 #from loop import loop_1s,loop_1m,loop_1h
 #from command_files.cl.role.loop import cl_loop
 from discord.ext import tasks
@@ -34,6 +35,11 @@ async def on_ready():
   I.tree.add_command(clc)
   I.tree.add_command(R)
   I.tree.add_command(ngg)
+  I.tree.add_command(ngsys)
+
   await I.client.change_presence(activity=activ)
   await I.tree.sync(guild=I.discord.Object(id=I.guildid))
-  await I.tree.sync(guild=I.discord.Object(id=I.scguild))
+  try:
+    await I.tree.sync(guild=I.discord.Object(id=I.scguild))
+  except:
+    print("")

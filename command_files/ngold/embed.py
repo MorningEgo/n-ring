@@ -6,8 +6,10 @@ def ng_send_embed(send:I.discord.User,receive:I.discord.User,value:int):
     id_send = f"i{send.id}"
     data = ng_read(send.id)
     new_send = data.at[id_send,'ng']
-    old_send = int(new_send + value)
+    old_send = new_send + value
     
+    print(f"new: {new_send}")
+    print(f"old: {old_send}")
 
     remove_embed = I.discord.Embed(
         title = "Ngold 利用明細",
@@ -47,9 +49,9 @@ def ng_watch_embed(user:I.discord.User):
         color= 0xafed2f
     )
     data = ng_watch(user.id)
-
-    df_ng = int(data[0])
-    df_max = int(data[1])
+    
+    df_ng = data[0]
+    df_max = data[1]
     df_deal01_0 = int(data[2][0])
     df_deal01_1 = int(data[2][1])
     df_deal02_0 = int(data[3][0])
@@ -72,7 +74,7 @@ def ng_watch_embed(user:I.discord.User):
         df_deal01_user = I.client.get_user(df_deal01_0)
         watch_embed.add_field(
             name= "直近の取引履歴",
-            value= f"取引相手：**{df_deal01_user.display_name}**\n取引額：**{int(df_deal01_1)}**ng",
+            value= f"取引相手：**{df_deal01_user.display_name}**\n取引額：**{df_deal01_1}**ng",
             inline=False
         )
         if not df_deal02_0 == 0:

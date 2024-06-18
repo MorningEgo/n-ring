@@ -6,8 +6,13 @@ from typing import *
 FILE_PATH = 'nring_storage/n_users/ng_storage.csv'
 DB_PATH = I.client.get_channel(int(I.ngold_db))
 
+def ng_csv():
+    #df = 
+    
+    return pd.read_csv(FILE_PATH, encoding="utf-8", index_col= 'ids', header = 0, dtype={'ids':'object','userid':'int64','ng':'int64','maxng':'int64','deal01':'int64','deal01val':'int64','deal02':'int64','deal02val':'int64','deal03':'int64','deal03val':'int64'})
 
-def ng_read(userid : int|list[int]|None):
+
+def ng_read(userid: int|list[int]=None):
     """
     CSVデータを読み込む。
 
@@ -19,9 +24,11 @@ def ng_read(userid : int|list[int]|None):
     from define_first import pd
     print(f"\033[32m<<[ Ngolds ]>>\033[0m loading csv...")
     try:
-        df = pd.read_csv(FILE_PATH, encoding="utf-8", index_col= 'ids', header = 0)
+        df = ng_csv()
         print(f"\033[32m<<[ Ngolds ]>>\033[0m Successfully loaded.")
+        print(df.at['i498145514726883348','userid'])
         print(df)
+
         if not userid is None:
             print(f"\033[32m<<[ Ngolds ]>>\033[0m userid Checking now...")
             if type(userid) == list:
@@ -48,10 +55,10 @@ def ng_read(userid : int|list[int]|None):
                 print(f"\033[32m<<[ Ngolds ]>>\033[0m Successfully created: \n{df}")
             except:
                 print(f"\033[31m<<[ Ngolds ]>>\033[0m Failed to Create data.")
-        return pd.read_csv(FILE_PATH, encoding="utf-8", index_col= 'ids', header = 0)
+        return ng_csv()
     except:
         print(f"\033[31m<<[ Ngolds ]>>\033[0m Failed to load.")
-        return pd.read_csv(FILE_PATH, encoding="utf-8", index_col= 'ids', header = 0)
+        return ng_csv()
 
 
 def ng_write(export_data = pd.DataFrame):
@@ -105,7 +112,7 @@ def ng_add(userid = int, supplier = int, ng = int):
     ng_write(export_data=df)
     ng_deal_update(userid=userid,new=supplier,value=ng)
 
-    return ng_read(None)
+    return ng_read()
 
 
 def ng_remove(userid = int, buyer = int, ng = int):
@@ -151,9 +158,9 @@ def ng_reset(userid = int):
     df = ng_read(userid=userid)
     ids = f"i{userid}"
     if userid != I.owner_id:
-        df.at[ids,'ng'] == 1000
+        df.at[ids,'ng'] = 1000
     else:
-        df.at[ids,'ng'] == 99999999999999
+        df.at[ids,'ng'] = 99999999999999
 
     # 書き込み
     ng_write(df)
@@ -184,7 +191,7 @@ def ng_deal_update(userid=int,new=int,value=int):
     print(f"\033[32m<<[ Ngolds ]>>\033[0m Deal updating...")
 
     df.at[ids,'deal03'] = df.at[ids,'deal02']
-    df.at[ids,'deal03val'] = df.at[ids,'deal02val']
+    df.at[ids,'deal03val'] == df.at[ids,'deal02val']
     df.at[ids,'deal02'] = df.at[ids,'deal01']
     df.at[ids,'deal02val'] = df.at[ids,'deal01val']
     df.at[ids,'deal01'] = new
@@ -216,4 +223,4 @@ def ng_watch(userid = int):
     df_deal02 = [df.at[ids,'deal02'],df.at[ids,'deal02val']]
     df_deal03 = [df.at[ids,'deal03'],df.at[ids,'deal03val']]
 
-    return [df_ng,df_max,df_deal01,df_deal02,df_deal03]
+    return int(df_ng),int(df_max),df_deal01,df_deal02,df_deal03

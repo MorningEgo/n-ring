@@ -90,8 +90,9 @@ remove
 
 ####################################################################
 # Ngold
-from command_files.ngold import ng_user_cmd
+from command_files.ngold import ng_user_cmd, ng_sys_cmd
 ng_user_cmd
+ng_sys_cmd
 
 ####################################################################
 # 初心者カスタム用
