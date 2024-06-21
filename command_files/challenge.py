@@ -49,10 +49,10 @@ async def challenge(ctx:I.discord.Interaction, hardmode: bool = None):
     addng = 5000000
   elif _ == "んごりンゴんごりンゴんごりンゴ":
     match = "\n\n\n\n## T  R  I  P  L  E    N    G    O"
-    addng = 25000000
+    addng = 17000000
   elif _ == "んごりンゴんごりンゴんごりンゴんごりンゴ":
     match = "\n\n\n\n# _N  G  O      P  A  R  T  Y_"
-    addng = 500000000
+    addng = 340000000
 
   ## ンゴ違い ##
   elif _ == "んご":
