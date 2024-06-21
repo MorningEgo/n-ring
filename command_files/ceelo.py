@@ -12,13 +12,13 @@ async def ceelo(ctx: I.discord.Interaction, bet: int):
 
     if bet > 0:
         if data[0] == 0:
-            rolling = ng_errormes(3)
+            rolling = ng_errormes(2)
         elif data[0] < 0:
-            rolling = ng_errormes(4)
+            rolling = ng_errormes(3)
         elif data[0] < bet:
-            rolling = ng_errormes(5)
+            rolling = ng_errormes(4)
     elif bet < 0:
-        rolling = ng_errormes(6)
+        rolling = ng_errormes(5)
     else:
         rolling = I.discord.Embed(title=f"チンチロ！！せーの！！", )
         #| None=目無し | 1~6=目あり | 11~16=ゾロ目 | 0=ヒフミ | 9=シゴロ |#

@@ -120,7 +120,7 @@ def ng_watch_embed(user:I.discord.User):
 
 def ng_errormes(mes:int):
     """
-    1. 取引相手に自分自身を指定することはできません。
+    0. 取引相手に自分自身を指定することはできません。
     1. 送るngの値は1以上でなければなりません。
     1. あなたはngを所持していません。
     1. 負債がある状態でngを送ることはできません。
@@ -140,7 +140,7 @@ def ng_errormes(mes:int):
         "権限がありません。",
     ]
 
-    error = remove_embed = I.discord.Embed(
+    error = I.discord.Embed(
             title = "Ngold 取引拒否",
             description= meslist[mes],
             color= 0xed2f50
