@@ -77,7 +77,7 @@ async def challenge(ctx:I.discord.Interaction, hardmode: bool = None):
     addng = 5
   elif _ == "ゴゴ":
     match = "\n\nゴゴ！"
-    match = 55
+    addng = 55
   elif _ == "ゴゴゴ":
     match = "\n\nゴゴゴゴゴゴゴゴ..."
     addng = 555
