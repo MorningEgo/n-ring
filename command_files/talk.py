@@ -307,7 +307,7 @@ async def on_message(message):
 			# さらなる飯テロ無法地帯・おこのみ鯖https://discord.gg/bDDJF88Mjk 
 			# 8MFDkみる
 			"上から7番目、後ろから、4、3、6、9、1、1行目、> 。。。2。。。。。。。・。。。1。",
-			"お主ラッキーだな、褒美をやろう"
+			"お主ラッキーだな、褒美をやろう",
 			"ンゴだよ～",
 			"ンゴで～す",
 			"ンゴいるンゴ",
@@ -368,7 +368,7 @@ async def on_message(message):
 			choice = I.random.choice(ngo)
 			
 			if choice == "お主ラッキーだな、褒美をやろう":
-				ng_add(userid=message.author.id,supplier=I.client.user.id,ng=100)
+				ng_add(userid=message.author.id,supplier=I.client.user.id,ng=500)
 			
 			await message.reply(f"{choice}")
 		

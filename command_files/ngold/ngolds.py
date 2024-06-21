@@ -40,7 +40,7 @@ def ng_read(userid: int|list[int]=None):
             for i in size:
                 print(f"\033[32m<<[ Ngolds ]>>\033[0m Checking id {i}.")
                 ids_i = f"i{i}"
-                if not ids_i in df.index.values:
+                if not ids_i in df.index.values.tolist():
                     print(f"\033[33m<<[ Ngolds ]>>\033[0m {i} does not exist in the database. Create data.")
                     ids = f"i{i}"
                     print(f"\033[32m<<[ Ngolds ]>>\033[0m {ids}")
@@ -48,13 +48,11 @@ def ng_read(userid: int|list[int]=None):
                     print(f"\033[32m<<[ Ngolds ]>>\033[0m new_row created.")
                     df = pd.concat([df,new_row], ignore_index=False)
                     print(f"\033[32m<<[ Ngolds ]>>\033[0m concated.\n{df}")
+                    ng_write(export_data=df)
+                    print(f"\033[32m<<[ Ngolds ]>>\033[0m Successfully created: \n{df}")
+                    ##print(f"\033[31m<<[ Ngolds ]>>\033[0m Failed to Create data.")
                 else:
                     print(f"\033[32m<<[ Ngolds ]>>\033[0m id {i} has already been created.")
-            try:
-                ng_write(export_data=df)
-                print(f"\033[32m<<[ Ngolds ]>>\033[0m Successfully created: \n{df}")
-            except:
-                print(f"\033[31m<<[ Ngolds ]>>\033[0m Failed to Create data.")
         return ng_csv()
     except:
         print(f"\033[31m<<[ Ngolds ]>>\033[0m Failed to load.")
