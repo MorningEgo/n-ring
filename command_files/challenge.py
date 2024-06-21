@@ -24,61 +24,87 @@ async def challenge(ctx:I.discord.Interaction, hardmode: bool = None):
   ## かんぺき ##
   if _ == "んごりンゴ":
     match = "\n\n\n\n# _Foo!!!!!!_"
-    # 5000 ng
-    addng = 5000
+    addng = 500000
   
   ## おしい ##
   elif _ == "ンゴりんご":
     match = "\n\n......？"
-    addng = 1000
+    addng = 25000
   elif _ == "んごりんご":
     match = "\n\n......？"
-    addng = 1000
+    addng = 25000
   elif _ == "ンゴりンゴ":
     match = "\n\n......？"
-    addng = 1000
+    addng = 25000
   elif _ == "ゴンりごん":
     match = "\n\n\N{Clockwise Rightwards and Leftwards Open Circle Arrows}"
-    addng = 1000
+    addng = 25000
   elif _ == "んんごごりりンンゴゴ":
     match = "\n\n_`Glitch`_"
-    addng = 1000
+    addng = 1000000
   
   ## えぐい ##
   elif _ == "んごりンゴんごりンゴ":
     match = "\n\n\n\n### D  O  U  B  L  E    N    G    O"
-    # 50000 ng
-    addng = 50000
+    addng = 5000000
   elif _ == "んごりンゴんごりンゴんごりンゴ":
     match = "\n\n\n\n## T  R  I  P  L  E    N    G    O"
-    # 500000 ng
-    addng = 500000
+    addng = 25000000
   elif _ == "んごりンゴんごりンゴんごりンゴんごりンゴ":
     match = "\n\n\n\n# _N  G  O      P  A  R  T  Y_"
-    # 5000000 ng
-    addng = 5000000
+    addng = 500000000
 
   ## ンゴ違い ##
   elif _ == "んご":
     match = "\n\n......。"
-    addng = 50
+    addng = 500
     
   
   ## ンゴ ##
   elif _ == "ンゴ":
     match = "\n\nンゴ～"
-    addng = 50
+    addng = 500
   elif _ == "ンゴンゴ":
     match = "\n\nンゴッ！？"
-    addng = 50
+    addng = 5000
+  
+  ## その他 ##
+  elif _ == "ゴンゴン":
+    match = "\n\nｺﾞｰﾝ..."
+    addng = 2500
+  elif _ == "ゴ":
+    match = "\n\nゴ！"
+    addng = 5
+  elif _ == "ゴゴ":
+    match = "\n\nゴゴ！"
+    match = 55
+  elif _ == "ゴゴゴ":
+    match = "\n\nゴゴゴゴゴゴゴゴ..."
+    addng = 555
+  elif _ == "りんりん":
+    if random.randint(1,20) == 1:
+      match = "\n\nプレゼントが欲しいか"
+      addng = 7777
+    else:
+      match = "\n\nクリスマスじゃないよ"
+      addng = 2000
+  elif _ == "リンリン":
+    match = "\n\nスズムシ？"
+    addng = 4000
+
+  elif _ == "んんん":
+    match = "\n\nう～ん..."
+    addng = 1000
 
   ## りんご ##
   elif _ == "りんご":
     match = "\n\n\N{Green Apple}"
-    addng = 100
+    addng = 1000
   elif _ == "ごんり":
     match = "\n\n\N{Red Apple}"
-    addng = 100
+    addng = 1000
+  
+
   
 
 

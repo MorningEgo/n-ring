@@ -8,11 +8,16 @@ from command_files.ngold.embed import *
 async def ceelo(ctx: I.discord.Interaction, bet: int):
     await ctx.response.defer(thinking=True)
     data = ng_watch(userid=ctx.user.id)
-    if bet < 0:
-        rolling = ng_errormes(5)
-    elif data[0] < bet:
-        rolling = ng_errormes(4)
-    elif data[0] <= 0 and bet > 0:
+    ngcheck = 0
+
+    if bet > 0:
+        if data[0] == 0:
+            rolling = ng_errormes(3)
+        elif data[0] < 0:
+            rolling = ng_errormes(4)
+        elif data[0] < bet:
+            rolling = ng_errormes(5)
+    elif bet < 0:
         rolling = ng_errormes(6)
     else:
         rolling = I.discord.Embed(title=f"チンチロ！！せーの！！", )
@@ -24,7 +29,6 @@ async def ceelo(ctx: I.discord.Interaction, bet: int):
             2:[],
             3:[],
         }
-        ngcheck = 0
         for i in range(3):
             roll = i + 1
             ceelo_roll_a = I.random.randint(1, 6)
