@@ -137,7 +137,8 @@ async def on_message(message:I.discord.message.Message):
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
 		elif "お小遣いください" in message.content or "おこづかいください" in message.content:
-			if I.random.randint(1,16) == 1:
+			data = ng_watch(userid=message.author.id)
+			if I.random.randint(1,16) == 1 and data[0] < 2000:
 				ngo = [
 					"仕方ないな～",
 					"しゃーなしだぞ",
@@ -152,6 +153,12 @@ async def on_message(message:I.discord.message.Message):
 				ng_add(userid=message.author.id,supplier=I.client.user.id,ng=ng)
 				embed = ng_receive_embed(send=I.client.user,receive=message.author,value=ng)
 				await message.reply(embed=embed)
+			elif data[0] >= 3000:
+				ngo = [
+					"オメェNgold持ってんだろ！！！",
+					"やだよ～ん",
+					"Ngoldありますよね？",
+				]
 			else:
 				ngo = [
 					"そっか",
