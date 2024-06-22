@@ -99,9 +99,9 @@ async def ceelo(ctx: I.discord.Interaction, bet: int):
             
             rolling.add_field(name="なにがでたかな", value=f"{dl}", inline=True)
     
-    
-    await ctx.followup.send(embed=rolling)
 
+    await ctx.followup.send(embed=rolling)
+    ngcheck == int(ngcheck)
     if ngcheck > 0:
         ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=ngcheck)
         ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=ngcheck)

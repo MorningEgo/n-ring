@@ -4,7 +4,7 @@ from command_files.ngold.embed import *
 
 @I.client.event
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
-async def on_message(message):
+async def on_message(message:I.discord.message.Message):
 	if message.author.bot:
 		return
 	elif I.client.user in message.mentions:
@@ -37,7 +37,7 @@ async def on_message(message):
 			"パー",
 		]
 		rps = I.random.choice(rps_raw)
-		if ("？" in message.content or "?" in message.content) and "しってる" in message.content or "知ってる" in message.content or "しらない" in message.content or "知らない" in message.content:
+		if ("？" in message.content or "?" in message.content) and ("しってる" in message.content or "知ってる" in message.content or "しらない" in message.content or "知らない" in message.content):
 			ngo = [
 				"知ってるよ",
 				"知ってるかも",
@@ -136,6 +136,37 @@ async def on_message(message):
 			]
 			choice = I.random.choice(ngo)
 			await message.reply(f"{choice}")
+		elif "お小遣いください" in message.content or "おこづかいください" in message.content:
+			if I.random.randint(1,16) == 1:
+				ngo = [
+					"仕方ないな～",
+					"しゃーなしだぞ",
+					"文句言うなよ～",
+					"わがまま言いやがってヨ～～",
+					"はい",
+					"どうぞ～"
+				]
+				choice = I.random.choice(ngo)
+				await message.reply(f"{choice}")
+				ng = I.random.randint(1,1000)
+				ng_add(userid=message.author.id,supplier=I.client.user.id,ng=ng)
+				embed = ng_receive_embed(send=I.client.user,receive=message.author,value=ng)
+				await message.reply(embed=embed)
+			else:
+				ngo = [
+					"そっか",
+					"あーげない",
+					"誠意が足りない",
+					"ハハ",
+					"お金ないの？",
+					"どうしよっかな～",
+					"お前にやるNgoldはない",
+					"みくじでも回してな",
+					"やだ",
+					"え～"
+				]
+				choice = I.random.choice(ngo)
+				await message.reply(f"{choice}")
 
 		elif "スロット" in message.content:
 			ngo = [
@@ -299,8 +330,12 @@ async def on_message(message):
 		elif message.content == f"{I.client.user.mention} Confetti":
 			role = message.guild.get_role(1223022775715893368)
 			await message.author.add_roles(role)
-			await message.reply(f"ようやくみつけた")
-			ng_add(userid=message.author.id,supplier=I.client.user.id,ng=10000000)
+			await message.reply(f"ようやく  みつけた")
+			if role in message.author.roles:
+				ng = 10000000
+				ng_add(userid=message.author.id,supplier=I.client.user.id,ng=ng)
+				#embed = ng_receive_embed(send=I.client.user,receive=message.author,value=ng)
+				#await message.reply(embed=embed)
 			await message.delete()
 		else:
 			ngo = [
@@ -368,8 +403,10 @@ async def on_message(message):
 			choice = I.random.choice(ngo)
 			
 			if choice == "お主ラッキーだな、褒美をやろう":
-				ng_add(userid=message.author.id,supplier=I.client.user.id,ng=500)
-			
+				ng = 5000
+				ng_add(userid=message.author.id,supplier=I.client.user.id,ng=ng)
+				embed = ng_receive_embed(send=I.client.user,receive=message.author,value=ng)
+				await message.reply(embed=embed)
 			await message.reply(f"{choice}")
 		
 		
