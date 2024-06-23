@@ -49,10 +49,10 @@ async def challenge(ctx:I.discord.Interaction, hardmode: bool = None):
     addng = 5000000
   elif _ == "んごりンゴんごりンゴんごりンゴ":
     match = "\n\n\n\n## T  R  I  P  L  E    N    G    O"
-    addng = 17000000
+    addng = 12500000
   elif _ == "んごりンゴんごりンゴんごりンゴんごりンゴ":
     match = "\n\n\n\n# _N  G  O      P  A  R  T  Y_"
-    addng = 340000000
+    addng = 250000000
 
   ## ンゴ違い ##
   elif _ == "んご":
@@ -111,9 +111,9 @@ async def challenge(ctx:I.discord.Interaction, hardmode: bool = None):
 
   if hardmode is True:
     if not match == "":
-      addng == int(addng *1.5)
+      addng == int(addng *2)
       ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=addng)
-    mes = f"## {_}！！！{match}\n`ハードモード有効  報酬1.5倍`"
+    mes = f"## {_}！！！{match}\n`ハードモード有効  報酬2倍`"
   elif hardmode is None or hardmode is False:
     if not match == "":
       ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=addng)

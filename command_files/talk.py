@@ -159,6 +159,8 @@ async def on_message(message:I.discord.message.Message):
 					"やだよ～ん",
 					"Ngoldありますよね？",
 				]
+				choice = I.random.choice(ngo)
+				await message.reply(f"{choice}")
 			else:
 				ngo = [
 					"そっか",
