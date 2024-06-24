@@ -222,3 +222,4 @@ def ng_watch(userid = int):
     df_deal03 = [df.at[ids,'deal03'],df.at[ids,'deal03val']]
 
     return int(df_ng),int(df_max),df_deal01,df_deal02,df_deal03
+

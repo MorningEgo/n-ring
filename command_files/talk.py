@@ -145,7 +145,8 @@ async def on_message(message:I.discord.message.Message):
 					"文句言うなよ～",
 					"わがまま言いやがってヨ～～",
 					"はい",
-					"どうぞ～"
+					"どうぞ～",
+					"ｲｲﾖ～"
 				]
 				choice = I.random.choice(ngo)
 				await message.reply(f"{choice}")
@@ -153,11 +154,14 @@ async def on_message(message:I.discord.message.Message):
 				ng_add(userid=message.author.id,supplier=I.client.user.id,ng=ng)
 				embed = ng_receive_embed(send=I.client.user,receive=message.author,value=ng)
 				await message.reply(embed=embed)
-			elif data[0] >= 3000:
+			elif data[0] >= 2000:
 				ngo = [
 					"オメェNgold持ってんだろ！！！",
 					"やだよ～ん",
 					"Ngoldありますよね？",
+					"やだ",
+					"お前は払う側になれ",
+					"持ってんだろ！自力で増やしてこい！！！！"
 				]
 				choice = I.random.choice(ngo)
 				await message.reply(f"{choice}")
@@ -333,7 +337,7 @@ async def on_message(message:I.discord.message.Message):
 
 		elif message.content == f"{I.client.user.mention} 人に成る":
 			#しきさいのすうじたせ
-			ms_reply = await message.reply(f"ンゴにアクセスしようとしてる？\nこっちはこれだけアクセスしてるんだけど、名前が分からないんだよね、教えてくれない？\nもうちょいで消すからスクショかコピーでメモってね\n```\n〇〇〇〇７〇〇〇\n〇４〇〇〇〇〇〇〇〇〇〇〇〇〇〇９〇〇、〇〇〇〇〇〇〇〇〇〇〇〇１〇〇。\n〇〇〇〇５\n〇〇〇〇〇〇〇〇〇〇〇〇３〇〇〇〇８〇〇、〇〇〇〇〇〇〇〇・〇〇０〇〇〇〇〇〇〇〇〇〇〇。\n〇〇〇６\n〇〇２〇〇〇〇〇〇〇、〇〇〇〇〇〇〇〇、〇〇〇〇〇〇、〇〇〇〇〇〇〇〇〇〇〇〇。\n\n5つの０１２３４５６７８９。\nその先で1が無いもの。これはバグ。```")
+			ms_reply = await message.reply(f"ンゴのデータにアクセスしようとしてる？\nこっちはこれだけアクセスしてるんだけど、名前が分からないんだよね、教えてくれない？\nもうちょいで消すからスクショかコピーでメモってね\n```\n〇〇〇〇７〇〇〇\n〇４〇〇〇〇〇〇〇〇〇〇〇〇〇〇９〇〇、〇〇〇〇〇〇〇〇〇〇〇〇１〇〇。\n〇〇〇〇５\n〇〇〇〇〇〇〇〇〇〇〇〇３〇〇〇〇８〇〇、〇〇〇〇〇〇〇〇・〇〇０〇〇〇〇〇〇〇〇〇〇〇。\n〇〇〇６\n〇〇２〇〇〇〇〇〇〇、〇〇〇〇〇〇〇〇、〇〇〇〇〇〇、〇〇〇〇〇〇〇〇〇〇〇〇。\n\n5つの０１２３４５６７８９。\nその先で1が無いもの。これはバグ。```")
 			await message.delete()
 			await ms_reply.delete(delay=10)
 		elif message.content == f"{I.client.user.mention} Confetti":

@@ -105,16 +105,20 @@ async def ceelo(ctx: I.discord.Interaction, bet: int):
             try_3 = '・'.join(player_try[3])
             dl = f"一回目！「`{try_1}`」！\n二回目！「`{try_2}`」！！\n三回目！「`{try_3}`」！！！\n\n\n{player}"
         
+        if bet > 0:
+            rolling.set_footer(text=f"ベット額：{bet} ng")
         rolling.add_field(name="なにがでたかな", value=f"{dl}", inline=True)
     
 
     await ctx.followup.send(embed=rolling)
     ngcheck == int(ngcheck)
-    if ngcheck > 0:
-        ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=ngcheck)
-        ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=ngcheck)
-        await ctx.followup.send(embed=ng_embed)
-    elif ngcheck < 0:
-        ng_remove(userid=ctx.user.id,buyer=I.client.user.id,ng=-ngcheck)
-        ng_embed = ng_send_embed(send=ctx.user,receive=I.client.user,value=-ngcheck)
+    if not ngcheck == 0:
+        if ngcheck > 0:
+            ng_add(userid=ctx.user.id,supplier=I.client.user.id,ng=ngcheck)
+            ng_embed = ng_receive_embed(send=I.client.user,receive=ctx.user,value=ngcheck)
+            
+        elif ngcheck < 0:
+            ng_remove(userid=ctx.user.id,buyer=I.client.user.id,ng=-ngcheck)
+            ng_embed = ng_send_embed(send=ctx.user,receive=I.client.user,value=-ngcheck)
+        
         await ctx.followup.send(embed=ng_embed)

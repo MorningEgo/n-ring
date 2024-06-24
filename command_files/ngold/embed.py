@@ -20,6 +20,7 @@ def ng_send_embed(send:I.discord.User,receive:I.discord.User,value:int):
         name = f"**{int(old_send)}**ng  >>  **{int(new_send)}**ng",
         value= f"**{receive.display_name}** へ **{int(value)}**ng渡しました。"
     )
+    remove_embed.set_author(name=send.display_name,icon_url=send.display_avatar.url)
     return remove_embed
 
 
@@ -39,13 +40,14 @@ def ng_receive_embed(send:I.discord.User,receive:I.discord.User,value:int):
         name = f"**{int(old_receive)}**ng  >>  **{int(new_receive)}**ng",
         value= f"**{send.display_name}** から **{int(value)}**ng受け取りました。"
     )
+    add_embed.set_author(name=receive.display_name,icon_url=receive.display_avatar.url)
     return add_embed
 
 
 def ng_watch_embed(user:I.discord.User):
     watch_embed = I.discord.Embed(
         title = f"Ngold My Card : {user.display_name}",
-        description="現在のng、最大獲得ng、取引履歴(最大3件まで)を確認します。",
+        description=f"現在のng、最大獲得ng、取引履歴(最大3件まで)を確認します。",
         color= 0xafed2f
     )
     data = ng_watch(user.id)
@@ -138,6 +140,7 @@ def ng_errormes(mes:int):
         "ベットは0かそれ以上である必要があります。",
         "ngが足りません。",
         "権限がありません。",
+        "ベット上限を超えてベットすることはできません。",
     ]
 
     error = I.discord.Embed(
