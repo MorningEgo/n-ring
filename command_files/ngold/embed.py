@@ -143,11 +143,12 @@ def ng_errormes(mes:int, betname:str, bet:int):
         "ngが足りません。",
         "権限がありません。",
         f"{betname}に{bet}ng以上賭けることはできません。",
-        "ベットが必要です。"
+        "ベットが必要です。",
+        "不明なエラーが発生しました。"
     ]
 
     error = I.discord.Embed(
-            title = "Ngold 取引拒否",
+            title = "Ngold ",
             description= meslist[mes],
             color= 0xed2f50
         )

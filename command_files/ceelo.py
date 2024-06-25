@@ -26,10 +26,15 @@ async def ceelo(ctx: I.discord.Interaction, bet: int):
     data = ng_watch(userid=ctx.user.id)
     ngcheck = int(0)
 
+    bet_min = int(0)
     bet_max = int(1000000)
-
-    if bet < 0:
-        result = ng_errormes(5,"bet",0)
+    
+    ng_errormes()
+    errorcheck = True
+    
+    if bet < bet_min:
+        result = ng_errormes(5,"bet",bet_min)
+        errorcheck = True
     elif bet > 0:
         if data[0] == 0:
             result = ng_errormes(2)
@@ -40,8 +45,9 @@ async def ceelo(ctx: I.discord.Interaction, bet: int):
         elif data[0] < bet:
             result = ng_errormes(4)
             errorcheck = True
-        elif bet_max > bet:
+        elif bet_max < bet:
             result = ng_errormes(8,"bet",bet_max)
+            errorcheck = True
         else:
             errorcheck = False
     else:
