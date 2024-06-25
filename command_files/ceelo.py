@@ -2,33 +2,53 @@ import define_first as I
 from command_files.ngold.ngolds import *
 from command_files.ngold.embed import *
 
-@I.tree.command(name="チンチロ", description="チンチロをします。")
+@I.tree.command(
+        name="チンチロ",
+        description="チンチロをします。"
+        # サイコロを3つ振って役を狙うゲームです。
+        # ＝＝＝＝＝＝＝＝｝出　　目　　一　　覧｛＝＝＝＝＝＝＝＝＝ #
+        # 　役　名　：　　　　　　出　　目　　　　　　：　配　当　　 #
+        # 強～～～～～～～～～～～～～～～～～～～～～～～～～～～強 #
+        # ｜ピンゾロ：全て１の目　　　　　　　　　　　：５倍もらう｜ #
+        # ｜ゾロ目　：全て１以外の同じ目　　　　　　　：３倍もらう｜ #
+        # ｜シゴロ　：４５６　　　　　　　　　　　　　：２倍もらう｜ #
+        # ｜役あり　：同じ目が２つ（残りの１つが出目）：等倍もらう｜ #
+        # ｜役なし　：全て違う目　　　　　　　　　　　：等倍はらう｜ #
+        # ｜ヒフミ　：１、２、３　　　　　　　　　　　：２倍はらう｜ #
+        # 弱～～～～～～～～～～～～～～～～～～～～～～～～～～～弱 #
+        # ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ #
+)
 @I.discord.app_commands.guilds(I.discord.Object(id=I.guildid))
+@I.discord.app_commands.checks.cooldown(1, 5)
 @I.discord.app_commands.describe(bet = "賭けるNgoldの数。0で賭けずにプレイします。")
 async def ceelo(ctx: I.discord.Interaction, bet: int):
     await ctx.response.defer(thinking=True)
     data = ng_watch(userid=ctx.user.id)
-    ngcheck = 0
+    ngcheck = int(0)
+
+    bet_max = int(1000000)
 
     if bet < 0:
-        rolling = ng_errormes(5)
+        result = ng_errormes(5,"bet",0)
     elif bet > 0:
         if data[0] == 0:
-            rolling = ng_errormes(2)
+            result = ng_errormes(2)
             errorcheck = True
         elif data[0] < 0:
-            rolling = ng_errormes(3)
+            result = ng_errormes(3)
             errorcheck = True
         elif data[0] < bet:
-            rolling = ng_errormes(4)
+            result = ng_errormes(4)
             errorcheck = True
+        elif bet_max > bet:
+            result = ng_errormes(8,"bet",bet_max)
         else:
             errorcheck = False
     else:
         errorcheck = False
         
     if errorcheck is False:
-        rolling = I.discord.Embed(title=f"チンチロ！！せーの！！", )
+        result = I.discord.Embed(title=f"チンチロ！！せーの！！", )
         #| None=目無し | 1~6=目あり | 11~16=ゾロ目 | 0=ヒフミ | 9=シゴロ |#
         player = f""
         roll = 0
@@ -106,11 +126,11 @@ async def ceelo(ctx: I.discord.Interaction, bet: int):
             dl = f"一回目！「`{try_1}`」！\n二回目！「`{try_2}`」！！\n三回目！「`{try_3}`」！！！\n\n\n{player}"
         
         if bet > 0:
-            rolling.set_footer(text=f"ベット額：{bet} ng")
-        rolling.add_field(name="なにがでたかな", value=f"{dl}", inline=True)
+            result.set_footer(text=f"ベット額：{bet} ng")
+        result.add_field(name="なにがでたかな", value=f"{dl}", inline=True)
     
 
-    await ctx.followup.send(embed=rolling)
+    await ctx.followup.send(embed=result)
     ngcheck == int(ngcheck)
     if not ngcheck == 0:
         if ngcheck > 0:
