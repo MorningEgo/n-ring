@@ -38,5 +38,9 @@ map = [
   [
     "サンセット",
     "https://static.wikia.nocookie.net/valorant/images/5/5c/Loading_Screen_Sunset.png/revision/latest?cb=20230829125442"
+  ],
+  [
+    "アビス",
+    "https://static.wikia.nocookie.net/valorant/images/6/61/Loading_Screen_Abyss.png/revision/latest?cb=20240730145619"
   ]
 ]
